@@ -3,226 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jack Guo | Searchable Portfolio Projects</title>
-  <meta name="description" content="Search and explore Jack Guo's portfolio projects hosted on GitHub." />
+  <title>Jack Guo | GitHub Projects</title>
+  <meta name="description" content="Search and explore Jack Guo's GitHub repositories." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f9fafb;
-      --card: #fff;
-      --muted: #64748b;
-      --text: #1e293b;
-      --primary: #0ea5e9;
-      --ring: rgba(14,165,233,.4);
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --primary: #58a6ff;
+      --hover: #1f6feb;
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      padding: 20px;
     }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: saturate(1.2) blur(8px);
-      background: rgba(255,255,255,.85);
-      border-bottom: 1px solid rgba(0,0,0,.08);
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    h1 { margin: 8px 0 16px; font-size: 28px; letter-spacing: .3px; }
-    .sub { color: var(--muted); margin: 0 0 14px; font-size: 14px; }
-    .searchbar {
-      display:flex;
-      align-items:center;
-      gap:10px;
-      width:100%;
-      max-width:560px;
-      padding:10px 16px;
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+    .search-container {
+      margin-bottom: 30px;
+    }
+    #searchBar {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
       background: var(--card);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius: 12px;
-      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.06);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
     }
-    .searchbar input {
-      flex:1;
-      border:none;
-      outline:none;
-      font-size:14px;
-      background:transparent;
-      color:var(--text);
+    #searchBar:focus {
+      border-color: var(--primary);
     }
-    .filters { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
-    .tag {
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(14,165,233,.2);
-      background:#e0f2fe;
-      color:#0369a1;
-      cursor:pointer;
-      font-size:12px;
-      transition: all .15s ease;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
-    .tag.active {
-      background:#0ea5e9;
-      border-color:#0ea5e9;
-      color:#fff;
+    .project-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      transition: all 0.2s;
+      position: relative;
     }
-    .grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap:16px;
-      margin-top:16px;
-    }
-    .card {
-      display:block;
-      text-decoration:none;
-      color:inherit;
-      background:var(--card);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:12px;
-      padding:16px;
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.06);
-    }
-    .card:hover {
+    .project-box:hover {
+      border-color: var(--primary);
       transform: translateY(-2px);
-      border-color:rgba(14,165,233,.3);
-      box-shadow: 0 4px 8px rgba(0,0,0,.06), 0 12px 24px rgba(0,0,0,.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    .name { font-weight:700; font-size:16px; margin:0 0 8px; }
-    .name a { color: var(--primary); text-decoration: none; }
-    .name a:hover { text-decoration: underline; }
-    .desc { margin:0; color:#475569; font-size:13px; line-height:1.5; min-height: 38px; }
-    .meta { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
-    .badge {
-      font-size:11px;
-      padding:4px 8px;
-      border-radius:6px;
-      background:#e0f2fe;
-      color:#0369a1;
-      border:1px solid rgba(14,165,233,.2);
+    .project-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+      word-break: break-word;
     }
-    .loading { text-align: center; padding: 40px; color: var(--muted); }
+    .project-box:hover .project-name {
+      color: var(--hover);
+    }
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Jack Guo | Portfolio Projects</h1>
-      <p class="sub">Search &amp; explore projects by keyword, language or topic</p>
-      <div class="searchbar">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input id="search" type="text" placeholder="Search projects..." />
-      </div>
-      <div class="filters" id="filters"></div>
+  <div class="container">
+    <h1>Jack Guo's GitHub Projects</h1>
+    <p class="subtitle">Browse and search through my repositories</p>
+    
+    <div class="search-container">
+      <input type="text" id="searchBar" placeholder="Search projects by name..." />
     </div>
-  </header>
-  <main class="container">
-    <div class="grid" id="grid"></div>
-    <div class="loading" id="loading">Loading projects...</div>
-  </main>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+
   <script>
-    const OWNER = 'Jaguo415', REPO = 'Portfolio';
-    const grid = document.getElementById('grid');
-    const loading = document.getElementById('loading');
-    const searchInput = document.getElementById('search');
-    const filtersDiv = document.getElementById('filters');
-    let allProjects = [];
-    let activeFilters = new Set();
+    // Static list of first 12 repositories from Jaguo415's GitHub profile
+    const projects = [
+      { name: 'Portfolio', url: 'https://github.com/Jaguo415/Portfolio' },
+      { name: 'Sudoku', url: 'https://github.com/Jaguo415/Sudoku' },
+      { name: 'Robinhood-Recreation', url: 'https://github.com/Jaguo415/Robinhood-Recreation' },
+      { name: 'DreamTeam', url: 'https://github.com/Jaguo415/DreamTeam' },
+      { name: 'Blokus', url: 'https://github.com/Jaguo415/Blokus' },
+      { name: 'Enigma', url: 'https://github.com/Jaguo415/Enigma' },
+      { name: 'Gitlet', url: 'https://github.com/Jaguo415/Gitlet' },
+      { name: 'proj0', url: 'https://github.com/Jaguo415/proj0' },
+      { name: 'hw5', url: 'https://github.com/Jaguo415/hw5' },
+      { name: 'proj1', url: 'https://github.com/Jaguo415/proj1' },
+      { name: 'hw0', url: 'https://github.com/Jaguo415/hw0' },
+      { name: 'lab1', url: 'https://github.com/Jaguo415/lab1' }
+    ];
 
-    async function fetchProjects() {
-      try {
-        const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents`);
-        if (!res.ok) throw new Error('Failed to fetch');
-        const items = await res.json();
-        const htmlFiles = items.filter(f => f.name.endsWith('.html') && f.name !== 'index.html' && f.name !== 'index2.html');
+    const projectsGrid = document.getElementById('projectsGrid');
+    const searchBar = document.getElementById('searchBar');
 
-        for (const file of htmlFiles) {
-          const rawRes = await fetch(file.download_url);
-          const html = await rawRes.text();
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          const title = doc.querySelector('title')?.textContent || file.name;
-          const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content') || 'No description';
-          const keywords = doc.querySelector('meta[name="keywords"]')?.getAttribute('content') || '';
-          const lang = html.match(/<html[^>]*lang=["']([^"']+)/)?.[1] || 'en';
-          allProjects.push({ title, desc, keywords, lang, file: file.name, url: `https://jaguo415.github.io/Portfolio/${file.name}` });
-        }
-
-        displayProjects();
-        populateFilters();
-      } catch (e) {
-        loading.textContent = 'Error loading projects.';
-      }
-    }
-
-    function populateFilters() {
-      const allTags = new Set();
-      allProjects.forEach(p => {
-        if (p.keywords) p.keywords.split(',').forEach(k => allTags.add(k.trim().toLowerCase()));
-      });
-      [...allTags].sort().forEach(tag => {
-        const btn = document.createElement('span');
-        btn.className = 'tag';
-        btn.textContent = tag;
-        btn.onclick = () => toggleFilter(tag, btn);
-        filtersDiv.appendChild(btn);
-      });
-    }
-
-    function toggleFilter(tag, btn) {
-      if (activeFilters.has(tag)) {
-        activeFilters.delete(tag);
-        btn.classList.remove('active');
-      } else {
-        activeFilters.add(tag);
-        btn.classList.add('active');
-      }
-      displayProjects();
-    }
-
-    function displayProjects() {
-      const query = searchInput.value.toLowerCase();
-      const filtered = allProjects.filter(p => {
-        const matchSearch = !query || p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.keywords.toLowerCase().includes(query);
-        const matchFilter = activeFilters.size === 0 || [...activeFilters].some(tag => p.keywords.toLowerCase().includes(tag));
-        return matchSearch && matchFilter;
-      });
-
-      grid.innerHTML = '';
-      loading.style.display = 'none';
-
-      if (filtered.length === 0) {
-        loading.textContent = 'No matching projects found.';
-        loading.style.display = 'block';
+    // Function to render projects
+    function renderProjects(filteredProjects) {
+      projectsGrid.innerHTML = '';
+      
+      if (filteredProjects.length === 0) {
+        projectsGrid.innerHTML = '<div class="no-results">No projects found matching your search.</div>';
         return;
       }
 
-      filtered.forEach(p => {
-        const card = document.createElement('a');
-        card.className = 'card';
-        card.href = p.url;
-        card.target = '_blank';
-        card.innerHTML = `
-          <div class="name"><a href="${p.url}" target="_blank">${p.title}</a></div>
-          <p class="desc">${p.desc}</p>
-          <div class="meta">
-            <span class="badge">${p.file}</span>
-            ${p.keywords ? p.keywords.split(',').slice(0,3).map(k => `<span class="badge">${k.trim()}</span>`).join('') : ''}
-          </div>
-        `;
-        grid.appendChild(card);
+      filteredProjects.forEach(project => {
+        const projectBox = document.createElement('a');
+        projectBox.className = 'project-box';
+        projectBox.href = project.url;
+        projectBox.target = '_blank';
+        projectBox.rel = 'noopener noreferrer';
+        
+        const projectName = document.createElement('div');
+        projectName.className = 'project-name';
+        projectName.textContent = project.name;
+        
+        projectBox.appendChild(projectName);
+        projectsGrid.appendChild(projectBox);
       });
     }
 
-    searchInput.addEventListener('input', displayProjects);
-    fetchProjects();
+    // Function to filter projects based on search input
+    function filterProjects() {
+      const searchTerm = searchBar.value.toLowerCase().trim();
+      
+      const filtered = projects.filter(project => 
+        project.name.toLowerCase().includes(searchTerm)
+      );
+      
+      renderProjects(filtered);
+    }
+
+    // Event listener for search input
+    searchBar.addEventListener('input', filterProjects);
+
+    // Initial render
+    renderProjects(projects);
   </script>
 </body>
 </html>
