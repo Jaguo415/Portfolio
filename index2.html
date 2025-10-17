@@ -20,7 +20,7 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
-      margin: 0; background: linear-gradient(135deg,#ff6b6b,#f7b267 45%,#70a1ff);
+      margin: 0; background: var(--bg);
       color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
@@ -34,116 +34,194 @@
     .searchbar {
       display: flex; align-items: center; gap: 10px; width: 100%;
       max-width: 560px; padding: 10px 16px; background: var(--card);
-      border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 24px;
     }
-    .searchbar svg { width: 16px; height: 16px; color: var(--muted); flex-shrink: 0; }
     .searchbar input {
-      flex: 1; outline: none; border: none; background: transparent;
-      font-size: 14px; color: var(--text); font-family: inherit;
+      flex: 1; border: none; outline: none; font-size: 15px; background: transparent;
     }
-    .searchbar input::placeholder { color: var(--muted); }
-    .searchbar:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px var(--ring); }
-    main { padding: 32px 0 60px; }
+    .searchbar svg { width: 20px; height: 20px; fill: var(--muted); flex-shrink: 0; }
+    .filters {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
+    }
+    .tag-filter {
+      padding: 6px 14px; background: var(--card); color: var(--text);
+      border: 1px solid #cbd5e1; border-radius: 16px; font-size: 14px;
+      cursor: pointer; transition: all .2s; user-select: none;
+    }
+    .tag-filter:hover { border-color: var(--primary); }
+    .tag-filter.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     .grid {
-      display: grid; gap: 16px; grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px; margin-bottom: 40px;
     }
     .card {
-      background: var(--card); border: 1px solid #e2e8f0; border-radius: 10px;
-      padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.08); transition: all .2s;
+      background: var(--card); padding: 20px; border-radius: 10px;
+      border: 1px solid #e2e8f0; transition: all .2s;
+      display: flex; flex-direction: column;
     }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
-    .card .title {
-      font-size: 18px; font-weight: 600; margin: 0 0 8px; color: var(--text);
-      text-decoration: none; display: block;
+    .card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,.08); }
+    .card-title {
+      font-weight: 600; font-size: 18px; margin: 0 0 10px; letter-spacing: .2px;
     }
-    .card .title:hover { color: var(--primary); }
-    .card .desc { font-size: 14px; color: var(--muted); margin: 0 0 12px; line-height: 1.5; }
-    .card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .card .chip {
-      font-size: 12px; padding: 4px 10px; background: #f1f5f9; color: #475569;
-      border-radius: 12px; font-weight: 500;
+    .card-title a {
+      color: var(--text); text-decoration: none; transition: color .2s;
+    }
+    .card-title a:hover { color: var(--primary); }
+    .card-desc {
+      color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 14px; flex-grow: 1;
+    }
+    .tags {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .tag {
+      padding: 4px 10px; background: #e0f2fe; color: #0369a1;
+      border-radius: 12px; font-size: 12px; font-weight: 500;
+    }
+    .no-results {
+      text-align: center; padding: 60px 20px; color: var(--muted);
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Jack Guo's Portfolio</h1>
-      <p class="sub">Browse and search through my projects</p>
+      <h1>Jack Guo's Projects</h1>
+      <p class="sub">Explore my GitHub repositories · Search by name or filter by tag</p>
       <div class="searchbar">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-        <input id="search" type="text" placeholder="Search projects..." />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.3 14l4.4 4.3 1.4-1.4-4.3-4.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+        <input type="text" id="search" placeholder="Search projects..." />
       </div>
+      <div class="filters" id="filters"></div>
     </div>
   </header>
-  <main>
-    <div class="container">
-      <div id="grid" class="grid"></div>
-    </div>
+  <main class="container">
+    <div class="grid" id="grid"></div>
+    <div class="no-results" id="noResults" style="display:none;">No projects match your search.</div>
   </main>
   <script>
     const projects = [
-      { name: 'Portfolio', desc: 'Personal portfolio website showcasing my projects and skills.', tags: ['HTML', 'CSS', 'JavaScript'], url: 'https://github.com/Jaguo415/Portfolio' },
-      { name: 'AlphaAI', desc: 'AI-powered trading bot using machine learning algorithms.', tags: ['Python', 'AI', 'Trading'], url: 'https://github.com/Jaguo415/AlphaAI' },
-      { name: 'Data-Science-Portfolio', desc: 'Collection of data science projects and analyses.', tags: ['Python', 'Data Science', 'Analytics'], url: 'https://github.com/Jaguo415/Data-Science-Portfolio' },
-      { name: 'Kaggle-ML-Competitions', desc: 'My submissions to Kaggle challenges, exploring various ML techniques.', tags: ['Python', 'Kaggle', 'ML'], url: 'https://github.com/Jaguo415/Kaggle-ML-Competitions' },
-      { name: 'Capstone-Housing-Prices', desc: 'Predicting housing prices using regression models and feature engineering.', tags: ['Python', 'Regression', 'ML'], url: 'https://github.com/Jaguo415/Capstone-Housing-Prices' },
-      { name: 'Basic-Image-Classifier', desc: 'Introductory neural network for image classification tasks.', tags: ['Python', 'Deep Learning', 'Computer Vision'], url: 'https://github.com/Jaguo415/Basic-Image-Classifier' },
-      { name: 'Customer-Segments-K-Means', desc: 'Unsupervised learning to discover customer segmentation.', tags: ['Python', 'Clustering', 'ML'], url: 'https://github.com/Jaguo415/Customer-Segments-K-Means' },
-      { name: 'Sentiment-Analysis-NLP', desc: 'Natural language processing for sentiment classification.', tags: ['Python', 'NLP', 'Text Analysis'], url: 'https://github.com/Jaguo415/Sentiment-Analysis-NLP' },
-      { name: 'Time-Series-Forecasting', desc: 'Predicting future trends using time series analysis methods.', tags: ['Python', 'Forecasting', 'Statistics'], url: 'https://github.com/Jaguo415/Time-Series-Forecasting' },
-      { name: 'Web-Scraper-Tool', desc: 'Automated data extraction tool for various websites.', tags: ['Python', 'Web Scraping', 'Automation'], url: 'https://github.com/Jaguo415/Web-Scraper-Tool' },
-      { name: 'SQL-Database-Projects', desc: 'Database design and query optimization projects.', tags: ['SQL', 'Database', 'Data'], url: 'https://github.com/Jaguo415/SQL-Database-Projects' },
-      { name: 'React-Dashboard', desc: 'Interactive data visualization dashboard built with React.', tags: ['React', 'JavaScript', 'Frontend'], url: 'https://github.com/Jaguo415/React-Dashboard' },
-      { name: 'API-Integration-Project', desc: 'REST API integration with multiple third-party services.', tags: ['Python', 'API', 'Backend'], url: 'https://github.com/Jaguo415/API-Integration-Project' },
-      { name: 'Mobile-App-Prototype', desc: 'Cross-platform mobile application prototype.', tags: ['React Native', 'Mobile', 'UI/UX'], url: 'https://github.com/Jaguo415/Mobile-App-Prototype' },
-      { name: 'Data-Visualization-Gallery', desc: 'Collection of interactive data visualizations and charts.', tags: ['Python', 'Visualization', 'D3.js'], url: 'https://github.com/Jaguo415/Data-Visualization-Gallery' }
-    ];
-    const container = document.getElementById('grid');
-    function makeCard(p) {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.setAttribute('data-index', (p.name + ' ' + p.desc + ' ' + (p.tags||[]).join(' ')).toLowerCase());
-      const title = document.createElement('a');
-      title.className = 'title';
-      title.href = p.url; title.target = '_blank'; title.rel = 'noopener noreferrer';
-      title.textContent = p.name;
-      const desc = document.createElement('p');
-      desc.className = 'desc';
-      desc.textContent = p.desc || '';
-      const tags = document.createElement('div');
-      tags.className = 'tags';
-      (p.tags||[]).forEach(t => {
-        const s = document.createElement('span'); s.className = 'chip'; s.textContent = t; tags.appendChild(s);
-      });
-      card.appendChild(title);
-      card.appendChild(desc);
-      card.appendChild(tags);
-      return card;
-    }
-    function render(list) {
-      container.innerHTML = '';
-      list.forEach(p => container.appendChild(makeCard(p)));
-    }
-    function setupSearch() {
-      const input = document.getElementById('search');
-      function applyFilter() {
-        const q = input.value.trim().toLowerCase();
-        if (!q) { render(projects); return; }
-        const filtered = projects.filter(p => (
-          (p.name||'').toLowerCase().includes(q) ||
-          (p.desc||'').toLowerCase().includes(q) ||
-          (p.tags||[]).join(' ').toLowerCase().includes(q)
-        ));
-        render(filtered);
+      {
+        title: 'Portfolio',
+        url: 'https://github.com/Jaguo415/Portfolio',
+        desc: 'Personal portfolio website showcasing projects and technical skills with an interactive, searchable interface.',
+        tags: ['HTML', 'CSS', 'JavaScript']
+      },
+      {
+        title: 'trendtracker_front',
+        url: 'https://github.com/Jaguo415/trendtracker_front',
+        desc: 'Frontend application for tracking trending topics and social media analytics with real-time data visualization.',
+        tags: ['React', 'Frontend', 'UI/UX']
+      },
+      {
+        title: 'TemplateTesting',
+        url: 'https://github.com/Jaguo415/TemplateTesting',
+        desc: 'Experimental repository for testing various web templates and design patterns for rapid prototyping.',
+        tags: ['HTML', 'Testing', 'Prototyping']
+      },
+      {
+        title: 'TrendTracker',
+        url: 'https://github.com/Jaguo415/TrendTracker',
+        desc: 'Full-stack application to monitor and analyze social media trends with backend API integration.',
+        tags: ['Full-Stack', 'API', 'Analytics']
+      },
+      {
+        title: 'cse134-hw4',
+        url: 'https://github.com/Jaguo415/cse134-hw4',
+        desc: 'Web development assignment focusing on dynamic DOM manipulation and interactive user interfaces.',
+        tags: ['JavaScript', 'DOM', 'Academic']
+      },
+      {
+        title: 'cse134-hw5',
+        url: 'https://github.com/Jaguo415/cse134-hw5',
+        desc: 'Advanced web development project implementing CRUD operations with RESTful API design.',
+        tags: ['JavaScript', 'REST API', 'Academic']
+      },
+      {
+        title: 'cse110-sp24-group5',
+        url: 'https://github.com/Jaguo415/cse110-sp24-group5',
+        desc: 'Collaborative software engineering project demonstrating agile development and team coordination.',
+        tags: ['Team Project', 'Agile', 'JavaScript']
+      },
+      {
+        title: 'backend',
+        url: 'https://github.com/Jaguo415/backend',
+        desc: 'Backend service implementation with database integration and authentication features.',
+        tags: ['Backend', 'Database', 'API']
+      },
+      {
+        title: 'cse110-lab1-FA24',
+        url: 'https://github.com/Jaguo415/cse110-lab1-FA24',
+        desc: 'Introductory software engineering lab covering version control and development workflows.',
+        tags: ['Git', 'Academic', 'DevOps']
+      },
+      {
+        title: 'sp23-cse110-lab3',
+        url: 'https://github.com/Jaguo415/sp23-cse110-lab3',
+        desc: 'Lab assignment exploring testing methodologies and continuous integration practices.',
+        tags: ['Testing', 'CI/CD', 'Academic']
+      },
+      {
+        title: 'cse134-hw3',
+        url: 'https://github.com/Jaguo415/cse134-hw3',
+        desc: 'Web development homework implementing responsive design and modern CSS techniques.',
+        tags: ['CSS', 'Responsive', 'Academic']
+      },
+      {
+        title: 'CSE110-LAB2-fa21',
+        url: 'https://github.com/Jaguo415/CSE110-LAB2-fa21',
+        desc: 'Software engineering lab focusing on HTML fundamentals and semantic markup principles.',
+        tags: ['HTML', 'Academic', 'Fundamentals']
       }
-      input.addEventListener('input', applyFilter);
-      applyFilter();
+    ];
+
+    const grid = document.getElementById('grid');
+    const noResults = document.getElementById('noResults');
+    const search = document.getElementById('search');
+    const filtersDiv = document.getElementById('filters');
+
+    const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
+    let activeTags = [];
+
+    allTags.forEach(tag => {
+      const btn = document.createElement('div');
+      btn.className = 'tag-filter';
+      btn.textContent = tag;
+      btn.onclick = () => {
+        btn.classList.toggle('active');
+        activeTags = activeTags.includes(tag) ? activeTags.filter(t => t !== tag) : [...activeTags, tag];
+        render();
+      };
+      filtersDiv.appendChild(btn);
+    });
+
+    function render() {
+      const query = search.value.toLowerCase();
+      const filtered = projects.filter(p => {
+        const matchesSearch = p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
+        const matchesTags = activeTags.length === 0 || activeTags.some(t => p.tags.includes(t));
+        return matchesSearch && matchesTags;
+      });
+
+      grid.innerHTML = '';
+      if (filtered.length === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+        filtered.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h2 class="card-title"><a href="${p.url}" target="_blank">${p.title}</a></h2>
+            <p class="card-desc">${p.desc}</p>
+            <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          `;
+          grid.appendChild(card);
+        });
+      }
     }
-    render(projects);
-    setupSearch();
+
+    search.addEventListener('input', render);
+    render();
   </script>
 </body>
 </html>
