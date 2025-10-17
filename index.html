@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jack Guo | Portfolio Data Analytics</title>
   <style>
-    :root { --sf-sunset-1:#ff6b6b; --sf-sunset-2:#f7b267; --sf-sunset-3:#70a1ff; --sf-fog-1:#eef2f7; --sf-fog-2:#dce4ef; --ink:#1f2937; --ink-soft:#4b5563; --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2)); --brand:#0f172a; --card:#ffffff; --link:#0ea5e9; --accent:#ff6b6b; --golden-gate:#e11d48; --success:#10b981; }
+    :root {
+      --sf-sunset-1:#ff6b6b; --sf-sunset-2:#f7b267; --sf-sunset-3:#70a1ff; --sf-fog-1:#eef2f7; --sf-fog-2:#dce4ef; --ink:#1f2937; --ink-soft:#4b5563; --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2)); --brand:#0f172a; --card:#ffffff; --link:#0ea5e9; --accent:#ff6b6b; --golden-gate:#e11d48; --success:#10b981;
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);background-attachment:fixed}
@@ -18,6 +20,7 @@
     .section{background:var(--card);border-radius:14px;padding:1.25rem;margin-bottom:1.25rem;box-shadow:0 10px 30px rgba(15,23,42,.08);border:1px solid rgba(15,23,42,.06)}
     .section h2{margin:.1rem 0 .6rem;font-size:clamp(1.25rem,1.2vw + 1rem,1.6rem);display:flex;align-items:center;gap:.55rem}
     .badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;padding:.28rem .6rem;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#334155}
+    .category-tag{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:6px;border:1px solid #e5e7eb;background:#f9fafb;color:#4b5563;font-weight:600;margin-bottom:.5rem}
     .emoji{font-size:1.15em}
     .stack{display:flex;flex-direction:column;gap:1rem}
     .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
@@ -35,12 +38,9 @@
     footer a:hover{text-decoration:underline}
     ul{margin:0;padding-left:1.2rem}
     li{margin:.35rem 0}
-    .searchbar{display:flex;gap:.5rem;align-items:center;margin-bottom:.75rem;flex-wrap:wrap}
-    .searchbar input[type="search"]{flex:1 1 260px;padding:.65rem .8rem;border:1px solid #d0d7de;border-radius:10px;font-size:1rem}
-    .searchbar .pill{display:inline-flex;gap:.4rem;align-items:center;border:1px solid #d0d7de;border-radius:999px;padding:.45rem .7rem;background:#fff;font-size:.92rem}
-    .searchbar .pill input{border:none;outline:none;width:8rem}
-    .searchbar button{padding:.6rem 1rem;border:1px solid #d0d7de;border-radius:10px;background:#fff;cursor:pointer;font-weight:600}
-    .searchbar button:hover{background:#f3f4f6}
+    .search-wrapper{margin-bottom:1rem}
+    .search-bar{width:100%;padding:.7rem .9rem;border:1px solid #d0d7de;border-radius:10px;font-size:.95rem;font-family:inherit}
+    .search-bar:focus{outline:2px solid var(--link);outline-offset:0}
     .hidden{display:none !important}
   </style>
 </head>
@@ -48,113 +48,125 @@
   <header class="hero">
     <div class="skyline"></div>
     <h1>Jack Guo</h1>
-    <p>Data Analytics Portfolio</p>
+    <p>Data Analyst | San Francisco Bay Area</p>
     <div class="actions">
-      <a class="btn resume" href="https://github.com/Jaguo415/Portfolio/blob/main/Jack%20Guo%20Resume%20(2).pdf" target="_blank" rel="noopener">View My Resume</a>
+      <a href="https://www.linkedin.com/in/jack-guo-sj" class="btn">LinkedIn</a>
+      <a href="https://github.com/Jaguo415" class="btn">GitHub</a>
+      <a href="Resume.pdf" class="btn resume">Resume</a>
     </div>
   </header>
 
   <div class="container">
-    <!-- About Me -->
-    <section class="section" id="about">
-      <h2><span class="emoji">👋</span> About Me</h2>
+    <section class="section">
+      <h2><span class="emoji">👨‍💼</span> Professional Experience</h2>
       <div class="stack">
-        <p>Hello, My name is Jack, and I'm a first-generation Chinese American. As the eldest child in my family, and the first in my family to pursue any form of higher education. My passion for computer science and mathematics. Combined with my critical thinking and problem-solving skills, gives me the Ability to analyze issues and situations systematically and make sound recommendations. Especially in today fast-pace and changing field of Information Technology, where new innovations are just around the corner.</p>
-        <p>I have completed my UC Berkeley Data analytics Bootcamp in December, 2021 and earned my Certification in Data Analytics. As well as my Caltech AI & Machine learning Bootcamp in December 2023.</p>
-        <p>I have studied Project management At Year up! Bay area.  As a PM Trainee at Year Up! I practiced and refined my soft and technical skills. By training's in business communications, public speaking and information technology.</p>
+        <div>
+          <strong>DATA ANALYST</strong><br>
+          Salesforce | FEB 2019 - MAR 2025<br>
+          Held Various Project management and Data analytics Roles<br>
+          Started as an Intern and Earned a full time as a Data analyst
+          <ul>
+            <li>Feb 2019 - July 2019: Sales Programs Intern</li>
+            <li>July 2019 - Jan 2020: Project Coordinator (Contract)</li>
+            <li>Jan 2020 - Aug 2021: Reports and Metrics Analyst (Contract)</li>
+            <li>Feb 2022 - May 2023: Marketing Data Analyst (Full Time)</li>
+            <li>Feb 2024 - May 2025: Sales Strategy & GTM Product Analyst (Full Time)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section class="section" id="projects">
-      <h2><span class="emoji">📊</span> Projects</h2>
-      <div class="searchbar" role="search" aria-label="Search and filter projects">
-        <input id="q" type="search" placeholder="Search projects or sections..." aria-label="Search" />
-        <div class="pill"><span>Filter</span><input id="tag" placeholder="tag (e.g., Python, Tableau)" aria-label="Filter tag"/></div>
-        <button id="clear">Clear</button>
+    <section class="section">
+      <h2><span class="emoji">📊</span> Portfolio Projects</h2>
+      
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <input type="search" class="search-bar" id="projectSearch" placeholder="🔍 Search projects by name, description, or category...">
       </div>
+
       <div class="project-list" id="projectList">
-        <!-- Intentionally left blank to avoid overwriting already-committed project cards -->
+        <div class="card" data-category="Data Analytics" data-keywords="credit risk machine learning prediction modeling">
+          <span class="category-tag">📊 Data Analytics</span>
+          <h3>Credit Risk Model</h3>
+          <p>Built a machine learning model to predict credit default risk using historical loan data.</p>
+          <a href="https://github.com/Jaguo415/Credit-Risk-Project" target="_blank">View Project</a>
+        </div>
+
+        <div class="card" data-category="Data Analytics" data-keywords="bikesharing transportation analysis tableau visualization">
+          <span class="category-tag">📊 Data Analytics</span>
+          <h3>Bikesharing Analysis</h3>
+          <p>Analyzed bikesharing patterns and created interactive Tableau dashboards for insights.</p>
+          <a href="https://github.com/Jaguo415/bikesharing" target="_blank">View Project</a>
+        </div>
+
+        <div class="card" data-category="Data Visualization" data-keywords="weather api data visualization pandas python">
+          <span class="category-tag">📈 Data Visualization</span>
+          <h3>Weather Data Analysis</h3>
+          <p>Collected and visualized weather data using APIs and Python libraries.</p>
+          <a href="https://github.com/Jaguo415/python-api-challenge" target="_blank">View Project</a>
+        </div>
+
+        <div class="card" data-category="Web Development" data-keywords="portfolio website html css javascript frontend">
+          <span class="category-tag">💻 Web Development</span>
+          <h3>Portfolio Website</h3>
+          <p>Designed and developed this responsive portfolio website from scratch.</p>
+          <a href="https://github.com/Jaguo415/Portfolio" target="_blank">View Project</a>
+        </div>
+
+        <div class="card" data-category="Data Analytics" data-keywords="sql database queries analysis reporting">
+          <span class="category-tag">📊 Data Analytics</span>
+          <h3>SQL Analysis Projects</h3>
+          <p>Performed complex SQL queries and data analysis on various datasets.</p>
+          <a href="https://github.com/Jaguo415" target="_blank">View Project</a>
+        </div>
+
+        <div class="card" data-category="Machine Learning" data-keywords="deep learning neural network tensorflow keras">
+          <span class="category-tag">🤖 Machine Learning</span>
+          <h3>Neural Network Models</h3>
+          <p>Developed deep learning models for classification and prediction tasks.</p>
+          <a href="https://github.com/Jaguo415" target="_blank">View Project</a>
+        </div>
       </div>
     </section>
 
-    <!-- Education -->
-    <section class="section" id="education">
-      <h2><span class="emoji">🎓</span> Education</h2>
-      <ul>
-        <li>
-          <strong>UC Berkeley Extension — Data Analytics Bootcamp</strong> (Completed Dec 2021)
-          — <a href="#" target="_blank">View Certificate</a>
-        </li>
-        <li>
-          <strong>Caltech — AI &amp; Machine Learning Bootcamp</strong> (Completed Dec 2023)
-          — <a href="#" target="_blank">View Certificate</a>
-        </li>
-        <li>
-          <strong>Year Up! Bay Area — Project Management Training</strong>
-          — <a href="#" target="_blank">Program Details</a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Experience -->
-    <section class="section" id="experience">
-      <h2><span class="emoji">🧰</span> Job Experience</h2>
-      <div class="stack">
-        <div>
-          <strong>Project Management Trainee, Year Up! Bay Area</strong>
-          <div class="badge">Training</div>
-          <p>Practiced and refined soft and technical skills through trainings in business communications, public speaking, and information technology. Collaborated on projects using structured PM frameworks and agile practices.</p>
-        </div>
-        <div>
-          <strong>Data Analytics Projects and Freelance Work</strong>
-          <div class="badge">Data Analytics</div>
-          <p>Applied Python, Pandas, SQL, Tableau, and ML techniques across portfolio projects including credit risk, bikesharing, and weather analytics. Emphasis on clear communication, reproducibility, and stakeholder-ready visuals.</p>
-        </div>
+    <section class="section">
+      <h2><span class="emoji">🛠️</span> Technical Skills</h2>
+      <div>
+        <strong>Data Analytics Projects and Freelance Work</strong>
+        <div class="badge">Data Analytics</div>
+        <p>Applied Python, Pandas, SQL, Tableau, and ML techniques across portfolio projects including credit risk, bikesharing, and weather analytics. Emphasis on clear communication, reproducibility, and stakeholder-ready visuals.</p>
       </div>
     </section>
-
-    <footer>
-      © <span id="year"></span> Jack Guo · <a href="mailto:jaguo415@gmail.com">Contact</a>
-    </footer>
   </div>
 
+  <footer>
+    <p>© 2025 Jack Guo | <a href="mailto:jack@example.com">Contact</a></p>
+  </footer>
+
   <script>
-    // Year footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Project search functionality
+    const searchBar = document.getElementById('projectSearch');
+    const projectList = document.getElementById('projectList');
+    const cards = projectList.querySelectorAll('.card');
 
-    // Lightweight search over headings and cards that are already present in DOM
-    const q = document.getElementById('q');
-    const tag = document.getElementById('tag');
-    const clearBtn = document.getElementById('clear');
-
-    function normalize(s){ return (s||'').toLowerCase(); }
-
-    function matches(el, text, tagText){
-      const t = normalize(el.textContent);
-      const okText = !text || t.includes(normalize(text));
-      const okTag = !tagText || el.dataset.tags?.toLowerCase().includes(tagText.toLowerCase());
-      return okText && okTag;
-    }
-
-    function filter(){
-      const text = q.value; const tagText = tag.value;
-      // Projects: find any project cards in DOM, regardless of whether they were hardcoded earlier
-      document.querySelectorAll('.project-list .card').forEach(card => {
-        card.classList.toggle('hidden', !matches(card, text, tagText));
+    searchBar.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category').toLowerCase();
+        const keywords = card.getAttribute('data-keywords').toLowerCase();
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        
+        const searchableText = `${category} ${keywords} ${title} ${description}`;
+        
+        if (searchableText.includes(searchTerm)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
       });
-      // Sections: About/Education/Experience headings + content
-      document.querySelectorAll('section.section').forEach(section => {
-        const title = section.querySelector('h2');
-        const haystack = title ? (title.textContent + ' ' + section.textContent) : section.textContent;
-        const ok = (!text && !tagText) || normalize(haystack).includes(normalize(text));
-        section.style.display = ok ? '' : 'none';
-      });
-    }
-
-    q?.addEventListener('input', filter);
-    tag?.addEventListener('input', filter);
-    clearBtn?.addEventListener('click', ()=>{ q.value=''; tag.value=''; filter(); });
+    });
   </script>
 </body>
 </html>
