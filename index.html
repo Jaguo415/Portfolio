@@ -6,133 +6,50 @@
   <title>Jaguo415 — Portfolio</title>
   <style>
     :root {
-      /* SF Sunset + Fog palette */
-      --sf-sunset-1:#ff6b6b; /* sunset coral */
-      --sf-sunset-2:#f7b267; /* dusk orange */
-      --sf-sunset-3:#70a1ff; /* bay blue */
-      --sf-fog-1:#eef2f7;   /* fog light */
-      --sf-fog-2:#dce4ef;   /* fog mid */
-      --ink:#1f2937;
-      --ink-soft:#4b5563;
-      --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2));
-      --brand:#0f172a; /* deep navy */
-      --card:#ffffff;
-      --link:#0ea5e9; /* sky */
-      --accent:#ff6b6b;
-      --golden-gate:#e11d48; /* bridge red */
-      --success:#10b981;
+      --sf-sunset-1:#ff6b6b; --sf-sunset-2:#f7b267; --sf-sunset-3:#70a1ff;
+      --sf-fog-1:#eef2f7; --sf-fog-2:#dce4ef;
+      --ink:#1f2937; --ink-soft:#4b5563; --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2));
+      --brand:#0f172a; --card:#ffffff; --link:#0ea5e9; --accent:#ff6b6b; --golden-gate:#e11d48; --success:#10b981;
     }
-
     * { box-sizing: border-box; }
     html, body { height:100%; }
-    body {
-      margin:0;
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      background-attachment: fixed;
-    }
-
-    /* Hero header with skyline silhouette */
-    header.hero {
-      color: #fff;
-      padding: 3.2rem 1rem 6.5rem;
-      text-align:center;
-      position: relative;
-      background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-2) 45%, var(--sf-sunset-3));
-      overflow:hidden;
-    }
-    header.hero h1 {
-      margin:0 0 .4rem;
-      font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem);
-      letter-spacing:.4px;
-    }
-    header.hero p {
-      margin:0; opacity:.95; font-size:1.05rem;
-    }
-    /* Golden Gate/cable lines accents */
-    header.hero::after {
-      content:"";
-      position:absolute; left:0; right:0; bottom:0; height:110px;
-      background:
-        linear-gradient(to right, transparent 0 5%, rgba(255,255,255,.15) 5% 7%, transparent 7% 12%, rgba(255,255,255,.15) 12% 14%, transparent 14% 19%),
-        linear-gradient(to top, rgba(15,23,42,.35), rgba(15,23,42,0));
-    }
-    .skyline {
-      position:absolute; left:0; right:0; bottom:-1px; height:80px; opacity:.22;
-      background:
-        linear-gradient(#0f172a, #0f172a) bottom/100% 3px no-repeat,
-        url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sf-symbolic.svg') center/0 0 no-repeat; /* fallback decorative */
-    }
-
-    .container { width: min(100%, 980px); margin: -4rem auto 2rem; padding: 0 1rem; }
-
-    .section {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 1.25rem 1.25rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
-      border: 1px solid rgba(15,23,42,.06);
-    }
-    .section.header-pop { padding: 1.5rem 1.4rem; }
-
-    .section h2 {
-      margin:.1rem 0 .6rem;
-      font-size: clamp(1.25rem, 1.2vw + 1rem, 1.6rem);
-      display:flex; align-items:center; gap:.55rem;
-    }
-    .badge { display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; padding:.28rem .6rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; color:#334155; }
-    .emoji { font-size:1.15em; }
-
-    /* Recruiter hooks highlighting */
-    .hooks em { background: linear-gradient(90deg, #fffbe6, #ffe7d6); padding:.05rem .35rem; border-radius:.35rem; font-style:normal; border:1px solid rgba(241,196,15,.35); }
-    .hooks .icon { color: var(--accent); margin-right:.28rem; }
-
-    /* Search bar (kept) */
-    .searchbar { display:flex; gap:.5rem; align-items:center; margin-bottom:.75rem; flex-wrap:wrap; }
-    .searchbar input[type="search"] { flex: 1 1 260px; padding:.65rem .8rem; border:1px solid #d0d7de; border-radius:10px; font-size:1rem; }
-    .searchbar .pill { display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.45rem .7rem; background:#fff; font-size:.92rem; }
-    .searchbar .pill input { border:none; outline:none; width: 8rem; }
-    .searchbar button { padding:.6rem 1rem; border:1px solid #d0d7de; border-radius:10px; background:#fff; cursor:pointer; font-weight:600; }
-    .searchbar button:hover { background:#f3f4f6; }
-
-    .project-list { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; }
-    .card { border: 1px solid #eee; border-radius: 12px; padding: 1rem; background: var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
-    .card-title { font-weight: 750; font-size: 1.08rem; margin-bottom: .25rem; }
-    .card-desc { font-size: .98rem; margin:.2rem 0 .55rem; color:var(--ink-soft); }
-    .tags { display:flex; gap:.35rem; flex-wrap: wrap; }
-    .tag { font-size:.78rem; background:#eef2ff; color:#334; padding:.25rem .55rem; border-radius:999px; border:1px solid #dbe4ff; }
-
-    a { color: var(--link); text-decoration: none; }
-    a.button, button.cta {
-      display:inline-flex; align-items:center; gap:.5rem;
-      padding:.8rem 1.05rem; border-radius:12px; border:1px solid rgba(15,23,42,.08);
-      background: linear-gradient(180deg, #fff, #f8fafc);
-      color: #0f172a; font-weight:700;
-      transition: transform .05s ease, box-shadow .2s ease;
-      box-shadow: 0 10px 18px rgba(15,23,42,.06);
-    }
-    a.button:hover, button.cta:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(15,23,42,.09); }
-    a.button.primary, button.cta.primary { background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-3)); color:#fff; border-color:rgba(255,255,255,.18); }
-
-    footer { margin-top: 2rem; background: var(--brand); color: #fff; text-align: center; padding: 1rem 0; }
-    .muted { color:#6b7280; font-size:.92rem; }
-    .hidden { display:none !important; }
-
-    /* Cover Letter special styling */
-    .cover { position:relative; overflow:hidden; background: radial-gradient(1200px 400px at -10% -20%, rgba(255,255,255,.55), transparent 60%), linear-gradient(135deg, rgba(255,107,107,.1), rgba(112,161,255,.08)); }
-    .cover h2 { font-size: clamp(1.4rem, 1.6vw + 1rem, 1.9rem); }
-    .cover .headline { font-weight: 800; font-size: clamp(1.25rem, 1.4vw + 1rem, 1.6rem); color:#0f172a; }
-    .cover .intro { font-size:1.02rem; color:#374151; }
-    .cover .sig { margin-top:1rem; font-weight:600; }
-
-    /* Resume callout */
-    .resume-callout { border-left:6px solid var(--golden-gate); background:linear-gradient(90deg, rgba(225,29,72,.05), rgba(14,165,233,.05)); padding:1rem; border-radius:12px; }
-    .resume-cta-wrap { display:flex; gap:.8rem; flex-wrap:wrap; align-items:center; }
-
-    /* Icon bullets */
-    .i { font-style: normal; }
+    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); background-attachment: fixed; }
+    header.hero { color:#fff; padding:3.2rem 1rem 6.5rem; text-align:center; position:relative; background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-2) 45%, var(--sf-sunset-3)); overflow:hidden; }
+    header.hero h1{ margin:0 0 .4rem; font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem); letter-spacing:.4px; }
+    header.hero p{ margin:0; opacity:.95; font-size:1.05rem; }
+    header.hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:110px; background: linear-gradient(to right, transparent 0 5%, rgba(255,255,255,.15) 5% 7%, transparent 7% 12%, rgba(255,255,255,.15) 12% 14%, transparent 14% 19%), linear-gradient(to top, rgba(15,23,42,.35), rgba(15,23,42,0)); }
+    .skyline{ position:absolute; left:0; right:0; bottom:-1px; height:80px; opacity:.22; background: linear-gradient(#0f172a,#0f172a) bottom/100% 3px no-repeat; }
+    .container{ width:min(100%,980px); margin:-4rem auto 2rem; padding:0 1rem; }
+    .section{ background:var(--card); border-radius:14px; padding:1.25rem; margin-bottom:1.25rem; box-shadow:0 10px 30px rgba(15,23,42,.08); border:1px solid rgba(15,23,42,.06); }
+    .section h2{ margin:.1rem 0 .6rem; font-size: clamp(1.25rem,1.2vw + 1rem,1.6rem); display:flex; align-items:center; gap:.55rem; }
+    .badge{ display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; padding:.28rem .6rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; color:#334155; }
+    .emoji{ font-size:1.15em; }
+    .hooks em{ background:linear-gradient(90deg,#fffbe6,#ffe7d6); padding:.05rem .35rem; border-radius:.35rem; font-style:normal; border:1px solid rgba(241,196,15,.35); }
+    .hooks .icon{ color:var(--accent); margin-right:.28rem; }
+    .searchbar{ display:flex; gap:.5rem; align-items:center; margin-bottom:.75rem; flex-wrap:wrap; }
+    .searchbar input[type="search"]{ flex:1 1 260px; padding:.65rem .8rem; border:1px solid #d0d7de; border-radius:10px; font-size:1rem; }
+    .searchbar .pill{ display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.45rem .7rem; background:#fff; font-size:.92rem; }
+    .searchbar .pill input{ border:none; outline:none; width:8rem; }
+    .searchbar button{ padding:.6rem 1rem; border:1px solid #d0d7de; border-radius:10px; background:#fff; cursor:pointer; font-weight:600; }
+    .searchbar button:hover{ background:#f3f4f6; }
+    .project-list{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
+    .card{ border:1px solid #eee; border-radius:12px; padding:1rem; background:var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
+    .card-title{ font-weight:750; font-size:1.08rem; margin-bottom:.25rem; }
+    .card-desc{ font-size:.98rem; margin:.2rem 0 .55rem; color:var(--ink-soft); }
+    .tags{ display:flex; gap:.35rem; flex-wrap:wrap; }
+    .tag{ font-size:.78rem; background:#eef2ff; color:#334; padding:.25rem .55rem; border-radius:999px; border:1px solid #dbe4ff; }
+    a{ color:var(--link); text-decoration:none; }
+    a.button, button.cta{ display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1.05rem; border-radius:12px; border:1px solid rgba(15,23,42,.08); background:linear-gradient(135deg,var(--sf-sunset-1),var(--sf-sunset-3)); color:#fff; font-weight:800; letter-spacing:.2px; box-shadow:0 10px 18px rgba(15,23,42,.10); }
+    a.button:hover, button.cta:hover{ transform:translateY(-1px); box-shadow:0 12px 22px rgba(15,23,42,.14); }
+    footer{ margin-top:2rem; background:var(--brand); color:#fff; text-align:center; padding:1rem 0; }
+    .muted{ color:#6b7280; font-size:.92rem; }
+    .hidden{ display:none !important; }
+    .cover{ position:relative; overflow:hidden; background: radial-gradient(1200px 400px at -10% -20%, rgba(255,255,255,.55), transparent 60%), linear-gradient(135deg, rgba(255,107,107,.1), rgba(112,161,255,.08)); }
+    .cover .headline{ font-weight:900; font-size: clamp(1.25rem, 1.4vw + 1rem, 1.7rem); color:#0f172a; }
+    .cover .intro{ font-size:1.02rem; color:#374151; }
+    .cover .sig{ margin-top:1rem; font-weight:700; }
+    .resume-callout{ border-left:6px solid var(--golden-gate); background:linear-gradient(90deg, rgba(225,29,72,.06), rgba(14,165,233,.06)); padding:1rem; border-radius:12px; }
+    .resume-cta-wrap{ display:flex; gap:.8rem; flex-wrap:wrap; align-items:center; }
   </style>
 </head>
 <body>
@@ -141,43 +58,50 @@
     <p>Showcasing projects across AI, data, and crypto — built in the Bay.</p>
     <div class="skyline" aria-hidden="true"></div>
   </header>
-
   <main class="container">
     <section class="section header-pop">
       <h2><span class="emoji">🧭</span> About Me</h2>
       <p>Passionate developer focused on machine learning, data science, and cryptocurrency projects. I thrive on <span class="hooks"><span class="icon">⚡</span><em>innovation</em></span>, <span class="hooks"><span class="icon">🤝</span><em>collaboration</em></span>, and pragmatic <span class="hooks"><span class="icon">📈</span><em>growth</em></span>.</p>
     </section>
 
-    <!-- Recruiter-ready Resume section -->
     <section class="section" id="resume">
       <h2><span class="emoji">📄</span> Ready to Review: Resume</h2>
       <div class="resume-callout">
         <p class="muted">Recruiters: Get the full story in one click. Highlights include production ML, end‑to‑end analytics, and crypto tooling.</p>
         <div class="resume-cta-wrap">
-          <a class="button primary" href="Jack-Guo-Resume-2.pdf" download target="_blank" rel="noopener">
-            <span>Download Resume</span> <span aria-hidden="true">⬇️</span>
-          </a>
-          <a class="button" href="Jack-Guo-Resume-2.pdf" target="_blank" rel="noopener">
-            <span>Open in Browser</span> <span aria-hidden="true">🔎</span>
-          </a>
+          <a class="button" href="Jack-Guo-Resume-2.pdf" download target="_blank" rel="noopener">Download Resume ⬇️</a>
+          <a class="button" href="Jack-Guo-Resume-2.pdf" target="_blank" rel="noopener">Open in Browser 🔎</a>
           <span class="badge">Bridge‑red priority</span>
         </div>
       </div>
     </section>
 
-    <!-- Projects (kept original content and filter) -->
+    <section class="section cover" id="cover-letter">
+      <h2><span class="emoji">💼</span> Cover Letter</h2>
+      <p class="headline">To the Recruiters building the next great thing in San Francisco,</p>
+      <p class="intro">I'm Jack Guo—a builder who thrives where <span class="hooks"><span class="icon">⚡</span><em>innovation</em></span> meets execution. From shipping applied ML systems to analyzing growth signals and experimenting with crypto infrastructure, I adapt fast, communicate clearly, and love the momentum of Bay Area teams. I’m actively exploring new roles where I can contribute to meaningful products and help teams scale with <span class="hooks"><span class="icon">🤝</span><em>collaboration</em></span>, curiosity, and measurable <span class="hooks"><span class="icon">📈</span><em>impact</em></span>.</p>
+      <ul>
+        <li>Practical ML: models for computer vision and risk classification; focus on reliability, data quality, and observability.</li>
+        <li>Analytics to action: end-to-end analyses that informed product decisions and unlocked <span class="hooks"><span class="icon">🚀</span><em>growth</em></span>.</li>
+        <li>Crypto/tooling: built hands-on prototypes and scripts that made complex workflows simpler for engineers.</li>
+        <li>Team mindset: bias for shipping, empathy for users, and strong documentation for <span class="hooks"><span class="icon">🧩</span><em>collaboration</em></span>.</li>
+      </ul>
+      <p>If you’re hiring in SF—or remote with SF hours—I’d love to chat about how I can help your team build faster and smarter. Let’s connect.</p>
+      <p class="sig">— Jack Guo</p>
+      <div class="resume-cta-wrap" style="margin-top:.6rem;">
+        <a class="button" href="#resume">See Resume ⬇️</a>
+        <a class="button" href="#contact">Contact Me ✉️</a>
+      </div>
+    </section>
+
     <section class="section">
       <div aria-label="Filter projects" class="searchbar" role="search">
         <input aria-label="Search projects" id="q" placeholder="Search projects by keyword or skill (e.g., Python, CNN, cryptocurrency)" type="search"/>
-        <span aria-label="Skill filter" class="pill">
-          skill:
-          <input aria-label="Skill" id="skill" placeholder="Any" type="text"/>
-        </span>
+        <span aria-label="Skill filter" class="pill">skill: <input aria-label="Skill" id="skill" placeholder="Any" type="text"/></span>
         <button id="clearBtn" title="Clear filters" type="button">Clear</button>
         <span aria-live="polite" class="muted" id="resultCount"></span>
       </div>
       <div class="project-list" id="projectList">
-        <!-- Each card includes data attributes used for filtering -->
         <article class="card" data-tags="ai,cnn,vision,python" data-title="AI Image Recognition">
           <div class="card-title">AI Image Recognition</div>
           <div class="card-desc">AI-based image recognition projects.</div>
@@ -218,4 +142,10 @@
           <div class="card-title">Cryptocurrencies</div>
           <div class="card-desc">Projects and code related to cryptocurrencies.</div>
           <div class="tags"><span class="tag">Crypto</span><span class="tag">Blockchain</span><span class="tag">Ethereum</span></div>
-          <a href="https://github.com/Cryptocurrencies" rel
+          <a href="https://github.com/Cryptocurrencies" rel="noopener" target="_blank">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2
