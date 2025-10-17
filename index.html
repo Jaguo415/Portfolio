@@ -5,171 +5,217 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jaguo415 — Portfolio</title>
   <style>
-    :root { --bg: #f9f9f9; --ink:#222; --brand:#24292e; --card:#fafbfc; --link:#0366d6; }
-    * { box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: var(--bg); color: var(--ink); margin:0; }
-    header { background: var(--brand); color: #fff; text-align: center; padding: 2rem 0 1.5rem; }
-    header h1 { margin: 0 0 .3rem; font-size: 2rem; }
-    header p { margin: 0; opacity: .9; }
-    .container { margin: 2rem auto; width: 94%; max-width: 860px; }
-    .section { background: #fff; border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+    :root {
+      /* SF Sunset + Fog palette */
+      --sf-sunset-1:#ff6b6b; /* sunset coral */
+      --sf-sunset-2:#f7b267; /* dusk orange */
+      --sf-sunset-3:#70a1ff; /* bay blue */
+      --sf-fog-1:#eef2f7;   /* fog light */
+      --sf-fog-2:#dce4ef;   /* fog mid */
+      --ink:#1f2937;
+      --ink-soft:#4b5563;
+      --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2));
+      --brand:#0f172a; /* deep navy */
+      --card:#ffffff;
+      --link:#0ea5e9; /* sky */
+      --accent:#ff6b6b;
+      --golden-gate:#e11d48; /* bridge red */
+      --success:#10b981;
+    }
 
-    /* Search bar */
-    .searchbar { display: flex; gap:.5rem; align-items: center; margin-bottom: .75rem; flex-wrap: wrap; }
-    .searchbar input[type="search"] { flex: 1 1 260px; padding:.65rem .8rem; border:1px solid #d0d7de; border-radius:8px; font-size:1rem; }
-    .searchbar .pill { display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.4rem .65rem; background:#fff; font-size:.9rem; }
+    * { box-sizing: border-box; }
+    html, body { height:100%; }
+    body {
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      background-attachment: fixed;
+    }
+
+    /* Hero header with skyline silhouette */
+    header.hero {
+      color: #fff;
+      padding: 3.2rem 1rem 6.5rem;
+      text-align:center;
+      position: relative;
+      background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-2) 45%, var(--sf-sunset-3));
+      overflow:hidden;
+    }
+    header.hero h1 {
+      margin:0 0 .4rem;
+      font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem);
+      letter-spacing:.4px;
+    }
+    header.hero p {
+      margin:0; opacity:.95; font-size:1.05rem;
+    }
+    /* Golden Gate/cable lines accents */
+    header.hero::after {
+      content:"";
+      position:absolute; left:0; right:0; bottom:0; height:110px;
+      background:
+        linear-gradient(to right, transparent 0 5%, rgba(255,255,255,.15) 5% 7%, transparent 7% 12%, rgba(255,255,255,.15) 12% 14%, transparent 14% 19%),
+        linear-gradient(to top, rgba(15,23,42,.35), rgba(15,23,42,0));
+    }
+    .skyline {
+      position:absolute; left:0; right:0; bottom:-1px; height:80px; opacity:.22;
+      background:
+        linear-gradient(#0f172a, #0f172a) bottom/100% 3px no-repeat,
+        url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sf-symbolic.svg') center/0 0 no-repeat; /* fallback decorative */
+    }
+
+    .container { width: min(100%, 980px); margin: -4rem auto 2rem; padding: 0 1rem; }
+
+    .section {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      border: 1px solid rgba(15,23,42,.06);
+    }
+    .section.header-pop { padding: 1.5rem 1.4rem; }
+
+    .section h2 {
+      margin:.1rem 0 .6rem;
+      font-size: clamp(1.25rem, 1.2vw + 1rem, 1.6rem);
+      display:flex; align-items:center; gap:.55rem;
+    }
+    .badge { display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; padding:.28rem .6rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; color:#334155; }
+    .emoji { font-size:1.15em; }
+
+    /* Recruiter hooks highlighting */
+    .hooks em { background: linear-gradient(90deg, #fffbe6, #ffe7d6); padding:.05rem .35rem; border-radius:.35rem; font-style:normal; border:1px solid rgba(241,196,15,.35); }
+    .hooks .icon { color: var(--accent); margin-right:.28rem; }
+
+    /* Search bar (kept) */
+    .searchbar { display:flex; gap:.5rem; align-items:center; margin-bottom:.75rem; flex-wrap:wrap; }
+    .searchbar input[type="search"] { flex: 1 1 260px; padding:.65rem .8rem; border:1px solid #d0d7de; border-radius:10px; font-size:1rem; }
+    .searchbar .pill { display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.45rem .7rem; background:#fff; font-size:.92rem; }
     .searchbar .pill input { border:none; outline:none; width: 8rem; }
-    .searchbar button { padding:.55rem .9rem; border:1px solid #d0d7de; border-radius:8px; background:#fff; cursor:pointer; }
+    .searchbar button { padding:.6rem 1rem; border:1px solid #d0d7de; border-radius:10px; background:#fff; cursor:pointer; font-weight:600; }
     .searchbar button:hover { background:#f3f4f6; }
 
-    .project-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1rem; }
-    .card { border: 1px solid #eee; border-radius: 8px; padding: 1rem; background: var(--card); }
-    .card-title { font-weight: 700; font-size: 1.05rem; margin-bottom: .25rem; }
-    .card-desc { font-size: .96rem; margin:.2rem 0 .5rem; }
+    .project-list { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 1rem; background: var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
+    .card-title { font-weight: 750; font-size: 1.08rem; margin-bottom: .25rem; }
+    .card-desc { font-size: .98rem; margin:.2rem 0 .55rem; color:var(--ink-soft); }
     .tags { display:flex; gap:.35rem; flex-wrap: wrap; }
-    .tag { font-size:.78rem; background:#eef2ff; color:#334; padding:.2rem .5rem; border-radius:999px; border:1px solid #dbe4ff; }
+    .tag { font-size:.78rem; background:#eef2ff; color:#334; padding:.25rem .55rem; border-radius:999px; border:1px solid #dbe4ff; }
 
     a { color: var(--link); text-decoration: none; }
+    a.button, button.cta {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.8rem 1.05rem; border-radius:12px; border:1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg, #fff, #f8fafc);
+      color: #0f172a; font-weight:700;
+      transition: transform .05s ease, box-shadow .2s ease;
+      box-shadow: 0 10px 18px rgba(15,23,42,.06);
+    }
+    a.button:hover, button.cta:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(15,23,42,.09); }
+    a.button.primary, button.cta.primary { background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-3)); color:#fff; border-color:rgba(255,255,255,.18); }
+
     footer { margin-top: 2rem; background: var(--brand); color: #fff; text-align: center; padding: 1rem 0; }
-    .muted { color:#6a737d; font-size:.9rem; }
+    .muted { color:#6b7280; font-size:.92rem; }
     .hidden { display:none !important; }
+
+    /* Cover Letter special styling */
+    .cover { position:relative; overflow:hidden; background: radial-gradient(1200px 400px at -10% -20%, rgba(255,255,255,.55), transparent 60%), linear-gradient(135deg, rgba(255,107,107,.1), rgba(112,161,255,.08)); }
+    .cover h2 { font-size: clamp(1.4rem, 1.6vw + 1rem, 1.9rem); }
+    .cover .headline { font-weight: 800; font-size: clamp(1.25rem, 1.4vw + 1rem, 1.6rem); color:#0f172a; }
+    .cover .intro { font-size:1.02rem; color:#374151; }
+    .cover .sig { margin-top:1rem; font-weight:600; }
+
+    /* Resume callout */
+    .resume-callout { border-left:6px solid var(--golden-gate); background:linear-gradient(90deg, rgba(225,29,72,.05), rgba(14,165,233,.05)); padding:1rem; border-radius:12px; }
+    .resume-cta-wrap { display:flex; gap:.8rem; flex-wrap:wrap; align-items:center; }
+
+    /* Icon bullets */
+    .i { font-style: normal; }
   </style>
 </head>
 <body>
-  <header>
-    <!-- <img src="my-photo.jpg" alt="My photo" width="110" height="110" style="border-radius:50%;margin-bottom:.7rem"> -->
+  <header class="hero">
     <h1>Jaguo415 — Portfolio</h1>
-    <p>Showcasing my top GitHub projects</p>
+    <p>Showcasing projects across AI, data, and crypto — built in the Bay.</p>
+    <div class="skyline" aria-hidden="true"></div>
   </header>
 
   <main class="container">
-    <section class="section">
-      <h2>About Me</h2>
-      <p>Passionate developer focused on machine learning, data science, and cryptocurrency projects.</p>
+    <section class="section header-pop">
+      <h2><span class="emoji">🧭</span> About Me</h2>
+      <p>Passionate developer focused on machine learning, data science, and cryptocurrency projects. I thrive on <span class="hooks"><span class="icon">⚡</span><em>innovation</em></span>, <span class="hooks"><span class="icon">🤝</span><em>collaboration</em></span>, and pragmatic <span class="hooks"><span class="icon">📈</span><em>growth</em></span>.</p>
     </section>
 
-    <section class="section">
-      <div class="searchbar" role="search" aria-label="Filter projects">
-        <input id="q" type="search" placeholder="Search projects by keyword or skill (e.g., Python, CNN, cryptocurrency)" aria-label="Search projects" />
-        <span class="pill" aria-label="Skill filter">
-          skill:
-          <input id="skill" type="text" placeholder="Any" aria-label="Skill" />
-        </span>
-        <button id="clearBtn" type="button" title="Clear filters">Clear</button>
-        <span class="muted" id="resultCount" aria-live="polite"></span>
+    <!-- Recruiter-ready Resume section -->
+    <section class="section" id="resume">
+      <h2><span class="emoji">📄</span> Ready to Review: Resume</h2>
+      <div class="resume-callout">
+        <p class="muted">Recruiters: Get the full story in one click. Highlights include production ML, end‑to‑end analytics, and crypto tooling.</p>
+        <div class="resume-cta-wrap">
+          <a class="button primary" href="Jack-Guo-Resume-2.pdf" download target="_blank" rel="noopener">
+            <span>Download Resume</span> <span aria-hidden="true">⬇️</span>
+          </a>
+          <a class="button" href="Jack-Guo-Resume-2.pdf" target="_blank" rel="noopener">
+            <span>Open in Browser</span> <span aria-hidden="true">🔎</span>
+          </a>
+          <span class="badge">Bridge‑red priority</span>
+        </div>
       </div>
+    </section>
 
+    <!-- Projects (kept original content and filter) -->
+    <section class="section">
+      <div aria-label="Filter projects" class="searchbar" role="search">
+        <input aria-label="Search projects" id="q" placeholder="Search projects by keyword or skill (e.g., Python, CNN, cryptocurrency)" type="search"/>
+        <span aria-label="Skill filter" class="pill">
+          skill:
+          <input aria-label="Skill" id="skill" placeholder="Any" type="text"/>
+        </span>
+        <button id="clearBtn" title="Clear filters" type="button">Clear</button>
+        <span aria-live="polite" class="muted" id="resultCount"></span>
+      </div>
       <div class="project-list" id="projectList">
         <!-- Each card includes data attributes used for filtering -->
         <article class="card" data-tags="ai,cnn,vision,python" data-title="AI Image Recognition">
           <div class="card-title">AI Image Recognition</div>
           <div class="card-desc">AI-based image recognition projects.</div>
           <div class="tags"><span class="tag">AI</span><span class="tag">CNN</span><span class="tag">Vision</span><span class="tag">Python</span></div>
-          <a href="https://github.com/Jaguo415/AI_Image_Recognization" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://github.com/Jaguo415/AI_Image_Recognization" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-
         <article class="card" data-tags="regression,ml,python,pandas" data-title="Housing Prediction">
           <div class="card-title">Housing Prediction</div>
           <div class="card-desc">Housing price prediction models and data analysis.</div>
           <div class="tags"><span class="tag">Regression</span><span class="tag">ML</span><span class="tag">Python</span><span class="tag">Pandas</span></div>
-          <a href="https://github.com/Jaguo415/Housing_Prediction" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://github.com/Jaguo415/Housing_Prediction" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-
         <article class="card" data-tags="neural-net,classification,tensorflow,python" data-title="Lending Club Default Neural Net">
           <div class="card-title">Lending Club Default Neural Net</div>
           <div class="card-desc">Neural network model for Lending Club loan default prediction.</div>
           <div class="tags"><span class="tag">Neural Net</span><span class="tag">Classification</span><span class="tag">TensorFlow</span><span class="tag">Python</span></div>
-          <a href="https://github.com/Jaguo415/Lending-Club-Default-Neural-net" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://github.com/Jaguo415/Lending-Club-Default-Neural-net" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-
         <article class="card" data-tags="automation,testing,scripts" data-title="AG_test">
           <div class="card-title">AG_test</div>
           <div class="card-desc">Project for various experiments and automation tests.</div>
           <div class="tags"><span class="tag">Automation</span><span class="tag">Testing</span><span class="tag">Scripts</span></div>
-          <a href="https://github.com/Jaguo415/AG_test" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://github.com/Jaguo415/AG_test" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-
         <article class="card" data-tags="growth,analytics,visualization" data-title="Growth Data Analysis">
           <div class="card-title">Growth Data Analysis</div>
           <div class="card-desc">Growth data analysis, visualization and trend discovery.</div>
           <div class="tags"><span class="tag">Growth</span><span class="tag">Analytics</span><span class="tag">Visualization</span></div>
-          <a href="https://github.com/Jaguo415/Growth-Data-Analysis-" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://github.com/Jaguo415/Growth-Data-Analysis-" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-
         <article class="card" data-tags="capstone,project,ml" data-title="Final Project">
           <div class="card-title">Final Project</div>
           <div class="card-desc">Capstone repository for my final project work.</div>
           <div class="tags"><span class="tag">Capstone</span><span class="tag">Project</span><span class="tag">ML</span></div>
-          <a href="https://github.com/Jaguo415/Final_Project" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://github.com/Jaguo415/Final_Project" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-
         <article class="card" data-tags="crypto,blockchain,ethereum" data-title="Cryptocurrencies">
           <div class="card-title">Cryptocurrencies</div>
           <div class="card-desc">Projects and code related to cryptocurrencies.</div>
           <div class="tags"><span class="tag">Crypto</span><span class="tag">Blockchain</span><span class="tag">Ethereum</span></div>
-          <a href="https://github.com/Cryptocurrencies" target="_blank" rel="noopener">View on GitHub</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Contact Me</h2>
-      <form action="#" method="POST">
-        <label for="name">Name:</label><br />
-        <input id="name" name="name" required type="text" />
-        <br /><br />
-        <label for="email">Email:</label><br />
-        <input id="email" name="email" required type="email" />
-        <br /><br />
-        <label for="message">Message:</label><br />
-        <textarea id="message" name="message" required rows="4"></textarea>
-        <br /><br />
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Jaguo415. Powered by GitHub
-  </footer>
-
-  <script>
-    const q = document.getElementById('q');
-    const skill = document.getElementById('skill');
-    const list = document.getElementById('projectList');
-    const cards = Array.from(list.querySelectorAll('.card'));
-    const resultCount = document.getElementById('resultCount');
-    const clearBtn = document.getElementById('clearBtn');
-
-    function normalize(s){ return (s||'').toLowerCase().trim(); }
-
-    function applyFilter(){
-      const qv = normalize(q.value);
-      const sv = normalize(skill.value);
-      let visible = 0;
-
-      cards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
-        const tags = card.dataset.tags.toLowerCase();
-        const hay = title + ' ' + tags + ' ' + card.innerText.toLowerCase();
-
-        const matchQ = !qv || hay.includes(qv);
-        const matchS = !sv || tags.split(',').some(t => t.includes(sv));
-
-        const show = matchQ && matchS;
-        card.classList.toggle('hidden', !show);
-        if (show) visible++;
-      });
-
-      resultCount.textContent = visible + ' project' + (visible === 1 ? '' : 's') + ' shown';
-    }
-
-    q.addEventListener('input', applyFilter);
-    skill.addEventListener('input', applyFilter);
-    clearBtn.addEventListener('click', () => { q.value=''; skill.value=''; applyFilter(); });
-
-    // Initial update
-    applyFilter();
-  </script>
-</body>
-</html>
+          <a href="https://github.com/Cryptocurrencies" rel
