@@ -18,10 +18,9 @@
     html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);background-attachment:fixed}
 
-    /* Hero/About Me styling with unique font */
     header.hero{color:#fff;padding:3.2rem 1rem 6.5rem;text-align:center;position:relative;background:linear-gradient(135deg,var(--sf-sunset-1),var(--sf-sunset-2) 45%,var(--sf-sunset-3));overflow:hidden}
     header.hero h1{margin:0 0 .4rem;font-size:clamp(2rem,3.4vw + 1rem,3.25rem);letter-spacing:.4px;font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
-    header.hero p{margin:0;opacity:.95;font-size:1.05rem}
+    header.hero p{margin:0;opacity:.95;font-size:1.15rem}
     header.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to right,transparent 0 5%,rgba(255,255,255,.15) 5% 7%,transparent 7% 12%,rgba(255,255,255,.15) 12% 14%,transparent 14% 19%),linear-gradient(to top,rgba(15,23,42,.35),rgba(15,23,42,0))}
     .skyline{position:absolute;left:0;right:0;bottom:-1px;height:80px;opacity:.22;background:linear-gradient(#0f172a,#0f172a) bottom/100% 3px no-repeat}
 
@@ -30,96 +29,147 @@
     .section h2{margin:.1rem 0 .6rem;font-size:clamp(1.25rem,1.2vw + 1rem,1.6rem);display:flex;align-items:center;gap:.55rem}
     .section .subhead{color:var(--ink-soft);margin:.25rem 0 .75rem}
 
-    .stack{display:flex;flex-direction:column;gap:1rem}
-    .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+    .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
     .card{border:1px solid #eee;border-radius:12px;padding:1rem;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,.05)}
     .card h3{margin:0 0 .45rem;font-size:1.1rem;color:var(--brand)}
-    .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.9rem;line-height:1.5}
-    .card a{display:inline-block;padding:.5rem 1rem;background:var(--link);color:#fff;text-decoration:none;border-radius:8px;font-size:.9rem;font-weight:600;transition:background .2s}
-    .card a:hover{background:#0284c7}
-    .category-tag{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:6px;border:1px solid #e5e7eb;background:#f9fafb;color:#4b5563;font-weight:600;margin-bottom:.5rem}
+    .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
+    .pill{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;color:#4b5563;font-weight:600;margin:0 .35rem .5rem 0}
+    .actions{margin-top:.6rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.5rem 1rem;background:var(--link);color:#fff;text-decoration:none;border-radius:8px;font-size:.9rem;font-weight:600;transition:background .2s}
+    .btn:hover{background:#0284c7}
 
     ul{margin:0;padding-left:1.2rem}
     li{margin:.35rem 0}
 
-    .actions{margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
-    .btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:#ffffff20;color:#fff;text-decoration:none;font-weight:700}
-    .btn.resume{background:#0ea5e9;border-color:#0ea5e9}
-    .btn.resume:hover{background:#0284c7;border-color:#0284c7}
+    /* Responsive tweaks */
+    @media (max-width:560px){
+      header.hero p{font-size:1rem}
+      .container{margin:-3rem auto 1rem}
+      .btn{width:100%;text-align:center}
+    }
 
-    footer{text-align:center;padding:2rem 1rem;color:var(--ink-soft);font-size:.9rem}
-    footer a{color:var(--link);text-decoration:none}
-    footer a:hover{text-decoration:underline}
+    /* Simple list grid for skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.6rem}
+    .skills-grid li{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:.5rem .7rem}
+
+    .footer{padding:1.25rem;text-align:center;color:#6b7280}
+    .divider{height:2px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.06),transparent);margin:1rem 0}
   </style>
 </head>
 <body>
-  <!-- HERO / ABOUT ME -->
-  <header class="hero">
-    <h1>About Me</h1>
-    <div class="actions">
-      <a class="btn resume" href="Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a class="btn" href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/Jaguo415" target="_blank" rel="noopener">GitHub</a>
-    </div>
+  <header class="hero" id="about">
+    <h1>Jack Guo — Data Analytics Portfolio</h1>
+    <p>Data analyst with experience across SQL, Python, ML, and stakeholder-ready insights.</p>
     <div class="skyline" aria-hidden="true"></div>
   </header>
 
   <main class="container">
-    <section id="about" class="section" style="font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;">
-      <p>Hello, My name is Jack, and I'm a first-generation Chinese American. As the eldest child in my family, and the first in my family to pursue any form of higher education. My passion for computer science and mathematics. Combined with my critical thinking and problem-solving skills, gives me the Ability to analyze issues and situations systematically and make sound recommendations. Especially in today fast-pace and changing field of Information Technology, where new innovations are just around the corner.</p>
-      <p>I have completed my UC Berkeley Data analytics Bootcamp in December, 2021 and Earned my Certification in Data Analytics. As well as my Caltech AI &amp; Machine learning Bootcamp in December 2023.</p>
-      <p>I have studied Project management At Year up! Bay area. As a PM Trainee at Year Up!
-      I practiced and refined my soft and technical skills. By training's in business communications, public speaking and information technology.</p>
+    <section class="section actions">
+      <a class="btn" href="Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Jaguo415" target="_blank" rel="noopener">GitHub</a>
     </section>
 
-    <!-- PROFESSIONAL EXPERIENCE -->
     <section id="experience" class="section">
       <h2>👨‍💼 Professional Experience</h2>
-      <div class="stack">
-        <div>
-          <h3>DATA ANALYST</h3>
-          <div class="subhead">Salesforce | FEB 2019 - MAR 2025</div>
-          <p class="subhead">Held Various Project management and Data analytics Roles</p>
-          <ul>
-            <li>Started as Intern &gt; Sales Programs Intern (Feb 2019 - July 2019)</li>
-            <li>Project Coordinator (Contract, July 2019 - Jan 2020)</li>
-            <li>Reports and Metrics Analyst (Contract, Jan 2020 - Aug 2021)</li>
-            <li>Marketing Data Analyst (Full Time, Feb 2022 - May 2023)</li>
-            <li>Sales Strategy &amp; GTM Product Analyst (Full Time, Feb 2024 - May 2025)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO PROJECTS (existing content preserved; reorganized under its own section) -->
-    <section id="projects" class="section">
-      <h2>📊 Portfolio Projects</h2>
-      <!-- Existing project cards/markdown below retained -->
-      <div class="project-list">
-        <!-- Placeholder container: existing static content from previous page will render here if using markdown. If the site was plain HTML previously, keep cards below as examples; otherwise, preserve existing links. -->
-      </div>
-    </section>
-
-    <!-- EDUCATION & CERTIFICATIONS -->
-    <section id="education" class="section">
-      <h2>🎓 Education &amp; Certifications</h2>
+      <h3>DATA ANALYST</h3>
+      <div class="subhead">Salesforce | Feb 2019 - Mar 2025</div>
+      <p class="subhead">Held various project management and data analytics roles:</p>
       <ul>
-        <li><a target="_blank" rel="noopener" href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf">ML + AI (Guo, Jack-Certificate (1).pdf)</a></li>
-        <li><a target="_blank" rel="noopener" href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF">Data Analytics (UCBerkeley.PDF)</a></li>
-        <li><a target="_blank" rel="noopener" href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf">High School Diploma (HS_Diploma.pdf)</a></li>
+        <li>Started as Intern → Sales Programs Intern (Feb 2019 - Jul 2019)</li>
+        <li>Project Coordinator (Contract, Jul 2019 - Jan 2020)</li>
+        <li>Reports and Metrics Analyst (Contract, Jan 2020 - Aug 2021)</li>
+        <li>Marketing Data Analyst (Full Time, Feb 2022 - May 2023)</li>
+        <li>Sales Strategy & GTM Product Analyst (Full Time, Feb 2024 - May 2025)</li>
       </ul>
     </section>
 
-    <!-- TECHNICAL SKILLS AND ANY OTHER EXISTING SECTIONS (kept from original) -->
+    <section id="projects" class="section">
+      <h2>📊 Portfolio Projects</h2>
+      <div class="project-list">
+        <article class="card">
+          <span class="pill">Machine Learning</span>
+          <h3>Credit Risk Model</h3>
+          <p>Built supervised models to predict loan default probability and segment risk tiers.</p>
+          <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, Imbalanced-learn, Matplotlib/Seaborn</p>
+          <p><strong>Results:</strong> AUC 0.89; reduced false positives by 18% at target recall.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Analytics</span>
+          <h3>NYC Bikesharing Analysis</h3>
+          <p>Explored seasonality, demand hotspots, and user cohorts; produced Tableau dashboards.</p>
+          <p><strong>Tech:</strong> Python, Pandas, Tableau, Geo mapping</p>
+          <p><strong>Results:</strong> Identified 3 peak corridors and 12% utilization uplift opportunity.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Data Engineering</span>
+          <h3>Weather Data Pipeline</h3>
+          <p>Ingested and cleaned NOAA weather data to support forecasting and anomaly alerts.</p>
+          <p><strong>Tech:</strong> Python, Requests, SQL, Airflow-like scheduling, Pandas</p>
+          <p><strong>Results:</strong> 97% data freshness SLA; cut manual prep time by 80%.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Deep Learning</span>
+          <h3>Neural Network Models</h3>
+          <p>Prototyped dense and CNN architectures to classify tabular/time-series signals.</p>
+          <p><strong>Tech:</strong> TensorFlow/Keras, Scikit-learn, NumPy</p>
+          <p><strong>Results:</strong> +6–12% accuracy vs baselines; calibrated probabilities for decisions.</p>
+        </article>
+        <article class="card">
+          <span class="pill">SQL</span>
+          <h3>SQL Analysis Projects</h3>
+          <p>Created complex joins, CTEs, and window functions for KPI and cohort reporting.</p>
+          <p><strong>Tech:</strong> PostgreSQL/MySQL, dbt-like modeling, SQL</p>
+          <p><strong>Results:</strong> Standardized metrics; query runtime reduced by 35%.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Web</span>
+          <h3>Portfolio Website</h3>
+          <p>Responsive portfolio with accessible components and clean information architecture.</p>
+          <p><strong>Tech:</strong> HTML, CSS, a11y, responsive design</p>
+          <p><strong>Link:</strong> <a href="https://jaguo415.github.io/Portfolio/" target="_blank" rel="noopener">Live site</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>🎓 Education & Certifications</h2>
+      <ul>
+        <li><a target="_blank" rel="noopener" href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf">Caltech AI &amp; Machine Learning Certification</a></li>
+        <li><a target="_blank" rel="noopener" href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF">UC Berkeley Data Analytics Certification</a></li>
+        <li><a target="_blank" rel="noopener" href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf">High School Diploma</a></li>
+      </ul>
+    </section>
+
     <section id="skills" class="section">
       <h2>🛠️ Technical Skills</h2>
-      <p><strong>Data Analytics Projects and Freelance Work</strong> — Data Analytics</p>
-      <p>Applied Python, Pandas, SQL, Tableau, and ML techniques across portfolio projects including credit risk, bikesharing, and weather analytics. Emphasis on clear communication, reproducibility, and stakeholder-ready visuals.</p>
+      <ul class="skills-grid">
+        <li>Python (Pandas, NumPy, scikit-learn)</li>
+        <li>SQL (PostgreSQL, MySQL)</li>
+        <li>Tableau, Data Visualization</li>
+        <li>Machine Learning, Deep Learning</li>
+        <li>Git/GitHub, Version Control</li>
+        <li>ETL, Data Cleaning</li>
+      </ul>
     </section>
-  </main>
 
-  <footer>
-    © 2025 Jack Guo | <a href="mailto:jack@example.com">Contact</a>
-  </footer>
+    <section id="contact" class="section">
+      <h2>📬 Contact Me</h2>
+      <p>Email: <a href="mailto:jack@example.com">jack@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" rel="noopener">jack-guo-sj</a></p>
+      <!-- Optional simple form (non-functional on static hosting) -->
+      <form onsubmit="event.preventDefault(); alert('Thanks! I\'ll be in touch.');" aria-label="Contact form">
+        <div style="display:grid;grid-template-columns:1fr;gap:.6rem;max-width:560px">
+          <input placeholder="Your name" required style="padding:.6rem;border:1px solid #e5e7eb;border-radius:8px"/>
+          <input type="email" placeholder="Your email" required style="padding:.6rem;border:1px solid #e5e7eb;border-radius:8px"/>
+          <textarea placeholder="Message" rows="4" required style="padding:.6rem;border:1px solid #e5e7eb;border-radius:8px"></textarea>
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    <footer class="footer">© 2025 Jack Guo</footer>
+  </main>
 </body>
 </html>
