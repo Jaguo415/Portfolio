@@ -35,96 +35,65 @@
     .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
     .link-btn{display:inline-block;margin-top:.5rem;padding:.4rem .8rem;background:#0ea5e9;color:#fff;text-decoration:none;border-radius:6px;font-size:.85rem;font-weight:600;transition:background .2s}
     .link-btn:hover{background:#0284c7;color:#fff}
-    .search-bar{width:100%;padding:.6rem;margin-bottom:1rem;border-radius:8px;border:1px solid #cbd5e1;font-size:.95rem}
-    input.search-bar:focus{outline:2px solid var(--link);outline-offset:1px}
-    footer{text-align:center;padding:1.5rem 1rem 2rem;color:var(--ink-soft);font-size:.9rem}
-    footer a{color:var(--link);text-decoration:none}
-    @media(max-width:650px){
-      header.hero{padding:2.5rem 1rem 1.5rem}
-      .section{padding:1rem;margin-top:1.5rem}
-      .project-list{grid-template-columns:1fr}
-    }
+    footer{padding:1.5rem 0;text-align:center;color:var(--ink-soft);font-size:.9rem}
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="skyline"></div>
     <h1>Jack Guo</h1>
-    <p>Data Analyst | SF Bay Area</p>
+    <p>Data Analyst | Turning Data into Insights</p>
   </header>
   <div class="container">
-    <section id="about" class="section">
-      <h2>🌉 About Me</h2>
-      <p>Hi! I'm Jack, a data analyst passionate about turning raw data into actionable insights. With experience in SQL, Python, Tableau, and Power BI, I love solving complex problems and helping teams make data-driven decisions.</p>
-      <p>Based in San Francisco, I'm always exploring new technologies and methodologies to refine my craft—whether it's building dashboards, automating workflows, or diving deep into statistical analysis.</p>
+    <section class="section" id="about">
+      <h2>👋 About Me</h2>
+      <p>
+        Hi! I'm Jack Guo, a data analyst passionate about transforming raw data into actionable insights. 
+        With a strong foundation in Python, SQL, and modern data visualization tools, I love building pipelines 
+        that make sense of complexity and drive smarter decisions.
+      </p>
     </section>
-    <section id="experience" class="section">
+    <section class="section" id="experience">
       <h2>💼 Job Experience</h2>
-      <div class="card" style="margin-bottom:1rem">
-        <h3>Data Analyst Intern — TechCorp</h3>
-        <p class="subhead" style="margin:.2rem 0 .5rem">June 2024 – Present</p>
-        <p>Led analysis of user engagement metrics, built interactive dashboards in Tableau, and automated reporting pipelines using Python. Collaborated with product teams to identify growth opportunities.</p>
+      <div class="card">
+        <h3>Data Analyst</h3>
+        <p class="subhead" style="margin:.2rem 0 .5rem">Salesforce | Feb 2019 – Mar 2025</p>
+        <p>
+          Progressed from Intern to Product Analyst, contributing to key GTM, analytics, and reporting initiatives. 
+          Rotated through Sales Programs (Intern), Project Coordination, Metrics/Reporting, GTM Marketing Analysis, 
+          and Sales Product Analytics roles.
+        </p>
         <div class="stack">
           <span class="pill">SQL</span>
           <span class="pill">Python</span>
           <span class="pill">Tableau</span>
-          <span class="pill">ETL</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Research Assistant — University Lab</h3>
-        <p class="subhead" style="margin:.2rem 0 .5rem">Jan 2023 – May 2024</p>
-        <p>Analyzed large datasets for academic research projects, performed statistical modeling in R, and co-authored papers on data trends in public health.</p>
-        <div class="stack">
-          <span class="pill">R</span>
-          <span class="pill">Statistics</span>
-          <span class="pill">Data Cleaning</span>
+          <span class="pill">Salesforce</span>
+          <span class="pill">Analytics</span>
         </div>
       </div>
     </section>
-    <section id="education" class="section">
-      <h2>🎓 Education</h2>
-      <p><strong>B.S. in Data Science</strong> — San Francisco State University (2020–2024)</p>
-      <p style="margin-top:.5rem">Relevant coursework: Machine Learning, Database Systems, Statistical Inference, Data Visualization</p>
-      <div style="margin-top:1rem">
-        <a href="https://example.com/transcript.pdf" class="link-btn" target="_blank" rel="noopener">📄 View Transcript</a>
-        <a href="https://example.com/resume.pdf" class="link-btn" target="_blank" rel="noopener" style="margin-left:.5rem">📄 Download Resume</a>
+    <section class="section" id="skills">
+      <h2>🛠️ Technical Skills</h2>
+      <div class="stack">
+        <span class="pill">Python</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">Power BI</span>
+        <span class="pill">Excel</span>
+        <span class="pill">Pandas</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">R</span>
+        <span class="pill">Git</span>
+        <span class="pill">ETL</span>
+        <span class="pill">Data Warehousing</span>
       </div>
     </section>
-    <section id="projects" class="section">
+    <section class="section" id="projects">
       <h2>🚀 Projects</h2>
-      <input type="text" id="projectSearch" class="search-bar" placeholder="Search projects by keyword or skill (e.g., Python, SQL, visualization)...">
-      <div class="project-list" id="projectList">
-        <div class="card" data-tags="python sql tableau dashboard">
-          <h3>Sales Dashboard</h3>
-          <p>Built an interactive Tableau dashboard to visualize quarterly sales trends, integrated with SQL database for real-time updates.</p>
-          <div class="stack">
-            <span class="pill">Tableau</span>
-            <span class="pill">SQL</span>
-            <span class="pill">Python</span>
-          </div>
-        </div>
-        <div class="card" data-tags="python machine-learning classification">
-          <h3>Customer Churn Prediction</h3>
-          <p>Developed a machine learning model to predict customer churn using logistic regression and random forests in Python.</p>
-          <div class="stack">
-            <span class="pill">Python</span>
-            <span class="pill">Scikit-learn</span>
-            <span class="pill">Pandas</span>
-          </div>
-        </div>
-        <div class="card" data-tags="r statistics visualization">
-          <h3>Public Health Data Analysis</h3>
-          <p>Analyzed COVID-19 datasets in R to identify trends and visualize infection rates across different demographics.</p>
-          <div class="stack">
-            <span class="pill">R</span>
-            <span class="pill">ggplot2</span>
-            <span class="pill">Statistics</span>
-          </div>
-        </div>
-        <div class="card" data-tags="python automation etl">
-          <h3>ETL Pipeline Automation</h3>
-          <p>Automated data extraction, transformation, and loading processes using Python and Apache Airflow for a retail client.</p>
+      <div class="project-list">
+        <div class="card" data-tags="python airflow etl">
+          <h3>Sales Analytics Pipeline</h3>
+          <p>Developed an end-to-end ETL pipeline using Python and Apache Airflow to automate daily sales reporting across multiple regions.</p>
           <div class="stack">
             <span class="pill">Python</span>
             <span class="pill">Airflow</span>
@@ -151,28 +120,22 @@
         </div>
       </div>
     </section>
-    <footer>
-      <p>Let's connect! Reach out via <a href="https://www.linkedin.com/in/jackguo" target="_blank" rel="noopener">LinkedIn</a> or email me at <a href="mailto:jack.guo@example.com">jack.guo@example.com</a>.</p>
-      <p style="margin-top:.5rem;font-size:.85rem;color:#9ca3af">© 2025 Jack Guo. Built with care in San Francisco.</p>
-    </footer>
+    <section class="section" id="contact">
+      <h2>📫 Contact</h2>
+      <p>
+        I'm always interested in new opportunities and collaborations. Feel free to reach out!
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:jack.guo@example.com">jack.guo@example.com</a><br>
+        <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/jackguo" target="_blank">linkedin.com/in/jackguo</a><br>
+        <strong>GitHub:</strong> <a href="https://github.com/Jaguo415" target="_blank">github.com/Jaguo415</a>
+      </p>
+    </section>
   </div>
-  <script>
-    const searchBar = document.getElementById('projectSearch');
-    const projectList = document.getElementById('projectList');
-    const projects = projectList.querySelectorAll('.card');
-    searchBar.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      projects.forEach(project => {
-        const tags = project.getAttribute('data-tags');
-        const title = project.querySelector('h3').textContent.toLowerCase();
-        const description = project.querySelector('p').textContent.toLowerCase();
-        if (tags.includes(query) || title.includes(query) || description.includes(query)) {
-          project.style.display = 'block';
-        } else {
-          project.style.display = 'none';
-        }
-      });
-    });
-  </script>
+  <footer>
+    <div class="container">
+      <p>Portfolio v1.0 | © 2025 Jack Guo. Built with care.</p>
+    </div>
+  </footer>
 </body>
 </html>
