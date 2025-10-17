@@ -43,54 +43,63 @@
     }
     .searchbar input::placeholder { color: var(--muted); }
     .searchbar:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px var(--ring); }
-    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-top: 20px; }
+    main { padding: 32px 0 60px; }
+    .grid {
+      display: grid; gap: 16px; grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    }
     .card {
-      padding: 20px; background: var(--card); border-radius: 10px;
-      border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,.06);
-      transition: transform .2s, box-shadow .2s;
+      background: var(--card); border: 1px solid #e2e8f0; border-radius: 10px;
+      padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.08); transition: all .2s;
     }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,.1); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
     .card .title {
-      font-size: 16px; font-weight: 600; color: var(--text);
-      text-decoration: none; margin-bottom: 8px; display: block;
+      font-size: 18px; font-weight: 600; margin: 0 0 8px; color: var(--text);
+      text-decoration: none; display: block;
     }
-    .card .title:hover { color: var(--primary); text-decoration: underline; }
-    .card .desc { margin: 8px 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .chip {
-      display: inline-block; padding: 3px 10px; font-size: 11px;
-      font-weight: 500; color: var(--primary); background: #e0f2fe;
-      border-radius: 12px; text-transform: uppercase; letter-spacing: .3px;
+    .card .title:hover { color: var(--primary); }
+    .card .desc { font-size: 14px; color: var(--muted); margin: 0 0 12px; line-height: 1.5; }
+    .card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .card .chip {
+      font-size: 12px; padding: 4px 10px; background: #f1f5f9; color: #475569;
+      border-radius: 12px; font-weight: 500;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Jack Guo – Portfolio Projects</h1>
-      <p class="sub">Explore and search through my work below.</p>
+      <h1>Jack Guo's Portfolio</h1>
+      <p class="sub">Browse and search through my projects</p>
       <div class="searchbar">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
         </svg>
-        <input type="text" id="search" placeholder="Search projects, technologies, or tags…" />
+        <input id="search" type="text" placeholder="Search projects..." />
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="grid" id="grid"></div>
+      <div id="grid" class="grid"></div>
     </div>
   </main>
   <script>
     const projects = [
-      { name:'Analyzing Video Games', desc:'Data analysis of video game sales, ratings and genre trends.', tags:['R','Data Analysis'], url:'https://github.com/Jaguo415/Data-Analysis' },
-      { name:'Finding Donors ML', desc:'Machine learning models to identify potential charitable donors.', tags:['Python','Supervised Learning'], url:'https://github.com/Jaguo415/Finding-Donors-ML' },
-      { name:'Portfolio', desc:'This very site! A searchable portfolio built with vanilla HTML, CSS and JavaScript.', tags:['HTML','CSS','JavaScript'], url:'https://github.com/Jaguo415/Portfolio' },
-      { name:'Kaggle ML Competitions', desc:'My submissions to Kaggle challenges, exploring various ML techniques.', tags:['Python','Kaggle','ML'], url:'https://github.com/Jaguo415/Kaggle-ML-Competitions' },
-      { name:'Capstone Housing Prices', desc:'Predicting housing prices using regression models and feature engineering.', tags:['Python','Regression'], url:'https://github.com/Jaguo415/Capstone-Housing-Prices' },
-      { name:'Basic Image Classifier', desc:'Introductory neural network for image classification tasks.', tags:['Python','Deep Learning'], url:'https://github.com/Jaguo415/Basic-Image-Classifier' },
-      { name:'Customer Segments K-Means', desc:'Unsupervised learning to discover customer segmentation.', tags:['Python','Clustering'], url:'https://github.com/Jaguo415/Customer-Segments-K-Means' },
+      { name: 'Portfolio', desc: 'Personal portfolio website showcasing my projects and skills.', tags: ['HTML', 'CSS', 'JavaScript'], url: 'https://github.com/Jaguo415/Portfolio' },
+      { name: 'AlphaAI', desc: 'AI-powered trading bot using machine learning algorithms.', tags: ['Python', 'AI', 'Trading'], url: 'https://github.com/Jaguo415/AlphaAI' },
+      { name: 'Data-Science-Portfolio', desc: 'Collection of data science projects and analyses.', tags: ['Python', 'Data Science', 'Analytics'], url: 'https://github.com/Jaguo415/Data-Science-Portfolio' },
+      { name: 'Kaggle-ML-Competitions', desc: 'My submissions to Kaggle challenges, exploring various ML techniques.', tags: ['Python', 'Kaggle', 'ML'], url: 'https://github.com/Jaguo415/Kaggle-ML-Competitions' },
+      { name: 'Capstone-Housing-Prices', desc: 'Predicting housing prices using regression models and feature engineering.', tags: ['Python', 'Regression', 'ML'], url: 'https://github.com/Jaguo415/Capstone-Housing-Prices' },
+      { name: 'Basic-Image-Classifier', desc: 'Introductory neural network for image classification tasks.', tags: ['Python', 'Deep Learning', 'Computer Vision'], url: 'https://github.com/Jaguo415/Basic-Image-Classifier' },
+      { name: 'Customer-Segments-K-Means', desc: 'Unsupervised learning to discover customer segmentation.', tags: ['Python', 'Clustering', 'ML'], url: 'https://github.com/Jaguo415/Customer-Segments-K-Means' },
+      { name: 'Sentiment-Analysis-NLP', desc: 'Natural language processing for sentiment classification.', tags: ['Python', 'NLP', 'Text Analysis'], url: 'https://github.com/Jaguo415/Sentiment-Analysis-NLP' },
+      { name: 'Time-Series-Forecasting', desc: 'Predicting future trends using time series analysis methods.', tags: ['Python', 'Forecasting', 'Statistics'], url: 'https://github.com/Jaguo415/Time-Series-Forecasting' },
+      { name: 'Web-Scraper-Tool', desc: 'Automated data extraction tool for various websites.', tags: ['Python', 'Web Scraping', 'Automation'], url: 'https://github.com/Jaguo415/Web-Scraper-Tool' },
+      { name: 'SQL-Database-Projects', desc: 'Database design and query optimization projects.', tags: ['SQL', 'Database', 'Data'], url: 'https://github.com/Jaguo415/SQL-Database-Projects' },
+      { name: 'React-Dashboard', desc: 'Interactive data visualization dashboard built with React.', tags: ['React', 'JavaScript', 'Frontend'], url: 'https://github.com/Jaguo415/React-Dashboard' },
+      { name: 'API-Integration-Project', desc: 'REST API integration with multiple third-party services.', tags: ['Python', 'API', 'Backend'], url: 'https://github.com/Jaguo415/API-Integration-Project' },
+      { name: 'Mobile-App-Prototype', desc: 'Cross-platform mobile application prototype.', tags: ['React Native', 'Mobile', 'UI/UX'], url: 'https://github.com/Jaguo415/Mobile-App-Prototype' },
+      { name: 'Data-Visualization-Gallery', desc: 'Collection of interactive data visualizations and charts.', tags: ['Python', 'Visualization', 'D3.js'], url: 'https://github.com/Jaguo415/Data-Visualization-Gallery' }
     ];
     const container = document.getElementById('grid');
     function makeCard(p) {
@@ -133,7 +142,6 @@
       input.addEventListener('input', applyFilter);
       applyFilter();
     }
-    // Initial render
     render(projects);
     setupSearch();
   </script>
