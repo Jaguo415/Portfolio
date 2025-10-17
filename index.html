@@ -43,45 +43,48 @@
     .card a:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(14,165,233,.3); }
     footer{ text-align:center; padding:2rem 1rem 3rem; color:var(--ink-soft); font-size:.9rem; }
     footer a{ color:var(--link); text-decoration:none; }
-    footer a:hover{ text-decoration:underline; }
-    .role{ margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid #eee; }
-    .role:last-child{ border-bottom:none; }
-    .role h3{ margin:0 0 .25rem; font-size:1rem; color:var(--brand); font-weight:600; }
-    .role .meta{ color:var(--ink-soft); font-size:.9rem; margin-bottom:.35rem; }
-    .role .note{ font-size:.85rem; color:var(--ink-soft); line-height:1.5; margin:.5rem 0; }
-    .timeline{ border-left:3px solid var(--sf-fog-2); padding-left:1rem; margin-top:1rem; }
+    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
+    .edu-item { border: 1px solid #eee; border-radius: 10px; padding: 1rem; background: #f9fafb; transition: all 0.2s; }
+    .edu-item:hover { box-shadow: 0 4px 12px rgba(15,23,42,.08); }
+    .edu-item h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--brand); }
+    .edu-item a { color: var(--link); text-decoration: none; font-weight: 500; }
+    .edu-item a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <header class="hero">
     <h1>Jack Guo</h1>
-    <p>Data Analytics | Business Intelligence | Project Management</p>
+    <p>Data Analytics Portfolio</p>
     <div class="skyline"></div>
   </header>
   <div class="container">
-    <!-- New About Me Section -->
     <section class="section">
       <h2><span class="emoji">👋</span> About Me</h2>
-      <p>Hi, I'm Jack! I'm a data-driven professional with experience in analytics, business intelligence, and project management. I love turning data into actionable insights.</p>
-      <p><a href="#" onclick="alert('This is a placeholder. Add your own content here!'); return false;" style="display:inline-block; margin-top:0.5rem; padding:0.4rem 0.8rem; background:linear-gradient(135deg, var(--link), #06b6d4); color:white; border-radius:8px; text-decoration:none; font-size:0.85rem; font-weight:600;">Click Here</a></p>
+      <p class="hooks">
+        Hello, My name is Jack, and I'm a first-generation Chinese American. As the eldest child in my family, and the first in my family to pursue any form of higher education. My passion for computer science and mathematics. Combined with my critical thinking and problem-solving skills, gives me the Ability to analyze issues and situations systematically and make sound recommendations. Especially in today fast-pace and changing field of Information Technology, where new innovations are just around the corner.
+      </p>
+      <p class="hooks">
+        I have completed my UC Berkeley Data analytics Bootcamp in December, 2021 and Earned my Certification in Data Analytics. As well as my Caltech AI & Machine learning Bootcamp in December 2023.
+      </p>
+      <p class="hooks">
+        I have studied Project management At Year up! Bay area. As a PM Trainee at Year Up! I practiced and refined my soft and technical skills. By training's in business communications, public speaking and information technology.
+      </p>
     </section>
-
-    <section class="section hooks">
-      <h2><span class="emoji">👋</span> Welcome!</h2>
-      <p>Hey there! 👋 I'm Jack, a <em>Data Analyst</em> passionate about turning raw data into actionable insights. Check out my projects below and feel free to connect!</p>
-    </section>
-
     <section class="section">
-      <h2><span class="emoji">🔍</span> Find Projects <span class="badge"><span class="emoji">⚡</span> Quick Search</span></h2>
+      <h2><span class="emoji">🔧</span> Core Skills <span class="badge"><span class="emoji">🎯</span>Always Improving</span></h2>
+      <p>Python · SQL · Tableau · Power BI · Excel · R · Machine Learning · Statistical Analysis · Data Visualization · ETL · Data Warehousing · Pandas · NumPy · SciPy · Scikit-learn · TensorFlow · Jupyter</p>
+    </section>
+    <section class="section">
+      <h2><span class="emoji">🚀</span> Projects <span class="badge"><span class="emoji">📍</span>San Francisco, CA</span></h2>
       <div class="searchbar">
-        <input type="search" placeholder="Search projects by name or tech..." />
-        <div class="pill"><span class="emoji">📅</span> Year: <input type="number" min="2019" max="2025" placeholder="2024" /></div>
-        <button>Search</button>
+        <input type="search" placeholder="Search projects by keyword..." />
+        <div class="pill"><span>Filter by:</span><input type="text" placeholder="tag" /></div>
+        <button>Clear</button>
       </div>
       <div class="project-list">
         <div class="card">
-          <h3 class="card-title">Customer Retention Analytics Dashboard</h3>
-          <p class="card-desc">Built an interactive Tableau dashboard analyzing customer churn, retention trends, and cohort behavior to drive strategic decisions.</p>
+          <h3 class="card-title">Customer Segmentation Dashboard</h3>
+          <p class="card-desc">Built an interactive Tableau dashboard to segment customers by demographics and purchasing behavior, enabling targeted marketing strategies.</p>
           <div class="tags">
             <span class="tag">Tableau</span> <span class="tag">SQL</span> <span class="tag">Python</span> <span class="tag">Pandas</span>
           </div>
@@ -115,22 +118,29 @@
     </section>
 
     <section class="section">
-      <h2><span class="emoji">💼</span> Previous Experience</h2>
-      <div class="role">
-        <div class="meta">Salesforce | FEB 2019 - MAR 2025</div>
-        <p class="note">Held Various Project management and Data analytics Roles. Started as an Intern and earned a full-time role as a Data Analyst.</p>
-      </div>
-      <div class="timeline">
-        <div class="role"><h3>Feb 2019 - July 2019</h3><div class="meta">Sales Programs Intern</div></div>
-        <div class="role"><h3>July 2019 - Jan 2020</h3><div class="meta">Project Coordinator (Contract)</div></div>
-        <div class="role"><h3>Jan 2020 - Aug 2021</h3><div class="meta">Reports and Metrics Analyst (Contract)</div></div>
-        <div class="role"><h3>Feb 2022 - May 2023</h3><div class="meta">Marketing Data Analyst (Full Time)</div></div>
-        <div class="role"><h3>Feb 2024 - May 2025</h3><div class="meta">Sales Strategy & GTM Product Analyst (Full Time)</div></div>
+      <h2><span class="emoji">🎓</span> Education</h2>
+      <div class="edu-list">
+        <div class="edu-item">
+          <h3>📄 High School Diploma</h3>
+          <a href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf" target="_blank">View Diploma →</a>
+        </div>
+        <div class="edu-item">
+          <h3>🎓 UC Berkeley Data Analytics Certification</h3>
+          <p>Completed: December 2021</p>
+          <a href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF" target="_blank">View Certificate →</a>
+        </div>
+        <div class="edu-item">
+          <h3>🤖 Caltech AI & Machine Learning Certification</h3>
+          <p>Completed: December 2023</p>
+          <a href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf" target="_blank">View Certificate →</a>
+        </div>
       </div>
     </section>
+
   </div>
   <footer>
-    <p>© 2025 Jack Guo | <a href="https://linkedin.com">LinkedIn</a> | <a href="https://github.com">GitHub</a></p>
+    <p>© 2025 Jack Guo. Built with care in <em class="emoji">🌉</em> San Francisco.</p>
+    <p><a href="https://github.com/Jaguo415" target="_blank">GitHub</a> · <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
   </footer>
 </body>
 </html>
