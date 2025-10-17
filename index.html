@@ -34,61 +34,49 @@
     .card h3{margin:0 0 .45rem;font-size:1.1rem;color:var(--brand)}
     .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
     .link-btn{display:inline-block;margin-top:.5rem;padding:.4rem .8rem;background:#0ea5e9;color:#fff;text-decoration:none;border-radius:6px;font-size:.85rem;font-weight:600;transition:background .2s}
-    .link-btn:hover{background:#0284c7;color:#fff}
-    footer{padding:1.5rem 0;text-align:center;color:var(--ink-soft);font-size:.9rem}
+    .link-btn:hover{background:#0284c7}
+    .job-timeline{margin-top:1rem;line-height:1.8}
+    .job-timeline p{margin:.5rem 0;color:var(--ink-soft)}
+    .cert-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem}
+    .cert-link{display:inline-flex;align-items:center;padding:.6rem 1rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;color:var(--brand);text-decoration:none;font-weight:600;transition:all .2s}
+    .cert-link:hover{background:#e5e7eb;transform:translateX(4px)}
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="skyline"></div>
     <h1>Jack Guo</h1>
-    <p>Data Analyst | Turning Data into Insights</p>
+    <p>Data Analyst | Insights & Strategy</p>
   </header>
+
   <div class="container">
-    <section class="section" id="about">
-      <h2>👋 About Me</h2>
-      <p>
-        Hi! I'm Jack Guo, a data analyst passionate about transforming raw data into actionable insights. 
-        With a strong foundation in Python, SQL, and modern data visualization tools, I love building pipelines 
-        that make sense of complexity and drive smarter decisions.
-      </p>
-    </section>
-    <section class="section" id="experience">
+    <section class="section">
       <h2>💼 Job Experience</h2>
-      <div class="card">
-        <h3>Data Analyst</h3>
-        <p class="subhead" style="margin:.2rem 0 .5rem">Salesforce | Feb 2019 – Mar 2025</p>
-        <p>
-          Progressed from Intern to Product Analyst, contributing to key GTM, analytics, and reporting initiatives. 
-          Rotated through Sales Programs (Intern), Project Coordination, Metrics/Reporting, GTM Marketing Analysis, 
-          and Sales Product Analytics roles.
-        </p>
-        <div class="stack">
-          <span class="pill">SQL</span>
-          <span class="pill">Python</span>
-          <span class="pill">Tableau</span>
-          <span class="pill">Salesforce</span>
-          <span class="pill">Analytics</span>
-        </div>
+      <div class="job-timeline">
+        <p><strong>DATA ANALYST</strong></p>
+        <p><strong>Salesforce | FEB 2019 - MAR 2025</strong></p>
+        <p>Held Various Project management and Data analytics Roles<br>
+        Started as an Intern and Earned a full time as a Data analyst</p>
+        <ul>
+          <li>Feb 2019 - July 2019: Sales Programs Intern</li>
+          <li>July 2019 - Jan 2020: Project Coordinator (Contract)</li>
+          <li>Jan 2020 - Aug 2021: Reports and Metrics Analyst (Contract)</li>
+          <li>Feb 2022 - May 2023: Marketing Data Analyst (Full Time)</li>
+          <li>Feb 2024 - May 2025: Sales Strategy & GTM Product Analyst (Full time)</li>
+        </ul>
       </div>
     </section>
-    <section class="section" id="skills">
-      <h2>🛠️ Technical Skills</h2>
-      <div class="stack">
-        <span class="pill">Python</span>
-        <span class="pill">SQL</span>
-        <span class="pill">Tableau</span>
-        <span class="pill">Power BI</span>
-        <span class="pill">Excel</span>
-        <span class="pill">Pandas</span>
-        <span class="pill">NumPy</span>
-        <span class="pill">R</span>
-        <span class="pill">Git</span>
-        <span class="pill">ETL</span>
-        <span class="pill">Data Warehousing</span>
+
+    <section class="section">
+      <h2>🎓 Education & Certifications</h2>
+      <div class="cert-list">
+        <a href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20Jack-Certificate%20(1).pdf" class="cert-link" target="_blank">📜 CalTech Certificate</a>
+        <a href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF" class="cert-link" target="_blank">📜 UC Berkeley Certificate</a>
+        <a href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf" class="cert-link" target="_blank">📜 High School Diploma</a>
       </div>
     </section>
-    <section class="section" id="projects">
+
+    <section class="section">
       <h2>🚀 Projects</h2>
       <div class="project-list">
         <div class="card" data-tags="python airflow etl">
@@ -99,6 +87,7 @@
             <span class="pill">Airflow</span>
             <span class="pill">ETL</span>
           </div>
+          <a href="https://github.com/Jaguo415/Sales-Analytics-Pipeline" class="link-btn" target="_blank">View Project →</a>
         </div>
         <div class="card" data-tags="sql database optimization">
           <h3>Database Optimization</h3>
@@ -108,6 +97,7 @@
             <span class="pill">PostgreSQL</span>
             <span class="pill">Performance Tuning</span>
           </div>
+          <a href="https://github.com/Jaguo415/Database-Optimization" class="link-btn" target="_blank">View Project →</a>
         </div>
         <div class="card" data-tags="python excel dashboard">
           <h3>Financial Reporting Tool</h3>
@@ -117,25 +107,10 @@
             <span class="pill">Excel</span>
             <span class="pill">Automation</span>
           </div>
+          <a href="https://github.com/Jaguo415/Financial-Reporting-Tool" class="link-btn" target="_blank">View Project →</a>
         </div>
       </div>
     </section>
-    <section class="section" id="contact">
-      <h2>📫 Contact</h2>
-      <p>
-        I'm always interested in new opportunities and collaborations. Feel free to reach out!
-      </p>
-      <p>
-        <strong>Email:</strong> <a href="mailto:jack.guo@example.com">jack.guo@example.com</a><br>
-        <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/jackguo" target="_blank">linkedin.com/in/jackguo</a><br>
-        <strong>GitHub:</strong> <a href="https://github.com/Jaguo415" target="_blank">github.com/Jaguo415</a>
-      </p>
-    </section>
   </div>
-  <footer>
-    <div class="container">
-      <p>Portfolio v1.0 | © 2025 Jack Guo. Built with care.</p>
-    </div>
-  </footer>
 </body>
 </html>
