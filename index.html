@@ -34,113 +34,127 @@
     .searchbar button:hover{ background:#f3f4f6; }
     .project-list{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
     .card{ border:1px solid #eee; border-radius:12px; padding:1rem; background:var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
-    .card:hover{ box-shadow:0 8px 24px rgba(15,23,42,.12); }
-    .card-title{ font-size:1.1rem; font-weight:600; margin:0 0 .5rem; color:var(--brand); }
-    .card-desc{ font-size:.9rem; color:var(--ink-soft); margin-bottom:.75rem; line-height:1.5; }
-    .tags{ display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:.75rem; }
-    .tag{ font-size:.7rem; padding:.2rem .5rem; border-radius:999px; background:var(--sf-fog-2); color:var(--ink-soft); border:1px solid #dce4ef; }
-    .card a{ display:inline-block; padding:.5rem .75rem; background:linear-gradient(135deg,var(--link),#06b6d4); color:#fff; text-decoration:none; border-radius:8px; font-size:.85rem; font-weight:600; transition:transform .2s, box-shadow .2s; }
-    .card a:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(14,165,233,.3); }
-    footer{ text-align:center; padding:2rem 1rem 3rem; color:var(--ink-soft); font-size:.9rem; }
+    .card h3{ margin:0 0 .45rem; font-size:1.1rem; color:var(--brand); }
+    .card p{ margin:0 0 .75rem; color:var(--ink-soft); font-size:.9rem; line-height:1.5; }
+    .card a{ display:inline-block; padding:.5rem 1rem; background:var(--link); color:#fff; text-decoration:none; border-radius:8px; font-size:.9rem; font-weight:600; transition:background .2s; }
+    .card a:hover{ background:#0284c7; }
+    .card .badge{ margin-top:.5rem; }
+    footer{ text-align:center; padding:2rem 1rem; color:var(--ink-soft); font-size:.9rem; }
     footer a{ color:var(--link); text-decoration:none; }
-    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
-    .edu-item { border: 1px solid #eee; border-radius: 10px; padding: 1rem; background: #f9fafb; transition: all 0.2s; }
-    .edu-item:hover { box-shadow: 0 4px 12px rgba(15,23,42,.08); }
-    .edu-item h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--brand); }
-    .edu-item a { color: var(--link); text-decoration: none; font-weight: 500; }
-    .edu-item a:hover { text-decoration: underline; }
+    footer a:hover{ text-decoration:underline; }
   </style>
 </head>
 <body>
   <header class="hero">
+    <div class="skyline"></div>
     <h1>Jack Guo</h1>
     <p>Data Analytics Portfolio</p>
-    <div class="skyline"></div>
   </header>
   <div class="container">
     <section class="section">
-      <h2><span class="emoji">👋</span> About Me</h2>
-      <p class="hooks">
-        Hello, My name is Jack, and I'm a first-generation Chinese American. As the eldest child in my family, and the first in my family to pursue any form of higher education. My passion for computer science and mathematics. Combined with my critical thinking and problem-solving skills, gives me the Ability to analyze issues and situations systematically and make sound recommendations. Especially in today fast-pace and changing field of Information Technology, where new innovations are just around the corner.
-      </p>
-      <p class="hooks">
-        I have completed my UC Berkeley Data analytics Bootcamp in December, 2021 and Earned my Certification in Data Analytics. As well as my Caltech AI & Machine learning Bootcamp in December 2023.
-      </p>
-      <p class="hooks">
-        I have studied Project management At Year up! Bay area. As a PM Trainee at Year Up! I practiced and refined my soft and technical skills. By training's in business communications, public speaking and information technology.
-      </p>
-    </section>
-    <section class="section">
-      <h2><span class="emoji">🔧</span> Core Skills <span class="badge"><span class="emoji">🎯</span>Always Improving</span></h2>
-      <p>Python · SQL · Tableau · Power BI · Excel · R · Machine Learning · Statistical Analysis · Data Visualization · ETL · Data Warehousing · Pandas · NumPy · SciPy · Scikit-learn · TensorFlow · Jupyter</p>
-    </section>
-    <section class="section">
-      <h2><span class="emoji">🚀</span> Projects <span class="badge"><span class="emoji">📍</span>San Francisco, CA</span></h2>
-      <div class="searchbar">
-        <input type="search" placeholder="Search projects by keyword..." />
-        <div class="pill"><span>Filter by:</span><input type="text" placeholder="tag" /></div>
-        <button>Clear</button>
+      <h2><span class="emoji">📊</span> Projects</h2>
+      <div class="hooks">
+        <p><span class="icon">→</span>Explore my data analytics and machine learning projects below.</p>
       </div>
       <div class="project-list">
+        
+        <!-- AI Image Recognition -->
         <div class="card">
-          <h3 class="card-title">Customer Segmentation Dashboard</h3>
-          <p class="card-desc">Built an interactive Tableau dashboard to segment customers by demographics and purchasing behavior, enabling targeted marketing strategies.</p>
-          <div class="tags">
-            <span class="tag">Tableau</span> <span class="tag">SQL</span> <span class="tag">Python</span> <span class="tag">Pandas</span>
-          </div>
-          <a href="#">View Project</a>
+          <h3>AI Image Recognition</h3>
+          <p>Machine learning project for image classification and recognition using neural networks.</p>
+          <a href="https://github.com/Jaguo415/AI_Image_Recognization" target="_blank">View Project</a>
         </div>
+
+        <!-- Housing Prediction -->
         <div class="card">
-          <h3 class="card-title">Sales Forecasting Model</h3>
-          <p class="card-desc">Developed a time-series forecasting model using Prophet to predict sales trends, improving accuracy by 18%.</p>
-          <div class="tags">
-            <span class="tag">Python</span> <span class="tag">Prophet</span> <span class="tag">Pandas</span> <span class="tag">Visualization</span>
-          </div>
-          <a href="#">View Project</a>
+          <h3>Housing Prediction</h3>
+          <p>Predictive modeling for housing prices using regression analysis and data visualization.</p>
+          <a href="https://github.com/Jaguo415/Housing_Prediction" target="_blank">View Project</a>
         </div>
+
+        <!-- Lending Club Default Neural Network -->
         <div class="card">
-          <h3 class="card-title">Marketing Campaign Performance Analysis</h3>
-          <p class="card-desc">Analyzed multi-channel marketing campaigns using A/B testing and statistical analysis to optimize ROI and conversion rates.</p>
-          <div class="tags">
-            <span class="tag">R</span> <span class="tag">A/B Testing</span> <span class="tag">Statistics</span> <span class="tag">Google Analytics</span>
-          </div>
-          <a href="#">View Project</a>
+          <h3>Lending Club Default Neural Network</h3>
+          <p>Deep learning model to predict loan defaults using neural networks and financial data.</p>
+          <a href="https://github.com/Jaguo415/Lending-Club-Default-Neural-net" target="_blank">View Project</a>
         </div>
+
+        <!-- Final Project -->
         <div class="card">
-          <h3 class="card-title">ETL Pipeline for Data Warehouse</h3>
-          <p class="card-desc">Designed and implemented an automated ETL pipeline to aggregate data from multiple sources into a centralized warehouse.</p>
-          <div class="tags">
-            <span class="tag">Python</span> <span class="tag">Airflow</span> <span class="tag">SQL</span> <span class="tag">AWS</span>
-          </div>
-          <a href="#">View Project</a>
+          <h3>Final Project</h3>
+          <p>Comprehensive data analytics final project demonstrating end-to-end analysis workflow.</p>
+          <a href="https://github.com/Jaguo415/Final_Project" target="_blank">View Project</a>
         </div>
+
+        <!-- Cryptocurrencies -->
+        <div class="card">
+          <h3>Cryptocurrencies</h3>
+          <p>Analysis and clustering of cryptocurrency data using unsupervised machine learning.</p>
+          <a href="https://github.com/Jaguo415/Cryptocurrencies" target="_blank">View Project</a>
+        </div>
+
+        <!-- Credit Risk Analysis -->
+        <div class="card">
+          <h3>Credit Risk Analysis</h3>
+          <p>Machine learning models for credit risk assessment and loan evaluation.</p>
+          <a href="https://github.com/Jaguo415/Credit_Risk_Analysis" target="_blank">View Project</a>
+        </div>
+
+        <!-- Bikesharing Analysis -->
+        <div class="card">
+          <h3>Bikesharing Analysis</h3>
+          <p>Data visualization and analysis of bike-sharing patterns using Tableau.</p>
+          <a href="https://github.com/Jaguo415/Module-14-bikesharing" target="_blank">View Project</a>
+        </div>
+
+        <!-- World Weather Analysis -->
+        <div class="card">
+          <h3>World Weather Analysis</h3>
+          <p>Global weather data analysis with API integration and visualization.</p>
+          <a href="https://github.com/Jaguo415/World_Weather_Analysis" target="_blank">View Project</a>
+        </div>
+
+        <!-- PyBer Analysis -->
+        <div class="card">
+          <h3>PyBer Analysis</h3>
+          <p>Ride-sharing data analysis with Python, Pandas, and Matplotlib visualizations.</p>
+          <a href="https://github.com/Jaguo415/PyBer_Analysis" target="_blank">View Project</a>
+        </div>
+
+        <!-- School District Analysis -->
+        <div class="card">
+          <h3>School District Analysis</h3>
+          <p>Educational data analysis examining school performance and student metrics.</p>
+          <a href="https://github.com/Jaguo415/School_District_Analysis" target="_blank">View Project</a>
+        </div>
+
+        <!-- Election Analysis -->
+        <div class="card">
+          <h3>Election Analysis</h3>
+          <p>Python-based analysis of election data with automated reporting.</p>
+          <a href="https://github.com/Jaguo415/Election_Analysis" target="_blank">View Project</a>
+        </div>
+
+        <!-- Stock Analysis -->
+        <div class="card">
+          <h3>Stock Analysis</h3>
+          <p>VBA-based stock market analysis tool for financial data processing.</p>
+          <a href="https://github.com/Jaguo415/Stock-Analysis" target="_blank">View Project</a>
+        </div>
+
+        <!-- Coding Demo -->
+        <div class="card">
+          <h3>Coding Demo</h3>
+          <p>Collection of coding demonstrations and programming examples.</p>
+          <a href="https://github.com/Jaguo415/Coding-Demo" target="_blank">View Project</a>
+        </div>
+
       </div>
     </section>
 
-    <section class="section">
-      <h2><span class="emoji">🎓</span> Education</h2>
-      <div class="edu-list">
-        <div class="edu-item">
-          <h3>📄 High School Diploma</h3>
-          <a href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf" target="_blank">View Diploma →</a>
-        </div>
-        <div class="edu-item">
-          <h3>🎓 UC Berkeley Data Analytics Certification</h3>
-          <p>Completed: December 2021</p>
-          <a href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF" target="_blank">View Certificate →</a>
-        </div>
-        <div class="edu-item">
-          <h3>🤖 Caltech AI & Machine Learning Certification</h3>
-          <p>Completed: December 2023</p>
-          <a href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf" target="_blank">View Certificate →</a>
-        </div>
-      </div>
-    </section>
-
+    <footer>
+      <p>© 2025 Jack Guo | <a href="https://github.com/Jaguo415" target="_blank">GitHub</a></p>
+    </footer>
   </div>
-  <footer>
-    <p>© 2025 Jack Guo. Built with care in <em class="emoji">🌉</em> San Francisco.</p>
-    <p><a href="https://github.com/Jaguo415" target="_blank">GitHub</a> · <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
-  </footer>
 </body>
 </html>
