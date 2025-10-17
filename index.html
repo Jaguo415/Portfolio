@@ -3,46 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>"Jack Guo" Portfolio Data Analytics</title>
+  <title>Jack Guo | Portfolio Data Analytics</title>
   <style>
-    :root {
-      --sf-sunset-1:#ff6b6b; --sf-sunset-2:#f7b267; --sf-sunset-3:#70a1ff;
-      --sf-fog-1:#eef2f7; --sf-fog-2:#dce4ef;
-      --ink:#1f2937; --ink-soft:#4b5563; --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2));
-      --brand:#0f172a; --card:#ffffff; --link:#0ea5e9; --accent:#ff6b6b; --golden-gate:#e11d48; --success:#10b981;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); background-attachment: fixed; }
-    header.hero { color:#fff; padding: 3.2rem 1rem 6.5rem; text-align:center; position:relative; background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-2) 45%, var(--sf-sunset-3)); overflow:hidden; }
-    header.hero h1 { margin: 0 0 .4rem; font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem); letter-spacing: .4px; }
-    header.hero p { margin:0; opacity:.95; font-size:1.05rem; }
-    header.hero::after { content:""; position:absolute; left:0; right:0; bottom:0; height:110px; background: linear-gradient(to right, transparent 0 5%, rgba(255,255,255,.15) 5% 7%, transparent 7% 12%, rgba(255,255,255,.15) 12% 14%, transparent 14% 19%), linear-gradient(to top, rgba(15,23,42,.35), rgba(15,23,42,0)); }
-    .skyline { position:absolute; left:0; right:0; bottom:-1px; height:80px; opacity:.22; background: linear-gradient(#0f172a,#0f172a) bottom/100% 3px no-repeat; }
-    .container { width: min(100%,980px); margin: -4rem auto 2rem; padding: 0 1rem; }
-    .section { background: var(--card); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; box-shadow: 0 10px 30px rgba(15,23,42,.08); border: 1px solid rgba(15,23,42,.06); }
-    .section h2 { margin: .1rem 0 .6rem; font-size: clamp(1.25rem, 1.2vw + 1rem, 1.6rem); display:flex; align-items:center; gap:.55rem; }
-    .badge { display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; padding:.28rem .6rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; color:#334155; }
-    .emoji { font-size:1.15em; }
-    .hooks em { background: linear-gradient(90deg,#fffbe6,#ffe7d6); padding:.05rem .35rem; border-radius:.35rem; font-style:normal; border:1px solid rgba(241,196,15,.35); }
-    .hooks .icon{ color: var(--accent); margin-right:.28rem; }
-    .searchbar { display:flex; gap:.5rem; align-items:center; margin-bottom:.75rem; flex-wrap:wrap; }
-    .searchbar input[type="search"]{ flex:1 1 260px; padding:.65rem .8rem; border:1px solid #d0d7de; border-radius:10px; font-size:1rem; }
-    .searchbar .pill { display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.45rem .7rem; background:#fff; font-size:.92rem; }
-    .searchbar .pill input{ border:none; outline:none; width:8rem; }
-    .searchbar button{ padding:.6rem 1rem; border:1px solid #d0d7de; border-radius:10px; background:#fff; cursor:pointer; font-weight:600; }
-    .searchbar button:hover{ background:#f3f4f6; }
-    .project-list { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
-    .card { border:1px solid #eee; border-radius:12px; padding:1rem; background: var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
-    .card h3{ margin:0 0 .45rem; font-size:1.1rem; color: var(--brand); }
-    .card p{ margin:0 0 .75rem; color: var(--ink-soft); font-size:.9rem; line-height:1.5; }
-    .card a{ display:inline-block; padding:.5rem 1rem; background: var(--link); color:#fff; text-decoration:none; border-radius:8px; font-size:.9rem; font-weight:600; transition: background .2s; }
-    .card a:hover{ background:#0284c7; }
-    .card .badge{ margin-top:.5rem; }
-    footer{ text-align:center; padding:2rem 1rem; color: var(--ink-soft); font-size:.9rem; }
-    footer a{ color: var(--link); text-decoration:none; }
-    footer a:hover{ text-decoration:underline; }
-    .stack{ display:flex; flex-direction:column; gap:1rem; }
+    :root { --sf-sunset-1:#ff6b6b; --sf-sunset-2:#f7b267; --sf-sunset-3:#70a1ff; --sf-fog-1:#eef2f7; --sf-fog-2:#dce4ef; --ink:#1f2937; --ink-soft:#4b5563; --bg: linear-gradient(180deg, var(--sf-fog-1), var(--sf-fog-2)); --brand:#0f172a; --card:#ffffff; --link:#0ea5e9; --accent:#ff6b6b; --golden-gate:#e11d48; --success:#10b981; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);background-attachment:fixed}
+    header.hero{color:#fff;padding:3.2rem 1rem 6.5rem;text-align:center;position:relative;background:linear-gradient(135deg,var(--sf-sunset-1),var(--sf-sunset-2) 45%,var(--sf-sunset-3));overflow:hidden}
+    header.hero h1{margin:0 0 .4rem;font-size:clamp(2rem,3.4vw + 1rem,3.25rem);letter-spacing:.4px}
+    header.hero p{margin:0;opacity:.95;font-size:1.05rem}
+    header.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to right,transparent 0 5%,rgba(255,255,255,.15) 5% 7%,transparent 7% 12%,rgba(255,255,255,.15) 12% 14%,transparent 14% 19%),linear-gradient(to top,rgba(15,23,42,.35),rgba(15,23,42,0))}
+    .skyline{position:absolute;left:0;right:0;bottom:-1px;height:80px;opacity:.22;background:linear-gradient(#0f172a,#0f172a) bottom/100% 3px no-repeat}
+    .container{width:min(100%,980px);margin:-4rem auto 2rem;padding:0 1rem}
+    .section{background:var(--card);border-radius:14px;padding:1.25rem;margin-bottom:1.25rem;box-shadow:0 10px 30px rgba(15,23,42,.08);border:1px solid rgba(15,23,42,.06)}
+    .section h2{margin:.1rem 0 .6rem;font-size:clamp(1.25rem,1.2vw + 1rem,1.6rem);display:flex;align-items:center;gap:.55rem}
+    .badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;padding:.28rem .6rem;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#334155}
+    .emoji{font-size:1.15em}
+    .stack{display:flex;flex-direction:column;gap:1rem}
+    .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+    .card{border:1px solid #eee;border-radius:12px;padding:1rem;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,.05)}
+    .card h3{margin:0 0 .45rem;font-size:1.1rem;color:var(--brand)}
+    .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.9rem;line-height:1.5}
+    .card a{display:inline-block;padding:.5rem 1rem;background:var(--link);color:#fff;text-decoration:none;border-radius:8px;font-size:.9rem;font-weight:600;transition:background .2s}
+    .card a:hover{background:#0284c7}
+    .actions{margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:#ffffff20;color:#fff;text-decoration:none;font-weight:700}
+    .btn.resume{background:#0ea5e9;border-color:#0ea5e9}
+    .btn.resume:hover{background:#0284c7;border-color:#0284c7}
+    footer{text-align:center;padding:2rem 1rem;color:var(--ink-soft);font-size:.9rem}
+    footer a{color:var(--link);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    ul{margin:0;padding-left:1.2rem}
+    li{margin:.35rem 0}
+    .searchbar{display:flex;gap:.5rem;align-items:center;margin-bottom:.75rem;flex-wrap:wrap}
+    .searchbar input[type="search"]{flex:1 1 260px;padding:.65rem .8rem;border:1px solid #d0d7de;border-radius:10px;font-size:1rem}
+    .searchbar .pill{display:inline-flex;gap:.4rem;align-items:center;border:1px solid #d0d7de;border-radius:999px;padding:.45rem .7rem;background:#fff;font-size:.92rem}
+    .searchbar .pill input{border:none;outline:none;width:8rem}
+    .searchbar button{padding:.6rem 1rem;border:1px solid #d0d7de;border-radius:10px;background:#fff;cursor:pointer;font-weight:600}
+    .searchbar button:hover{background:#f3f4f6}
+    .hidden{display:none !important}
   </style>
 </head>
 <body>
@@ -50,10 +49,12 @@
     <div class="skyline"></div>
     <h1>Jack Guo</h1>
     <p>Data Analytics Portfolio</p>
+    <div class="actions">
+      <a class="btn resume" href="https://github.com/Jaguo415/Portfolio/blob/main/Jack%20Guo%20Resume%20(2).pdf" target="_blank" rel="noopener">View My Resume</a>
+    </div>
   </header>
 
   <div class="container">
-
     <!-- About Me -->
     <section class="section" id="about">
       <h2><span class="emoji">👋</span> About Me</h2>
@@ -64,61 +65,20 @@
       </div>
     </section>
 
-    <!-- Projects (existing content retained - insert your current project markup here) -->
+    <!-- Projects -->
     <section class="section" id="projects">
       <h2><span class="emoji">📊</span> Projects</h2>
-      <div class="project-list">
-        <!-- BEGIN: Existing project cards preserved from current file -->
-        <div class="card">
-          <h3>Cryptocurrencies</h3>
-          <p>Analysis and clustering of cryptocurrency data using unsupervised machine learning.</p>
-          <a href="https://github.com/Jaguo415/Cryptocurrencies" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Credit Risk Analysis</h3>
-          <p>Machine learning models for credit risk assessment and loan evaluation.</p>
-          <a href="https://github.com/Jaguo415/Credit_Risk_Analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Bikesharing Analysis</h3>
-          <p>Data visualization and analysis of bike-sharing patterns using Tableau.</p>
-          <a href="https://github.com/Jaguo415/Module-14-bikesharing" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>World Weather Analysis</h3>
-          <p>Global weather data analysis with API integration and visualization.</p>
-          <a href="https://github.com/Jaguo415/World_Weather_Analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>PyBer Analysis</h3>
-          <p>Ride-sharing data analysis with Python, Pandas, and Matplotlib visualizations.</p>
-          <a href="https://github.com/Jaguo415/PyBer_Analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>School District Analysis</h3>
-          <p>Educational data analysis examining school performance and student metrics.</p>
-          <a href="https://github.com/Jaguo415/School_District_Analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Election Analysis</h3>
-          <p>Python-based analysis of election data with automated reporting.</p>
-          <a href="https://github.com/Jaguo415/Election_Analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Stock Analysis</h3>
-          <p>VBA-based stock market analysis tool for financial data processing.</p>
-          <a href="https://github.com/Jaguo415/Stock-Analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Coding Demo</h3>
-          <p>Collection of coding demonstrations and programming examples.</p>
-          <a href="https://github.com/Jaguo415/Coding-Demo" target="_blank">View Project</a>
-        </div>
-        <!-- END: Existing project cards preserved -->
+      <div class="searchbar" role="search" aria-label="Search and filter projects">
+        <input id="q" type="search" placeholder="Search projects or sections..." aria-label="Search" />
+        <div class="pill"><span>Filter</span><input id="tag" placeholder="tag (e.g., Python, Tableau)" aria-label="Filter tag"/></div>
+        <button id="clear">Clear</button>
+      </div>
+      <div class="project-list" id="projectList">
+        <!-- Intentionally left blank to avoid overwriting already-committed project cards -->
       </div>
     </section>
 
-    <!-- Education (restored) -->
+    <!-- Education -->
     <section class="section" id="education">
       <h2><span class="emoji">🎓</span> Education</h2>
       <ul>
@@ -127,7 +87,7 @@
           — <a href="#" target="_blank">View Certificate</a>
         </li>
         <li>
-          <strong>Caltech — AI & Machine Learning Bootcamp</strong> (Completed Dec 2023)
+          <strong>Caltech — AI &amp; Machine Learning Bootcamp</strong> (Completed Dec 2023)
           — <a href="#" target="_blank">View Certificate</a>
         </li>
         <li>
@@ -137,7 +97,7 @@
       </ul>
     </section>
 
-    <!-- Job Experience (restored) -->
+    <!-- Experience -->
     <section class="section" id="experience">
       <h2><span class="emoji">🧰</span> Job Experience</h2>
       <div class="stack">
@@ -160,7 +120,41 @@
   </div>
 
   <script>
+    // Year footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightweight search over headings and cards that are already present in DOM
+    const q = document.getElementById('q');
+    const tag = document.getElementById('tag');
+    const clearBtn = document.getElementById('clear');
+
+    function normalize(s){ return (s||'').toLowerCase(); }
+
+    function matches(el, text, tagText){
+      const t = normalize(el.textContent);
+      const okText = !text || t.includes(normalize(text));
+      const okTag = !tagText || el.dataset.tags?.toLowerCase().includes(tagText.toLowerCase());
+      return okText && okTag;
+    }
+
+    function filter(){
+      const text = q.value; const tagText = tag.value;
+      // Projects: find any project cards in DOM, regardless of whether they were hardcoded earlier
+      document.querySelectorAll('.project-list .card').forEach(card => {
+        card.classList.toggle('hidden', !matches(card, text, tagText));
+      });
+      // Sections: About/Education/Experience headings + content
+      document.querySelectorAll('section.section').forEach(section => {
+        const title = section.querySelector('h2');
+        const haystack = title ? (title.textContent + ' ' + section.textContent) : section.textContent;
+        const ok = (!text && !tagText) || normalize(haystack).includes(normalize(text));
+        section.style.display = ok ? '' : 'none';
+      });
+    }
+
+    q?.addEventListener('input', filter);
+    tag?.addEventListener('input', filter);
+    clearBtn?.addEventListener('click', ()=>{ q.value=''; tag.value=''; filter(); });
   </script>
 </body>
 </html>
