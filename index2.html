@@ -39,25 +39,22 @@
       <div class="searchbar">
         <input id="search" type="text" placeholder="Search by name, description, or tag..." />
       </div>
-      <div id="tags" class="filters"></div>
+      <div class="filters" id="tags"></div>
     </div>
   </header>
-
   <main class="container">
-    <div id="grid" class="grid"></div>
+    <div class="grid" id="grid"></div>
   </main>
-
   <script>
-    // We will fetch real repositories live to avoid placeholders. Exclude 'Kickstarter-Analysis'.
+    // Fetch 15 most recently updated repositories, excluding 'Portfolio'
     const repos = [];
-
     async function loadRepos() {
       try {
         const res = await fetch('https://api.github.com/users/Jaguo415/repos?per_page=100');
         const data = await res.json();
         const filtered = data
-          .filter(r => r.name !== 'Kickstarter-Analysis')
-          .sort((a,b) => new Date(a.created_at) - new Date(b.created_at))
+          .filter(r => r.name !== 'Portfolio')
+          .sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at))
           .slice(0, 15)
           .map(r => ({
             name: r.name,
@@ -70,7 +67,6 @@
         render();
       } catch (e) { console.error(e); }
     }
-
     function uniqueTags(items) {
       const set = new Set();
       items.forEach(i => {
@@ -79,7 +75,6 @@
       });
       return Array.from(set).sort((a,b)=>a.localeCompare(b));
     }
-
     function renderTags(items) {
       const tagWrap = document.getElementById('tags');
       tagWrap.innerHTML = '';
@@ -96,18 +91,15 @@
         tagWrap.appendChild(btn);
       });
     }
-
     function activeTags() {
       return Array.from(document.querySelectorAll('.tag.active')).map(b => b.dataset.tag);
     }
-
     function matchesFilters(item, q, tags) {
       const hay = (item.name + ' ' + (item.desc||'') + ' ' + (item.topics||[]).join(' ') + ' ' + (item.lang||'')).toLowerCase();
       const qok = !q || hay.includes(q);
       const tok = !tags.length || tags.every(t => hay.includes(t));
       return qok && tok;
     }
-
     function card(item) {
       const el = document.createElement('a');
       el.className = 'card';
@@ -124,7 +116,6 @@
       `;
       return el;
     }
-
     function render() {
       const q = document.getElementById('search').value.trim().toLowerCase();
       const tags = activeTags();
@@ -134,9 +125,7 @@
       items.forEach(i => grid.appendChild(card(i)));
       if (!document.querySelector('.tag')) renderTags(repos);
     }
-
     document.getElementById('search').addEventListener('input', render);
-
     // Initialize
     loadRepos();
   </script>
