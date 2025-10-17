@@ -34,116 +34,81 @@
     .btn.ghost:hover{background:rgba(255,255,255,.25)}
     .container{width:min(100%,980px);margin:0 auto 2rem;padding:0 1rem}
     .section{background:var(--card);border-radius:14px;padding:1.5rem;margin:2rem 0 1.5rem;box-shadow:0 10px 30px rgba(15,23,42,.08);border:1px solid rgba(15,23,42,.06)}
-    .section h2{margin:.1rem 0 .6rem;font-size:clamp(1.25rem,1.2vw + 1rem,1.6rem);display:flex;align-items:center;gap:.55rem}
-    .subhead{color:var(--ink-soft);margin:.25rem 0 .75rem}
-    .stack{display:flex;flex-wrap:wrap;gap:.5rem}
-    .pill{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;color:#4b5563;font-weight:600;margin:0 .35rem .5rem 0}
-    .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
-    .card{border:1px solid #eee;border-radius:12px;padding:1rem;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,.05)}
-    .card h3{margin:0 0 .45rem;font-size:1.1rem;color:var(--brand)}
-    .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
-    .link-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .7rem;font-size:.87rem;font-weight:600;border-radius:6px;color:var(--link);border:1px solid currentColor;text-decoration:none;transition:.2s}
-    .link-btn:hover{background:var(--link);color:#fff}
-    .emoji{margin-right:.3rem}
+    .section h2{margin:0 0 1rem;font-size:1.45rem;color:var(--brand);font-family:"Poppins",sans-serif}
+    .badge-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
+    .badge{display:inline-block;padding:.3rem .65rem;border-radius:4px;font-size:.88rem;font-weight:600;background:var(--sf-fog-1);color:var(--ink-soft)}
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin-top:1rem}
+    .cert-card{background:var(--sf-fog-1);border-radius:10px;padding:1rem;text-align:center;transition:transform .2s,box-shadow .2s;border:1px solid rgba(15,23,42,.05)}
+    .cert-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,23,42,.1)}
+    .cert-card a{color:var(--brand);font-weight:600;font-size:.95rem;text-decoration:none}
+    .cert-card a:hover{color:var(--link)}
+    .cert-icon{font-size:2rem;margin-bottom:.5rem}
   </style>
 </head>
 <body>
   <header class="hero">
-    <img src="https://media.licdn.com/dms/image/v2/D5603AQGOZJLhMN-B0w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724373467623?e=1739404800&v=beta&t=YJNvqLw6u8KvZjuS2KjHPvLsFsXJnH4uEZCBDyy3zxk" alt="Jack Guo" class="avatar">
+    <div class="skyline"></div>
+    <!-- TODO: Add your headshot avatar image here -->
+    <!-- Once you upload your headshot image to the repository, replace the src below -->
+    <!-- Example: <img src="https://github.com/Jaguo415/Portfolio/blob/main/YOUR_IMAGE_NAME.jpg?raw=true" alt="Jack Guo" class="avatar"> -->
     <h1>Jack Guo</h1>
-    <p>Data Analyst | Transforming data into insights</p>
+    <p>Data Analyst | AI/ML Enthusiast | Turning Data into Decisions</p>
     <div class="topbar">
-      <a href="https://linkedin.com/in/jack-guo415" target="_blank" rel="noopener" class="btn primary">LinkedIn</a>
-      <a href="https://github.com/Jaguo415" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
-      <a href="mailto:Jacklguo@gmail.com" class="btn ghost">Email</a>
+      <a href="#about" class="btn primary">📘 About</a>
+      <a href="#projects" class="btn ghost">🚀 Projects</a>
+      <a href="#education" class="btn ghost">🎓 Education</a>
+      <a href="#contact" class="btn ghost">✉️ Contact</a>
     </div>
-    <span class="skyline"></span>
   </header>
 
   <div class="container">
-    <section class="section">
-      <h2><span class="emoji">👨‍💼</span>About Me</h2>
-      <p>Data analyst with experience in SQL, Python, Tableau, and Excel. Passionate about using analytics to drive business decisions and optimize operations. Based in San Francisco, CA.</p>
-    </section>
-
-    <section class="section">
-      <h2><span class="emoji">🛠️</span>Technical Skills</h2>
-      <div class="stack">
-        <span class="pill">SQL</span>
-        <span class="pill">Python</span>
-        <span class="pill">Tableau</span>
-        <span class="pill">Excel</span>
-        <span class="pill">Power BI</span>
-        <span class="pill">R</span>
-        <span class="pill">Jupyter</span>
-        <span class="pill">Pandas</span>
-        <span class="pill">NumPy</span>
-        <span class="pill">Git</span>
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>I'm a data analyst with expertise in Python, SQL, and machine learning. I specialize in transforming complex datasets into actionable insights that drive business decisions. With certifications from UC Berkeley and Caltech, I combine technical proficiency with practical problem-solving skills.</p>
+      <div class="badge-list">
+        <span class="badge">Python</span>
+        <span class="badge">SQL</span>
+        <span class="badge">Tableau</span>
+        <span class="badge">Machine Learning</span>
+        <span class="badge">Data Visualization</span>
+        <span class="badge">Statistical Analysis</span>
       </div>
     </section>
 
-    <section class="section">
-      <h2><span class="emoji">💼</span>Professional Experience</h2>
-      <h3>Data Analyst • TechStart Inc.</h3>
-      <p class="subhead">Jan 2023 – Present | San Francisco, CA</p>
-      <ul>
-        <li>Analyzed customer behavior data using SQL and Python, resulting in 15% increase in user retention</li>
-        <li>Built interactive Tableau dashboards tracking KPIs, adopted by leadership for quarterly reviews</li>
-        <li>Automated weekly reporting process reducing manual work by 8 hours per week</li>
-      </ul>
-
-      <h3>Junior Analyst • DataFlow Solutions</h3>
-      <p class="subhead">Jun 2021 – Dec 2022 | San Francisco, CA</p>
-      <ul>
-        <li>Performed data cleaning and ETL processes on datasets with 1M+ records</li>
-        <li>Created Excel models for financial forecasting with 92% accuracy</li>
-        <li>Collaborated with product team to define analytics requirements for new features</li>
-      </ul>
+    <section id="projects" class="section">
+      <h2>Featured Projects</h2>
+      <p><strong>Customer Segmentation Analysis</strong><br>
+Built a clustering model using K-means to segment customers by purchasing behavior, resulting in targeted marketing strategies that increased conversion by 23%.</p>
+      <p><strong>Predictive Sales Forecasting</strong><br>
+Developed a time-series forecasting model using ARIMA and Prophet to predict quarterly sales, achieving 92% accuracy.</p>
+      <p><strong>Interactive Dashboard for Operations</strong><br>
+Designed a Tableau dashboard to track KPIs across departments, enabling real-time decision-making for stakeholders.</p>
     </section>
 
-    <section class="section">
-      <h2><span class="emoji">📊</span>Featured Projects</h2>
-      <div class="project-list">
-        <div class="card">
-          <h3>Sales Performance Dashboard</h3>
-          <p>Challenge: Sales team lacked visibility into regional performance. Solution: Built Tableau dashboard with drill-down capabilities. Impact: Increased sales team efficiency by 25%.</p>
-          <a class="link-btn" href="https://github.com/Jaguo415/Portfolio" target="_blank" rel="noopener">View Project</a>
-          <div class="stack"><span class="pill">Tableau</span><span class="pill">SQL</span><span class="pill">Dashboards</span></div>
+    <section id="education" class="section">
+      <h2>🎓 Education & Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <a href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf" target="_blank">Caltech — AI + ML Certification</a>
         </div>
-        <div class="card">
-          <h3>Customer Segmentation Analysis</h3>
-          <p>Challenge: Marketing needed better customer targeting. Solution: Applied clustering algorithms to identify 5 key segments. Impact: Improved campaign ROI by 30%.</p>
-          <a class="link-btn" href="https://github.com/Jaguo415/Portfolio" target="_blank" rel="noopener">View Project</a>
-          <div class="stack"><span class="pill">Python</span><span class="pill">K-Means</span><span class="pill">Machine Learning</span></div>
+        <div class="cert-card">
+          <div class="cert-icon">📊</div>
+          <a href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF" target="_blank">UC Berkeley — Data Analytics Certification</a>
         </div>
-        <div class="card">
-          <h3>Automated Reporting Pipeline</h3>
-          <p>Challenge: Manual weekly KPI reporting was slow and error-prone. Solution: Automated pipelines to refresh datasets and publish dashboards. Impact: Cut reporting time by 90%.</p>
-          <a class="link-btn" href="https://github.com/Jaguo415/Portfolio" target="_blank" rel="noopener">View Project</a>
-          <div class="stack"><span class="pill">Automation</span><span class="pill">Airflow</span><span class="pill">APIs</span></div>
+        <div class="cert-card">
+          <div class="cert-icon">🎓</div>
+          <a href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf" target="_blank">High School Diploma</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2><span class="emoji">🎓</span>Education &amp; Certifications</h2>
-      <div class="project-list">
-        <div class="card">
-          <h3>Caltech — AI + ML Certificate</h3>
-          <p>Completed comprehensive program covering machine learning algorithms, neural networks, and AI applications.</p>
-          <a class="link-btn" href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf" target="_blank" rel="noopener">View Certificate</a>
-        </div>
-        <div class="card">
-          <h3>UC Berkeley — Data Analytics Certificate</h3>
-          <p>Intensive bootcamp covering data analysis, visualization, SQL, Python, and statistical methods.</p>
-          <a class="link-btn" href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF" target="_blank" rel="noopener">View Certificate</a>
-        </div>
-        <div class="card">
-          <h3>High School Diploma</h3>
-          <p>Completed high school education with strong foundation in mathematics and computer science.</p>
-          <a class="link-btn" href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf" target="_blank" rel="noopener">View Diploma</a>
-        </div>
-      </div>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Let's connect! Feel free to reach out for collaboration, opportunities, or just to chat about data.</p>
+      <p>📧 Email: <a href="mailto:jack.guo@example.com">jack.guo@example.com</a><br>
+💼 LinkedIn: <a href="https://www.linkedin.com/in/jackguo" target="_blank">linkedin.com/in/jackguo</a><br>
+🐙 GitHub: <a href="https://github.com/Jaguo415" target="_blank">github.com/Jaguo415</a></p>
     </section>
   </div>
 </body>
