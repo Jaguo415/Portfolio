@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jack Guo's— Portfolio</title>
+  <title>"Jack Guo" Portfolio Data Analytics</title>
   <style>
     :root {
       --sf-sunset-1:#ff6b6b; --sf-sunset-2:#f7b267; --sf-sunset-3:#70a1ff;
@@ -34,94 +34,51 @@
     .searchbar button:hover{ background:#f3f4f6; }
     .project-list{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
     .card{ border:1px solid #eee; border-radius:12px; padding:1rem; background:var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
-    .card-title{ font-weight:750; font-size:1.08rem; margin-bottom:.25rem; }
-    .card-desc{ font-size:.98rem; margin:.2rem 0 .55rem; color:var(--ink-soft); }
-    .tags{ display:flex; gap:.35rem; flex-wrap:wrap; }
-    .tag{ font-size:.78rem; background:#eef2ff; color:#334; padding:.25rem .55rem; border-radius:999px; border:1px solid #dbe4ff; }
-    a{ color:var(--link); text-decoration:none; }
-    a.button, button.cta{ display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1.05rem; border-radius:12px; border:1px solid rgba(15,23,42,.08); background:linear-gradient(135deg,var(--sf-sunset-1),var(--sf-sunset-3)); color:#fff; font-weight:800; letter-spacing:.2px; box-shadow:0 10px 18px rgba(15,23,42,.10); }
-    a.button:hover, button.cta:hover{ transform:translateY(-1px); box-shadow:0 12px 22px rgba(15,23,42,.14); }
-    footer{ margin-top:2rem; background:var(--brand); color:#fff; text-align:center; padding:1rem 0; }
-    .muted{ color:#6b7280; font-size:.92rem; }
-    .hidden{ display:none !important; }
-    .cover{ position:relative; overflow:hidden; background: radial-gradient(1200px 400px at -10% -20%, rgba(255,255,255,.55), transparent 60%), linear-gradient(135deg, rgba(255,107,107,.1), rgba(112,161,255,.08)); }
-    .cover .headline{ font-weight:900; font-size: clamp(1.25rem, 1.4vw + 1rem, 1.7rem); color:#0f172a; }
-    .cover .intro{ font-size:1.02rem; color:#374151; }
-    .cover .sig{ margin-top:1rem; font-weight:700; }
-    .resume-callout{ border-left:6px solid var(--golden-gate); background:linear-gradient(90deg, rgba(225,29,72,.06), rgba(14,165,233,.06)); padding:1rem; border-radius:12px; }
-    .resume-cta-wrap{ display:flex; gap:.8rem; flex-wrap:wrap; align-items:center; }
+    .card:hover{ box-shadow:0 8px 24px rgba(15,23,42,.12); }
+    .card-title{ font-size:1.1rem; font-weight:600; margin:0 0 .5rem; color:var(--brand); }
+    .card-desc{ font-size:.9rem; color:var(--ink-soft); margin-bottom:.75rem; line-height:1.5; }
+    .tags{ display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:.75rem; }
+    .tag{ font-size:.7rem; padding:.2rem .5rem; border-radius:999px; background:var(--sf-fog-2); color:var(--ink-soft); border:1px solid #dce4ef; }
+    .card a{ display:inline-block; padding:.5rem .75rem; background:linear-gradient(135deg,var(--link),#06b6d4); color:#fff; text-decoration:none; border-radius:8px; font-size:.85rem; font-weight:600; transition:transform .2s, box-shadow .2s; }
+    .card a:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(14,165,233,.3); }
+    footer{ text-align:center; padding:2rem 1rem 3rem; color:var(--ink-soft); font-size:.9rem; }
+    footer a{ color:var(--link); text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
+    @media(max-width:768px){ header.hero{ padding:2rem 1rem 5rem; } .container{ margin:-3rem auto 1.5rem; } }
   </style>
 </head>
 <body>
   <header class="hero">
-    <h1>Jaguo415 — Portfolio</h1>
-    <p>Showcasing projects across AI, data, and crypto — built in the Bay.</p>
-    <div class="skyline" aria-hidden="true"></div>
+    <h1>"Jack Guo" Portfolio Data Analytics</h1>
+    <p>Data Analytics & Insights | Building tools and projects that matter</p>
+    <div class="skyline"></div>
   </header>
-  <main class="container">
-    <section class="section header-pop">
-      <h2><span class="emoji">🧭</span> About Me</h2>
-      <p>Passionate developer focused on machine learning, data science, and cryptocurrency projects. I thrive on <span class="hooks"><span class="icon">⚡</span><em>innovation</em></span>, <span class="hooks"><span class="icon">🤝</span><em>collaboration</em></span>, and pragmatic <span class="hooks"><span class="icon">📈</span><em>growth</em></span>.</p>
-    </section>
 
-    <section class="section" id="resume">
-      <h2><span class="emoji">📄</span> Ready to Review: Resume</h2>
-      <div class="resume-callout">
-        <p class="muted">Recruiters: Get the full story in one click. Highlights include production ML, end‑to‑end analytics, and crypto tooling.</p>
-        <div class="resume-cta-wrap">
-          <a class="button" href="Jack-Guo-Resume-2.pdf" download target="_blank" rel="noopener">Download Resume ⬇️</a>
-          <a class="button" href="Jack-Guo-Resume-2.pdf" target="_blank" rel="noopener">Open in Browser 🔎</a>
-          <span class="badge">Bridge‑red priority</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cover" id="cover-letter">
-      <h2><span class="emoji">💼</span> Cover Letter</h2>
-      <p class="headline">To the Recruiters building the next great thing in San Francisco,</p>
-      <p class="intro">I'm Jack Guo—a builder who thrives where <span class="hooks"><span class="icon">⚡</span><em>innovation</em></span> meets execution. From shipping applied ML systems to analyzing growth signals and experimenting with crypto infrastructure, I adapt fast, communicate clearly, and love the momentum of Bay Area teams. I’m actively exploring new roles where I can contribute to meaningful products and help teams scale with <span class="hooks"><span class="icon">🤝</span><em>collaboration</em></span>, curiosity, and measurable <span class="hooks"><span class="icon">📈</span><em>impact</em></span>.</p>
-      <ul>
-        <li>Practical ML: models for computer vision and risk classification; focus on reliability, data quality, and observability.</li>
-        <li>Analytics to action: end-to-end analyses that informed product decisions and unlocked <span class="hooks"><span class="icon">🚀</span><em>growth</em></span>.</li>
-        <li>Crypto/tooling: built hands-on prototypes and scripts that made complex workflows simpler for engineers.</li>
-        <li>Team mindset: bias for shipping, empathy for users, and strong documentation for <span class="hooks"><span class="icon">🧩</span><em>collaboration</em></span>.</li>
-      </ul>
-      <p>If you’re hiring in SF—or remote with SF hours—I’d love to chat about how I can help your team build faster and smarter. Let’s connect.</p>
-      <p class="sig">— Jack Guo</p>
-      <div class="resume-cta-wrap" style="margin-top:.6rem;">
-        <a class="button" href="#resume">See Resume ⬇️</a>
-        <a class="button" href="#contact">Contact Me ✉️</a>
-      </div>
+  <div class="container">
+    <section class="section hooks">
+      <h2><span class="emoji">🚀</span> Welcome!</h2>
+      <p>Explore my projects below or <em>search by tags</em> to find exactly what you're looking for.</p>
     </section>
 
     <section class="section">
-      <div aria-label="Filter projects" class="searchbar" role="search">
-        <input aria-label="Search projects" id="q" placeholder="Search projects by keyword or skill (e.g., Python, CNN, cryptocurrency)" type="search"/>
-        <span aria-label="Skill filter" class="pill">skill: <input aria-label="Skill" id="skill" placeholder="Any" type="text"/></span>
-        <button id="clearBtn" title="Clear filters" type="button">Clear</button>
-        <span aria-live="polite" class="muted" id="resultCount"></span>
+      <h2><span class="emoji">🔍</span> Find Projects <span class="badge"><span class="emoji">⚡</span>Live Search</span></h2>
+      <div class="searchbar">
+        <input type="search" id="searchInput" placeholder="Search projects by name or keyword..." />
+        <div class="pill">
+          <label for="tagFilter">Tag:</label>
+          <input type="text" id="tagFilter" placeholder="e.g. python" />
+        </div>
+        <button onclick="clearFilters()">Clear</button>
       </div>
       <div class="project-list" id="projectList">
-        <article class="card" data-tags="ai,cnn,vision,python" data-title="AI Image Recognition">
-          <div class="card-title">AI Image Recognition</div>
-          <div class="card-desc">AI-based image recognition projects.</div>
-          <div class="tags"><span class="tag">AI</span><span class="tag">CNN</span><span class="tag">Vision</span><span class="tag">Python</span></div>
-          <a href="https://github.com/Jaguo415/AI_Image_Recognization" rel="noopener" target="_blank">View on GitHub</a>
+        <article class="card" data-tags="data,python,pandas" data-title="Data Analysis Project">
+          <div class="card-title">Data Analysis Project</div>
+          <div class="card-desc">Exploratory data analysis with visualizations and insights.</div>
+          <div class="tags"><span class="tag">Data</span><span class="tag">Python</span><span class="tag">Pandas</span></div>
+          <a href="https://github.com/Jaguo415/Data_Analysis" rel="noopener" target="_blank">View on GitHub</a>
         </article>
-        <article class="card" data-tags="regression,ml,python,pandas" data-title="Housing Prediction">
-          <div class="card-title">Housing Prediction</div>
-          <div class="card-desc">Housing price prediction models and data analysis.</div>
-          <div class="tags"><span class="tag">Regression</span><span class="tag">ML</span><span class="tag">Python</span><span class="tag">Pandas</span></div>
-          <a href="https://github.com/Jaguo415/Housing_Prediction" rel="noopener" target="_blank">View on GitHub</a>
-        </article>
-        <article class="card" data-tags="neural-net,classification,tensorflow,python" data-title="Lending Club Default Neural Net">
-          <div class="card-title">Lending Club Default Neural Net</div>
-          <div class="card-desc">Neural network model for Lending Club loan default prediction.</div>
-          <div class="tags"><span class="tag">Neural Net</span><span class="tag">Classification</span><span class="tag">TensorFlow</span><span class="tag">Python</span></div>
-          <a href="https://github.com/Jaguo415/Lending-Club-Default-Neural-net" rel="noopener" target="_blank">View on GitHub</a>
-        </article>
-        <article class="card" data-tags="automation,testing,scripts" data-title="AG_test">
-          <div class="card-title">AG_test</div>
+        <article class="card" data-tags="automation,testing,scripts" data-title="AG Test">
+          <div class="card-title">AG Test</div>
           <div class="card-desc">Project for various experiments and automation tests.</div>
           <div class="tags"><span class="tag">Automation</span><span class="tag">Testing</span><span class="tag">Scripts</span></div>
           <a href="https://github.com/Jaguo415/AG_test" rel="noopener" target="_blank">View on GitHub</a>
@@ -146,6 +103,38 @@
         </article>
       </div>
     </section>
+  </div>
 
-    <section class="section" id="contact">
-      <h2
+  <footer>
+    <p>Built with ❤️ by Jack Guo | <a href="https://github.com/Jaguo415" rel="noopener" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const tagFilter = document.getElementById('tagFilter');
+    const projectList = document.getElementById('projectList');
+    const cards = projectList.querySelectorAll('.card');
+
+    function filterProjects() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const tagTerm = tagFilter.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        const tags = card.getAttribute('data-tags').toLowerCase();
+        const matchesSearch = title.includes(searchTerm) || tags.includes(searchTerm);
+        const matchesTag = !tagTerm || tags.includes(tagTerm);
+        card.style.display = (matchesSearch && matchesTag) ? '' : 'none';
+      });
+    }
+
+    function clearFilters() {
+      searchInput.value = '';
+      tagFilter.value = '';
+      filterProjects();
+    }
+
+    searchInput.addEventListener('input', filterProjects);
+    tagFilter.addEventListener('input', filterProjects);
+  </script>
+</body>
+</html>
