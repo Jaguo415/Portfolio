@@ -9,230 +9,220 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --bg: #f7fafd; --card: #fff; --muted: #64748b; --text: #1e293b; --primary: #0ea5e9; --ring: rgba(14,165,233,.4); }
+    :root {
+      --bg: #f9fafb;
+      --card: #fff;
+      --muted: #64748b;
+      --text: #1e293b;
+      --primary: #0ea5e9;
+      --ring: rgba(14,165,233,.4);
+    }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    header { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.2) blur(8px); background: rgba(255,255,255,.8); border-bottom: 1px solid rgba(0,0,0,.06); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: rgba(255,255,255,.85);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
     .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
     h1 { margin: 8px 0 16px; font-size: 28px; letter-spacing: .3px; }
     .sub { color: var(--muted); margin: 0 0 14px; font-size: 14px; }
-    .searchbar { display:flex; align-items:center; gap:10px; width:100%; max-width:560px; padding:10px 16px; background: var(--card); border:1px solid rgba(0,0,0,.06); border-radius: 12px; box-shadow: 0 1px 1px rgba(0,0,0,.02), 0 4px 14px rgba(2, 8, 20, .04); }
-    .searchbar input { flex:1; border:none; outline:none; font-size:14px; background:transparent; color:var(--text); }
+    .searchbar {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      width:100%;
+      max-width:560px;
+      padding:10px 16px;
+      background: var(--card);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.06);
+    }
+    .searchbar input {
+      flex:1;
+      border:none;
+      outline:none;
+      font-size:14px;
+      background:transparent;
+      color:var(--text);
+    }
     .filters { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
-    .tag { padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,.08); background:#fff; color:#0b3b61; cursor:pointer; font-size:12px; }
-    .tag.active { background:#e6f4ff; border-color:#b3e1ff; color:#004a7a; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top:16px; }
-    .card { display:block; text-decoration:none; color:inherit; background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:16px; transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease; box-shadow: 0 1px 1px rgba(0,0,0,.02), 0 8px 26px rgba(2, 8, 20, .04); }
-    .card:hover { transform: translateY(-2px); border-color:#cce8f9; box-shadow: 0 4px 8px rgba(0,0,0,.04), 0 16px 30px rgba(2, 8, 20, .06); }
+    .tag {
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(14,165,233,.2);
+      background:#e0f2fe;
+      color:#0369a1;
+      cursor:pointer;
+      font-size:12px;
+      transition: all .15s ease;
+    }
+    .tag.active {
+      background:#0ea5e9;
+      border-color:#0ea5e9;
+      color:#fff;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .card {
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:16px;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.06);
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color:rgba(14,165,233,.3);
+      box-shadow: 0 4px 8px rgba(0,0,0,.06), 0 12px 24px rgba(0,0,0,.1);
+    }
     .name { font-weight:700; font-size:16px; margin:0 0 8px; }
     .name a { color: var(--primary); text-decoration: none; }
     .name a:hover { text-decoration: underline; }
-    .desc { margin:0; color:#334155; font-size:13px; line-height:1.5; min-height: 38px; }
+    .desc { margin:0; color:#475569; font-size:13px; line-height:1.5; min-height: 38px; }
     .meta { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
-    .badge { font-size:11px; padding:4px 8px; border-radius:8px; background:#f1f5f9; color:#0f172a; border:1px solid #e2e8f0; }
+    .badge {
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:6px;
+      background:#e0f2fe;
+      color:#0369a1;
+      border:1px solid rgba(14,165,233,.2);
+    }
     .loading { text-align: center; padding: 40px; color: var(--muted); }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Projects</h1>
-      <p class="sub">Curated selection of up to 15 GitHub repositories. Search and tag-filter supported.</p>
+      <h1>Jack Guo | Portfolio Projects</h1>
+      <p class="sub">Search &amp; explore projects by keyword, language or topic</p>
       <div class="searchbar">
-        <input type="text" id="search" placeholder="Search by name, description, or tag..." />
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input id="search" type="text" placeholder="Search projects..." />
       </div>
-      <div class="filters" id="tags"></div>
+      <div class="filters" id="filters"></div>
     </div>
   </header>
   <main class="container">
-    <div class="grid" id="grid"><div class="loading">Loading repositories...</div></div>
+    <div class="grid" id="grid"></div>
+    <div class="loading" id="loading">Loading projects...</div>
   </main>
   <script>
-    const repos = [];
-    
-    // Extract recruiter-friendly description from README
-    function extractDescription(readmeText, fallback) {
-      if (!readmeText) return fallback;
-      
-      // Remove markdown formatting
-      let text = readmeText
-        .replace(/```[\s\S]*?```/g, '') // Remove code blocks
-        .replace(/`[^`]+`/g, '') // Remove inline code
-        .replace(/!\[[^\]]*\]\([^)]+\)/g, '') // Remove images
-        .replace(/\[[^\]]*\]\([^)]+\)/g, '') // Remove links
-        .replace(/#{1,6}\s*/g, '') // Remove headers
-        .replace(/[*_~]/g, '') // Remove emphasis
-        .replace(/\n+/g, ' ') // Replace newlines with space
-        .trim();
-      
-      // Split into sentences and take first 2-3 that are meaningful
-      const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 20 && s.length < 200);
-      
-      if (sentences.length === 0) return fallback;
-      
-      // Take first 1-2 sentences, max 200 chars
-      let description = sentences[0];
-      if (description.length < 120 && sentences.length > 1) {
-        description += '. ' + sentences[1];
-      }
-      
-      // Truncate if too long
-      if (description.length > 200) {
-        description = description.substring(0, 197) + '...';
-      }
-      
-      return description || fallback;
-    }
-    
-    // Extract additional tech tags from README content
-    function extractTechTags(readmeText) {
-      if (!readmeText) return [];
-      
-      const text = readmeText.toLowerCase();
-      const techKeywords = [
-        'react', 'vue', 'angular', 'node', 'express', 'django', 'flask', 'spring',
-        'python', 'java', 'javascript', 'typescript', 'go', 'rust', 'c++', 'c#',
-        'mongodb', 'postgresql', 'mysql', 'redis', 'docker', 'kubernetes', 'aws',
-        'azure', 'gcp', 'tensorflow', 'pytorch', 'machine-learning', 'ml', 'ai',
-        'deep-learning', 'neural-network', 'data-science', 'analytics', 'api',
-        'rest', 'graphql', 'websocket', 'microservices', 'serverless', 'firebase',
-        'tailwind', 'bootstrap', 'sass', 'webpack', 'vite', 'nextjs', 'gatsby',
-        'svelte', 'flutter', 'react-native', 'ios', 'android', 'mobile', 'web',
-        'blockchain', 'ethereum', 'solidity', 'web3', 'nft', 'defi', 'crypto'
-      ];
-      
-      const found = [];
-      for (const keyword of techKeywords) {
-        if (text.includes(keyword) && !found.includes(keyword)) {
-          found.push(keyword);
-        }
-      }
-      
-      return found.slice(0, 5); // Limit to 5 additional tags
-    }
-    
-    // Fetch README for a repository
-    async function fetchReadme(owner, repo) {
+    const OWNER = 'Jaguo415', REPO = 'Portfolio';
+    const grid = document.getElementById('grid');
+    const loading = document.getElementById('loading');
+    const searchInput = document.getElementById('search');
+    const filtersDiv = document.getElementById('filters');
+    let allProjects = [];
+    let activeFilters = new Set();
+
+    async function fetchProjects() {
       try {
-        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/readme`);
-        if (!res.ok) return null;
-        const data = await res.json();
-        // Decode base64 content
-        const content = atob(data.content);
-        return content;
-      } catch (e) {
-        console.warn(`Failed to fetch README for ${repo}:`, e);
-        return null;
-      }
-    }
-    
-    // Fetch repositories with README enhancement
-    async function loadRepos() {
-      try {
-        const res = await fetch('https://api.github.com/users/Jaguo415/repos?per_page=100');
-        const data = await res.json();
-        const filtered = data
-          .filter(r => r.name !== 'Portfolio')
-          .sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at))
-          .slice(0, 15);
-        
-        // Fetch READMEs for each repo
-        for (const r of filtered) {
-          const readme = await fetchReadme('Jaguo415', r.name);
-          const description = extractDescription(readme, r.description || 'No description provided.');
-          const readmeTags = extractTechTags(readme);
-          
-          // Combine GitHub topics with README-extracted tags
-          const allTopics = [...new Set([...(r.topics || []), ...readmeTags])];
-          
-          repos.push({
-            name: r.name,
-            url: r.html_url,
-            desc: description,
-            topics: allTopics,
-            lang: r.language || null
-          });
+        const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents`);
+        if (!res.ok) throw new Error('Failed to fetch');
+        const items = await res.json();
+        const htmlFiles = items.filter(f => f.name.endsWith('.html') && f.name !== 'index.html' && f.name !== 'index2.html');
+
+        for (const file of htmlFiles) {
+          const rawRes = await fetch(file.download_url);
+          const html = await rawRes.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const title = doc.querySelector('title')?.textContent || file.name;
+          const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content') || 'No description';
+          const keywords = doc.querySelector('meta[name="keywords"]')?.getAttribute('content') || '';
+          const lang = html.match(/<html[^>]*lang=["']([^"']+)/)?.[1] || 'en';
+          allProjects.push({ title, desc, keywords, lang, file: file.name, url: `https://jaguo415.github.io/Portfolio/${file.name}` });
         }
-        
-        render();
+
+        displayProjects();
+        populateFilters();
       } catch (e) {
-        console.error(e);
-        document.getElementById('grid').innerHTML = '<div class="loading">Failed to load repositories.</div>';
+        loading.textContent = 'Error loading projects.';
       }
     }
-    
-    function uniqueTags(items) {
-      const set = new Set();
-      items.forEach(i => {
-        (i.topics || []).forEach(t => set.add(t));
-        if (i.lang) set.add(i.lang);
+
+    function populateFilters() {
+      const allTags = new Set();
+      allProjects.forEach(p => {
+        if (p.keywords) p.keywords.split(',').forEach(k => allTags.add(k.trim().toLowerCase()));
       });
-      return Array.from(set).sort((a,b)=>a.localeCompare(b));
-    }
-    
-    function renderTags(items) {
-      const tagWrap = document.getElementById('tags');
-      tagWrap.innerHTML = '';
-      const tags = uniqueTags(items);
-      tags.forEach(tag => {
-        const btn = document.createElement('button');
+      [...allTags].sort().forEach(tag => {
+        const btn = document.createElement('span');
         btn.className = 'tag';
         btn.textContent = tag;
-        btn.dataset.tag = tag.toLowerCase();
-        btn.addEventListener('click', () => {
-          btn.classList.toggle('active');
-          render();
-        });
-        tagWrap.appendChild(btn);
+        btn.onclick = () => toggleFilter(tag, btn);
+        filtersDiv.appendChild(btn);
       });
     }
-    
-    function activeTags() {
-      return Array.from(document.querySelectorAll('.tag.active')).map(b => b.dataset.tag);
+
+    function toggleFilter(tag, btn) {
+      if (activeFilters.has(tag)) {
+        activeFilters.delete(tag);
+        btn.classList.remove('active');
+      } else {
+        activeFilters.add(tag);
+        btn.classList.add('active');
+      }
+      displayProjects();
     }
-    
-    function matchesFilters(item, q, tags) {
-      const hay = (item.name + ' ' + (item.desc||'') + ' ' + (item.topics||[]).join(' ') + ' ' + (item.lang||'')).toLowerCase();
-      const qok = !q || hay.includes(q);
-      const tok = !tags.length || tags.every(t => hay.includes(t));
-      return qok && tok;
-    }
-    
-    function card(item) {
-      const el = document.createElement('div');
-      el.className = 'card';
-      el.innerHTML = `
-        <div class="name"><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.name}</a></div>
-        <p class="desc">${item.desc}</p>
-        <div class="meta">
-          ${item.lang ? `<span class="badge">${item.lang}</span>` : ''}
-          ${(item.topics||[]).slice(0,5).map(t=>`<span class="badge">${t}</span>`).join('')}
-        </div>
-      `;
-      return el;
-    }
-    
-    function render() {
-      const q = document.getElementById('search').value.trim().toLowerCase();
-      const tags = activeTags();
-      const grid = document.getElementById('grid');
+
+    function displayProjects() {
+      const query = searchInput.value.toLowerCase();
+      const filtered = allProjects.filter(p => {
+        const matchSearch = !query || p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.keywords.toLowerCase().includes(query);
+        const matchFilter = activeFilters.size === 0 || [...activeFilters].some(tag => p.keywords.toLowerCase().includes(tag));
+        return matchSearch && matchFilter;
+      });
+
       grid.innerHTML = '';
-      const items = repos.filter(r => matchesFilters(r, q, tags));
-      
-      if (items.length === 0) {
-        grid.innerHTML = '<div class="loading">No repositories match your filters.</div>';
+      loading.style.display = 'none';
+
+      if (filtered.length === 0) {
+        loading.textContent = 'No matching projects found.';
+        loading.style.display = 'block';
         return;
       }
-      
-      items.forEach(i => grid.appendChild(card(i)));
-      if (!document.querySelector('.tag')) renderTags(repos);
+
+      filtered.forEach(p => {
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = p.url;
+        card.target = '_blank';
+        card.innerHTML = `
+          <div class="name"><a href="${p.url}" target="_blank">${p.title}</a></div>
+          <p class="desc">${p.desc}</p>
+          <div class="meta">
+            <span class="badge">${p.file}</span>
+            ${p.keywords ? p.keywords.split(',').slice(0,3).map(k => `<span class="badge">${k.trim()}</span>`).join('') : ''}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
     }
-    
-    document.getElementById('search').addEventListener('input', render);
-    
-    // Initialize
-    loadRepos();
+
+    searchInput.addEventListener('input', displayProjects);
+    fetchProjects();
   </script>
 </body>
 </html>
