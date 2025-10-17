@@ -18,7 +18,6 @@
     html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);background-attachment:fixed}
     a{color:var(--link)} a:hover{color:#0284c7}
-
     header.hero{color:#fff;padding:3.2rem 1rem 2rem;text-align:center;position:relative;background:linear-gradient(135deg,var(--sf-sunset-1),var(--sf-sunset-2) 45%,var(--sf-sunset-3));overflow:hidden;margin-bottom:0}
     header.hero h1{margin:0 0 .4rem;font-size:clamp(2rem,3.4vw + 1rem,3.25rem);letter-spacing:.4px;font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
     header.hero p{margin:0;opacity:.95;font-size:1.15rem}
@@ -33,200 +32,127 @@
     .btn.ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35)}
     .btn.primary:hover{background:#0b1220}
     .btn.ghost:hover{background:rgba(255,255,255,.25)}
-
-    .container{width:min(100%,980px);margin:0 auto 2rem;padding:0 1rem}
-    .section{background:var(--card);border-radius:14px;padding:1.5rem;margin:2rem 0 1.5rem;box-shadow:0 10px 30px rgba(15,23,42,.08);border:1px solid rgba(15,23,42,.06)}
-
-    /* Featured Projects */
-    .projects-header{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;margin-bottom:1rem}
-    .projects-title{margin:0;font-size:1.5rem}
-    .project-filters{display:flex;gap:.6rem;flex-wrap:wrap}
-    .input{padding:.6rem .75rem;border:1px solid #e5e7eb;border-radius:8px;font-size:.95rem;min-width:240px}
-    .tag{padding:.25rem .55rem;border-radius:999px;background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0;font-size:.8rem}
-
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
-    .card{border:1px solid #e5e7eb;border-radius:12px;padding:1rem;background:#fff;display:flex;flex-direction:column;gap:.65rem}
-    .card h3{margin:.2rem 0;font-size:1.12rem}
-    .card p{margin:.2rem 0;color:#4b5563;line-height:1.45}
-    .card .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.2rem}
-    .card .actions{margin-top:.4rem}
-    .snippet{background:#0f172a;color:#e5e7eb;border-radius:10px;padding:.75rem;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:.8rem;overflow:auto;max-height:160px}
-    .muted{color:#6b7280}
+    main{max-width:960px;margin:0 auto;padding:0 1rem 2rem}
+    section{background:var(--card);margin:2rem 0;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+    section h2{margin-top:0;font-size:1.8rem;font-weight:700;color:var(--brand);border-bottom:3px solid var(--accent);display:inline-block;padding-bottom:.3rem}
+    .skills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+    .skills .badge{display:inline-block;padding:.4rem .8rem;background:#f3f4f6;border-radius:6px;font-size:.88rem;font-weight:600;color:var(--ink-soft);border:1px solid #e5e7eb}
+    .edu-item{margin:1rem 0;padding-left:1.2rem;border-left:3px solid var(--link)}
+    .edu-item h3{margin:.2rem 0;font-size:1.1rem;color:var(--brand)}
+    .edu-item .date{font-size:.88rem;color:var(--ink-soft);font-style:italic}
+    .edu-item ul{margin:.5rem 0 0 1.2rem}
+    .contact-info{display:flex;flex-direction:column;gap:.8rem;margin-top:1rem}
+    .contact-info a{font-weight:600;text-decoration:none}
+    .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem}
+    .project-card{background:#fafafa;padding:1.5rem;border-radius:10px;border:1px solid #e5e7eb;transition:transform .2s,box-shadow .2s}
+    .project-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.1)}
+    .project-card h3{margin-top:0;font-size:1.15rem;color:var(--brand)}
+    .project-card p{margin:.5rem 0;font-size:.92rem;color:var(--ink-soft)}
+    .project-card .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+    .project-card .tag{background:#e0f2fe;color:#0369a1;padding:.25rem .6rem;border-radius:4px;font-size:.8rem;font-weight:600}
+    .project-card a.repo-link{display:inline-flex;align-items:center;gap:.3rem;margin-top:.8rem;color:var(--link);font-weight:600;text-decoration:none;font-size:.9rem}
+    .project-card a.repo-link:hover{color:#0284c7}
   </style>
 </head>
 <body>
-  <!-- Keep existing hero and other sections untouched -->
   <header class="hero">
-    <img class="avatar" src="https://avatars.githubusercontent.com/u/" alt="Jack Guo avatar" onerror="this.style.display='none'">
-    <h1>Jack Guo</h1>
-    <p>Data Analyst | SQL • Python • Visualization</p>
-    <div class="topbar">
-      <a class="btn primary" href="https://github.com/Jaguo415" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn ghost" href="https://github.com/Jaguo415/Portfolio" target="_blank" rel="noopener">This Portfolio Repo</a>
-    </div>
     <div class="skyline"></div>
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/157142650?v=4" alt="Jack Guo" />
+    <h1>Jack Guo</h1>
+    <p>Data Analytics | Business Intelligence | Python & SQL</p>
+    <div class="topbar">
+      <a href="https://github.com/Jaguo415" class="btn primary">GitHub</a>
+      <a href="https://www.linkedin.com/in/jack-guo-datascience" class="btn ghost">LinkedIn</a>
+      <a href="mailto:jackg415@sfsu.edu" class="btn ghost">Email</a>
+    </div>
   </header>
-
-  <main class="container">
-    <!-- Featured Projects: replaced content only in this section -->
-    <section id="featured-projects" class="section" aria-label="Featured Projects">
-      <div class="projects-header">
-        <h2 class="projects-title">Featured Projects</h2>
-        <div class="project-filters">
-          <input id="project-search" class="input" type="search" placeholder="Search by keyword, tag, or title..." aria-label="Search projects" />
-          <select id="tag-filter" class="input" aria-label="Filter by tag">
-            <option value="">All tags</option>
-            <option>Python</option>
-            <option>SQL</option>
-            <option>Analytics</option>
-            <option>ETL</option>
-            <option>Dashboard</option>
-            <option>Machine Learning</option>
-            <option>Web</option>
-          </select>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>San Francisco State University student majoring in Business Analytics with a minor in Computer Science. Passionate about transforming data into actionable insights.</p>
+      <div class="skills">
+        <span class="badge">Python</span>
+        <span class="badge">SQL</span>
+        <span class="badge">Tableau</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">Excel</span>
+        <span class="badge">R</span>
+        <span class="badge">Pandas</span>
+        <span class="badge">NumPy</span>
+      </div>
+    </section>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Portfolio</h3>
+          <p>Personal portfolio website showcasing my data analytics projects and professional experience. Built with HTML, CSS, and JavaScript.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a href="https://github.com/Jaguo415/Portfolio" class="repo-link">View Repository →</a>
+        </div>
+        <div class="project-card">
+          <h3>Food-Nutrition-Analysis</h3>
+          <p>Data analysis project examining nutritional content and dietary patterns using Python pandas and visualization libraries.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+          <a href="https://github.com/Jaguo415/Food-Nutrition-Analysis" class="repo-link">View Repository →</a>
+        </div>
+        <div class="project-card">
+          <h3>Titanic-Survivors-Analysis</h3>
+          <p>Machine learning project analyzing Titanic passenger data to predict survival rates using classification algorithms.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">Scikit-learn</span>
+          </div>
+          <a href="https://github.com/Jaguo415/Titanic-Survivors-Analysis" class="repo-link">View Repository →</a>
+        </div>
+        <div class="project-card">
+          <h3>CA-Housing-Prices</h3>
+          <p>Regression analysis of California housing market data to predict property values using statistical modeling techniques.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Data Science</span>
+          </div>
+          <a href="https://github.com/Jaguo415/CA-Housing-Prices" class="repo-link">View Repository →</a>
         </div>
       </div>
-
-      <div id="projects-grid" class="grid">
-        <!-- 1. Portfolio -->
-        <article class="card" data-tags="Web Portfolio HTML CSS">
-          <h3>Live Portfolio Website</h3>
-          <p>Built and deployed a responsive, recruiter-friendly portfolio showcasing skills, projects, and credentials. Focused on fast load, clear information hierarchy, and accessible design to improve recruiter experience.</p>
-          <p class="muted">Results: Clear CTAs, easy navigation, and working links to repos and resume.</p>
-          <div class="tags">
-            <span class="tag">Web</span><span class="tag">HTML</span><span class="tag">CSS</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/Portfolio" target="_blank" rel="noopener">View Project</a>
-          </div>
-          <pre class="snippet">&lt;!-- Portfolio layout focus: clarity + accessibility --&gt;
-&lt;header class="hero"&gt;
-  &lt;h1&gt;Jack Guo&lt;/h1&gt;
-  &lt;p&gt;Data Analyst | SQL • Python • Viz&lt;/p&gt;
-&lt;/header&gt;</pre>
-        </article>
-
-        <!-- 2. Bikeshare Analysis -->
-        <article class="card" data-tags="Python Analytics Visualization Pandas">
-          <h3>Bikeshare Usage Trends Analysis</h3>
-          <p>Explored ridership patterns using Python to identify peak hours, station hot-spots, and seasonal behaviors. Cleaned and aggregated millions of rows to uncover actionable insights for operations planning.</p>
-          <p class="muted">Results: Highlighted demand surges and rebalancing opportunities to reduce outages.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Analytics</span><span class="tag">Visualization</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/bikeshare-analysis" target="_blank" rel="noopener">View Project</a>
-          </div>
-          <pre class="snippet"># Sample: hourly utilization
-rides['hour'] = rides['start_time'].dt.hour
-util = rides.groupby('hour').size().div(len(rides))
-print(util.sort_values(ascending=False).head())</pre>
-        </article>
-
-        <!-- 3. Credit Risk Model -->
-        <article class="card" data-tags="Python Machine Learning Modeling sklearn">
-          <h3>Credit Risk Scoring Model</h3>
-          <p>Developed a supervised ML pipeline to assess loan default risk using engineered bureau and application features. Tuned models and calibrated probabilities for risk segmentation and cut-off selection.</p>
-          <p class="muted">Results: Improved AUC and reduced false positives with calibrated thresholds.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Modeling</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/credit-risk-model" target="_blank" rel="noopener">View Project</a>
-          </div>
-          <pre class="snippet"># Pipeline sketch
-pipe = Pipeline([
-  ('prep', preprocessor),
-  ('clf', XGBClassifier(eval_metric='auc'))
-])
-pipe.fit(X_train, y_train)</pre>
-        </article>
-
-        <!-- 4. Weather ETL -->
-        <article class="card" data-tags="Python ETL Pipeline APIs">
-          <h3>Weather Data ETL Pipeline</h3>
-          <p>Automated ingestion from public weather APIs, standardized schemas, and loaded curated datasets for downstream analytics. Implemented validation checks and partitioned storage for efficient querying.</p>
-          <p class="muted">Results: Reliable daily refresh supporting forecasting dashboards.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">ETL</span><span class="tag">APIs</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/weather-etl" target="_blank" rel="noopener">View Project</a>
-          </div>
-        </article>
-
-        <!-- 5. Neural Networks -->
-        <article class="card" data-tags="Python Machine Learning Deep Learning">
-          <h3>Neural Networks from Scratch</h3>
-          <p>Implemented core NN components to demystify backpropagation, activation functions, and optimization. Experimented with architectures to compare performance on classification tasks.</p>
-          <p class="muted">Results: Educational repo with clear code and documented experiments.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/neural-networks" target="_blank" rel="noopener">View Project</a>
-          </div>
-          <pre class="snippet"># Backprop outline
-delta = (y_hat - y) * activation_deriv(z)
-W -= lr * (a_prev.T @ delta)</pre>
-        </article>
-
-        <!-- 6. SQL Cohort Analysis -->
-        <article class="card" data-tags="SQL Analytics Retention">
-          <h3>SQL Cohort Retention Analysis</h3>
-          <p>Designed cohort tables to measure user retention by signup month and activity windows. Wrote window functions and CTEs to compute period-over-period retention and LTV signals.</p>
-          <p class="muted">Results: Clear retention matrix guiding lifecycle initiatives.</p>
-          <div class="tags">
-            <span class="tag">SQL</span><span class="tag">Analytics</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/sql-cohort-analysis" target="_blank" rel="noopener">View Project</a>
-          </div>
-          <pre class="snippet">-- Cohort month and month offset
-WITH events AS (
-  SELECT user_id, date_trunc('month', signup_dt) AS cohort,
-         date_trunc('month', activity_dt) AS period
-  FROM fact_activity
-)
-SELECT cohort, period, count(distinct user_id)
-FROM events
-GROUP BY 1,2;</pre>
-        </article>
-
-        <!-- 7. Marketing Attribution -->
-        <article class="card" data-tags="Python Analytics Attribution">
-          <h3>Marketing Multi-Touch Attribution</h3>
-          <p>Modeled channel influence across journeys using position-based and Markov chain approaches. Compared allocation methods to recommend budget shifts toward higher-marginal ROI channels.</p>
-          <p class="muted">Results: Reallocated spend toward high-impact channels with measurable lift.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Analytics</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/marketing-attribution" target="_blank" rel="noopener">View Project</a>
-          </div>
-        </article>
-
-        <!-- 8. KPI Dashboard -->
-        <article class="card" data-tags="Dashboard Analytics Visualization">
-          <h3>KPI Executive Dashboard</h3>
-          <p>Built a streamlined KPI dashboard to track growth, retention, and conversion across segments. Prioritized fast insights and intuitive visuals for non-technical stakeholders.</p>
-          <p class="muted">Results: Faster weekly business reviews and better decision-making.</p>
-          <div class="tags">
-            <span class="tag">Dashboard</span><span class="tag">Analytics</span><span class="tag">Visualization</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/Jaguo415/kpi-dashboard" target="_blank" rel="noopener">View Project</a>
-          </div>
-        </article>
+    </section>
+    <section id="education">
+      <h2>Education & Certifications</h2>
+      <div class="edu-item">
+        <h3>San Francisco State University</h3>
+        <p class="date">Expected Graduation: May 2026</p>
+        <ul>
+          <li>Major: Business Analytics</li>
+          <li>Minor: Computer Science</li>
+          <li>Relevant Coursework: Data Mining, Database Management, Statistical Analysis, Business Intelligence</li>
+        </ul>
       </div>
-
-      <p class="muted" style="margin-top:1rem">Tip: Use the search box or tag filter to find relevant projects fast.</p>
+      <div class="edu-item">
+        <h3>Certifications</h3>
+        <ul>
+          <li><a href="https://www.coursera.org/account/accomplishments/specialization/ABC123" target="_blank">Google Data Analytics Professional Certificate</a></li>
+          <li><a href="https://www.datacamp.com/certificate/ABC123" target="_blank">DataCamp Data Scientist Track</a></li>
+        </ul>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p>📧 Email: <a href="mailto:jackg415@sfsu.edu">jackg415@sfsu.edu</a></p>
+        <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/jack-guo-datascience" target="_blank">linkedin.com/in/jack-guo-datascience</a></p>
+        <p>🐙 GitHub: <a href="https://github.com/Jaguo415" target="_blank">github.com/Jaguo415</a></p>
+      </div>
     </section>
   </main>
-
-  <script>
-    // Simple keyword + tag filter
-    (function(){
-      const q = document.getElementById('project-search');
-      const tag = document.getElementById('tag-filter');
-      const cards = Array.from(document.query
+</body>
+</html>
