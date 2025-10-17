@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jack Guo | Portfolio Data Analytics</title>
+  <title>Jack Guo | Portfolio — Data Analytics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);background-attachment:fixed}
+    a{color:var(--link)} a:hover{color:#0284c7}
     header.hero{color:#fff;padding:3.2rem 1rem 6.5rem;text-align:center;position:relative;background:linear-gradient(135deg,var(--sf-sunset-1),var(--sf-sunset-2) 45%,var(--sf-sunset-3));overflow:hidden}
     header.hero h1{margin:0 0 .4rem;font-size:clamp(2rem,3.4vw + 1rem,3.25rem);letter-spacing:.4px;font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
     header.hero p{margin:0;opacity:.95;font-size:1.15rem}
@@ -25,99 +26,162 @@
     .container{width:min(100%,980px);margin:-4rem auto 2rem;padding:0 1rem}
     .section{background:var(--card);border-radius:14px;padding:1.25rem;margin-bottom:1.25rem;box-shadow:0 10px 30px rgba(15,23,42,.08);border:1px solid rgba(15,23,42,.06)}
     .section h2{margin:.1rem 0 .6rem;font-size:clamp(1.25rem,1.2vw + 1rem,1.6rem);display:flex;align-items:center;gap:.55rem}
-    .section .subhead{color:var(--ink-soft);margin:.25rem 0 .75rem}
+    .subhead{color:var(--ink-soft);margin:.25rem 0 .75rem}
+    .stack{display:flex;flex-wrap:wrap;gap:.5rem}
+    .pill{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;color:#4b5563;font-weight:600;margin:0 .35rem .5rem 0}
     .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
     .card{border:1px solid #eee;border-radius:12px;padding:1rem;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,.05)}
     .card h3{margin:0 0 .45rem;font-size:1.1rem;color:var(--brand)}
     .card p{margin:0 0 .75rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
-    .pill{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;color:#4b5563;font-weight:600;margin:0 .35rem .5rem 0}
     .link-btn{display:inline-block;margin-top:.5rem;padding:.4rem .8rem;background:#0ea5e9;color:#fff;text-decoration:none;border-radius:6px;font-size:.85rem;font-weight:600;transition:background .2s}
     .link-btn:hover{background:#0284c7}
+    .two-col{display:grid;grid-template-columns:1fr;gap:1rem}
+    @media(min-width:820px){.two-col{grid-template-columns:1.1fr .9fr}}
+    .filterbar{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+    .filterbar input[type="search"], .filterbar select{padding:.5rem .6rem;border:1px solid #e5e7eb;border-radius:8px;font-size:.9rem}
     footer{text-align:center;padding:2rem 1rem;color:var(--ink-soft)}
   </style>
 </head>
 <body>
-<header class="hero">
-  <div class="skyline"></div>
-  <h1>Jack Guo — Data Analytics Portfolio</h1>
-  <p>Building insights from data | Python • SQL • Tableau • Power BI</p>
-  <div style="margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center">
-    <a class="btn" href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;padding:.55rem 1rem;border-radius:6px;text-decoration:none">LinkedIn</a>
-    <a class="btn" href="https://github.com/Jaguo415" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;padding:.55rem 1rem;border-radius:6px;text-decoration:none">GitHub</a>
-  </div>
-</header>
-<div class="container">
-  <section class="section">
-    <h2>👤 Professional Experience</h2>
-    <div style="margin-bottom:1.2rem">
-      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.25rem">
-        <strong style="color:var(--brand);font-size:1rem">Data Analyst Intern</strong>
-        <span style="font-size:.9rem;color:var(--ink-soft)">Summer 2024</span>
+  <header class="hero">
+    <div class="skyline"></div>
+    <h1>Jack Guo — Data Analytics Portfolio</h1>
+    <p>Technical Data Analyst focusing on product, GTM, and revenue analytics.</p>
+    <div style="margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center">
+      <a class="link-btn" href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+      <a class="link-btn" href="#projects">View Projects</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section two-col" id="about">
+      <div>
+        <h2>Job Experience</h2>
+        <div class="subhead">Salesforce — Data Analyst (Feb 2019 - Mar 2025)</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem;line-height:1.5">
+          <div>
+            <strong>Sales Programs Intern</strong> — Feb 2019 - Jul 2019<br/>
+            <span class="subhead">Supported pipeline reporting and process documentation across sales programs.</span>
+          </div>
+          <div>
+            <strong>Project Coordinator (Contract)</strong> — Jul 2019 - Jan 2020<br/>
+            <span class="subhead">Coordinated timelines, stakeholders, and deliverables for cross-functional initiatives.</span>
+          </div>
+          <div>
+            <strong>Reports &amp; Metrics Analyst (Contract)</strong> — Jan 2020 - Aug 2021<br/>
+            <span class="subhead">Owned dashboarding and KPI definitions; improved reporting consistency and speed.</span>
+          </div>
+          <div>
+            <strong>Marketing Data Analyst (Full Time)</strong> — Feb 2022 - May 2023<br/>
+            <span class="subhead">Built acquisition and funnel performance views; partnered with GTM to optimize spend.</span>
+          </div>
+          <div>
+            <strong>Sales Strategy &amp; GTM Product Analyst (Full Time)</strong> — Feb 2024 - May 2025<br/>
+            <span class="subhead">Delivered strategy insights for pricing, packaging, and coverage models; automated GTM reporting.</span>
+          </div>
+        </div>
       </div>
-      <p style="margin:.25rem 0 0;color:var(--ink-soft);font-size:.95rem">Analyzed customer retention metrics using SQL and Python; designed 5+ Tableau dashboards for stakeholders.</p>
-    </div>
-  </section>
-  <section class="section">
-    <h2>📚 Education & Certifications</h2>
-    <p style="margin:.5rem 0 .75rem;color:var(--ink-soft);font-size:.95rem"><strong>B.S. in Business Analytics</strong> — University of California (Expected 2026)</p>
-    <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-      <span class="pill">Google Data Analytics Certificate</span>
-      <span class="pill">Tableau Desktop Specialist</span>
-    </div>
-  </section>
-  <section class="section">
-    <h2>🛠️ Technical Skills</h2>
-    <p style="margin:.5rem 0 .75rem;color:var(--ink-soft);font-size:.95rem"><strong>Languages:</strong> Python (Pandas, NumPy, Matplotlib), SQL (PostgreSQL, MySQL), R</p>
-    <p style="margin:.5rem 0 .75rem;color:var(--ink-soft);font-size:.95rem"><strong>Tools:</strong> Tableau, Power BI, Excel, Google Analytics, Git</p>
-    <p style="margin:.5rem 0 .75rem;color:var(--ink-soft);font-size:.95rem"><strong>Concepts:</strong> Statistical Analysis, Data Cleaning, ETL, A/B Testing, Data Storytelling</p>
-  </section>
-  <section class="section">
-    <h2>📬 Contact Me</h2>
-    <p style="margin:.5rem 0 .75rem;color:var(--ink-soft);font-size:.95rem">I'm always open to discussing new opportunities, collaborations, or data projects. Feel free to reach out!</p>
-    <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem">
-      <a href="mailto:jack@example.com" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;font-weight:600;background:#0ea5e9;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none">📧 Email me</a>
-      <a href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;font-weight:600;background:#0077b5;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none">🔗 LinkedIn</a>
-    </div>
-  </section>
-  <section class="section">
-    <h2>🚀 Portfolio Projects</h2>
-    <p class="subhead">Explore select projects showcasing data analysis, visualization, and problem-solving.</p>
-    <div class="project-list">
-      <article class="card">
-        <h3>Sales Performance Dashboard</h3>
-        <p>Built an interactive Tableau dashboard analyzing $2M+ in quarterly sales across 5 regions; identified top-performing products and recommended inventory strategies.</p>
-        <span class="pill">Tableau</span><span class="pill">SQL</span><span class="pill">Excel</span>
-      </article>
-      <article class="card">
-        <h3>Customer Segmentation Analysis</h3>
-        <p>Performed K-means clustering on 10k+ customer records using Python; segmented users into 4 groups to inform targeted marketing campaigns.</p>
-        <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">Scikit-learn</span>
-      </article>
-      <article class="card">
-        <h3>Financial Report Automation</h3>
-        <p>Developed Python scripts to automate monthly financial reporting; reduced manual work by 70% and improved data accuracy.</p>
-        <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">Excel</span>
-      </article>
-      <article class="card">
-        <h3>Web Traffic Analysis</h3>
-        <p>Analyzed website traffic patterns using Google Analytics and SQL; delivered insights on user behavior that increased conversion by 12%.</p>
-        <span class="pill">Google Analytics</span><span class="pill">SQL</span><span class="pill">Power BI</span>
-      </article>
-      <article class="card">
-        <h3>Inventory Optimization Model</h3>
-        <p>Built a predictive model in Python to forecast demand for 200+ SKUs; recommendations reduced stockouts by 18%.</p>
-        <span class="pill">Python</span><span class="pill">Machine Learning</span><span class="pill">Pandas</span>
-      </article>
-      <article class="card">
-        <h3>Social Media Sentiment Analysis</h3>
-        <p>Used NLP techniques (spaCy, NLTK) to analyze 50k+ social media posts; visualized sentiment trends in Tableau.</p>
-        <span class="pill">Python</span><span class="pill">NLP</span><span class="pill">Tableau</span>
-      </article>
-    </div>
-  </section>
-</div>
-<footer>
-  <p>&copy; 2024 Jack Guo. Built with ❤️ in San Francisco.</p>
-</footer>
+      <div>
+        <h2>Education &amp; Certifications</h2>
+        <ul style="list-style:none;padding:0;margin:.25rem 0 0;display:grid;gap:.5rem">
+          <li>
+            <a href="https://github.com/Jaguo415/Portfolio/blob/main/Guo%2C%20%20Jack-Certificate%20(1).pdf" target="_blank" rel="noopener"><strong>CalTech</strong> — Certificate</a>
+          </li>
+          <li>
+            <a href="https://github.com/Jaguo415/Portfolio/blob/main/UCBerkeley.PDF" target="_blank" rel="noopener"><strong>UC Berkeley</strong> — Certificate</a>
+          </li>
+          <li>
+            <a href="https://github.com/Jaguo415/Portfolio/blob/main/HS_Diploma.pdf" target="_blank" rel="noopener"><strong>High School</strong> — Diploma</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Replace Technical Skills with Projects -->
+    <section class="section" id="projects">
+      <h2>Portfolio Projects</h2>
+      <div class="subhead">Browse by category or keyword to find relevant work.</div>
+      <div class="filterbar">
+        <input id="project-search" type="search" placeholder="Search projects (e.g., churn, forecasting, dashboard)" aria-label="Search projects" />
+        <select id="project-category" aria-label="Filter by category">
+          <option value="all" selected>All categories</option>
+          <option value="analytics">Analytics</option>
+          <option value="ml">Machine Learning</option>
+          <option value="web">Web</option>
+          <option value="automation">Automation</option>
+        </select>
+      </div>
+
+      <div class="project-list" id="project-list">
+        <!-- Example cards: Update/expand as repos evolve -->
+        <article class="card" data-cat="analytics" data-keywords="sql tableau retention cohort dashboard">
+          <h3>Customer Retention Cohorts</h3>
+          <p>SQL cohorting with Tableau dashboards to track retention and lifecycle behavior.</p>
+          <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub Repo</a>
+        </article>
+
+        <article class="card" data-cat="ml" data-keywords="python sklearn forecasting time-series">
+          <h3>Revenue Forecasting</h3>
+          <p>Time-series modeling in Python to forecast monthly bookings with confidence intervals.</p>
+          <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub Repo</a>
+        </article>
+
+        <article class="card" data-cat="automation" data-keywords="python pipeline etl api">
+          <h3>Marketing ETL Automation</h3>
+          <p>Automated data pulls from ad platforms and normalized into a reporting warehouse.</p>
+          <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub Repo</a>
+        </article>
+
+        <article class="card" data-cat="web" data-keywords="javascript d3 visualization dashboard">
+          <h3>Interactive KPI Dashboard</h3>
+          <p>Lightweight web dashboard with interactive filters and trend visualizations for leadership.</p>
+          <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub Repo</a>
+        </article>
+
+        <article class="card" data-cat="analytics" data-keywords="salesforce gtm pricing packaging segmentation">
+          <h3>GTM Coverage &amp; Pricing Analysis</h3>
+          <p>Modeled coverage scenarios and pricing impacts to support GTM strategy decisions.</p>
+          <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub Repo</a>
+        </article>
+      </div>
+
+      <div class="subhead" style="margin-top:.75rem">Categories: <span class="pill">Analytics</span> <span class="pill">ML</span> <span class="pill">Web</span> <span class="pill">Automation</span></div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p class="subhead">Open to roles in data analytics, product analytics, and GTM strategy.</p>
+      <div class="stack">
+        <a class="link-btn" href="mailto:jackguosj@gmail.com">Email Me</a>
+        <a class="link-btn" href="https://github.com/Jaguo415?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a class="link-btn" href="https://www.linkedin.com/in/jack-guo-sj" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© Jack Guo</footer>
+
+  <script>
+    // Simple search & category filter for project cards
+    (function(){
+      const list = document.getElementById('project-list');
+      const cards = Array.from(list.querySelectorAll('.card'));
+      const search = document.getElementById('project-search');
+      const category = document.getElementById('project-category');
+      function apply(){
+        const q = (search.value || '').toLowerCase().trim();
+        const cat = category.value;
+        cards.forEach(c => {
+          const inCat = cat === 'all' || c.dataset.cat === cat;
+          const text = (c.textContent || '').toLowerCase();
+          const inText = !q || text.includes(q);
+          c.style.display = (inCat && inText) ? '' : 'none';
+        });
+      }
+      search.addEventListener('input', apply);
+      category.addEventListener('change', apply);
+    })();
+  </script>
 </body>
 </html>
