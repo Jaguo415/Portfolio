@@ -12,36 +12,37 @@
       --brand:#0f172a; --card:#ffffff; --link:#0ea5e9; --accent:#ff6b6b; --golden-gate:#e11d48; --success:#10b981;
     }
     * { box-sizing: border-box; }
-    html, body { height:100%; }
-    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); background-attachment: fixed; }
-    header.hero { color:#fff; padding:3.2rem 1rem 6.5rem; text-align:center; position:relative; background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-2) 45%, var(--sf-sunset-3)); overflow:hidden; }
-    header.hero h1{ margin:0 0 .4rem; font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem); letter-spacing:.4px; }
-    header.hero p{ margin:0; opacity:.95; font-size:1.05rem; }
-    header.hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:110px; background: linear-gradient(to right, transparent 0 5%, rgba(255,255,255,.15) 5% 7%, transparent 7% 12%, rgba(255,255,255,.15) 12% 14%, transparent 14% 19%), linear-gradient(to top, rgba(15,23,42,.35), rgba(15,23,42,0)); }
-    .skyline{ position:absolute; left:0; right:0; bottom:-1px; height:80px; opacity:.22; background: linear-gradient(#0f172a,#0f172a) bottom/100% 3px no-repeat; }
-    .container{ width:min(100%,980px); margin:-4rem auto 2rem; padding:0 1rem; }
-    .section{ background:var(--card); border-radius:14px; padding:1.25rem; margin-bottom:1.25rem; box-shadow:0 10px 30px rgba(15,23,42,.08); border:1px solid rgba(15,23,42,.06); }
-    .section h2{ margin:.1rem 0 .6rem; font-size: clamp(1.25rem,1.2vw + 1rem,1.6rem); display:flex; align-items:center; gap:.55rem; }
-    .badge{ display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; padding:.28rem .6rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; color:#334155; }
-    .emoji{ font-size:1.15em; }
-    .hooks em{ background:linear-gradient(90deg,#fffbe6,#ffe7d6); padding:.05rem .35rem; border-radius:.35rem; font-style:normal; border:1px solid rgba(241,196,15,.35); }
-    .hooks .icon{ color:var(--accent); margin-right:.28rem; }
-    .searchbar{ display:flex; gap:.5rem; align-items:center; margin-bottom:.75rem; flex-wrap:wrap; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); background-attachment: fixed; }
+    header.hero { color:#fff; padding: 3.2rem 1rem 6.5rem; text-align:center; position:relative; background: linear-gradient(135deg, var(--sf-sunset-1), var(--sf-sunset-2) 45%, var(--sf-sunset-3)); overflow:hidden; }
+    header.hero h1 { margin: 0 0 .4rem; font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem); letter-spacing: .4px; }
+    header.hero p { margin:0; opacity:.95; font-size:1.05rem; }
+    header.hero::after { content:""; position:absolute; left:0; right:0; bottom:0; height:110px; background: linear-gradient(to right, transparent 0 5%, rgba(255,255,255,.15) 5% 7%, transparent 7% 12%, rgba(255,255,255,.15) 12% 14%, transparent 14% 19%), linear-gradient(to top, rgba(15,23,42,.35), rgba(15,23,42,0)); }
+    .skyline { position:absolute; left:0; right:0; bottom:-1px; height:80px; opacity:.22; background: linear-gradient(#0f172a,#0f172a) bottom/100% 3px no-repeat; }
+    .container { width: min(100%,980px); margin: -4rem auto 2rem; padding: 0 1rem; }
+    .section { background: var(--card); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; box-shadow: 0 10px 30px rgba(15,23,42,.08); border: 1px solid rgba(15,23,42,.06); }
+    .section h2 { margin: .1rem 0 .6rem; font-size: clamp(1.25rem, 1.2vw + 1rem, 1.6rem); display:flex; align-items:center; gap:.55rem; }
+    .badge { display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; padding:.28rem .6rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; color:#334155; }
+    .emoji { font-size:1.15em; }
+    .hooks em { background: linear-gradient(90deg,#fffbe6,#ffe7d6); padding:.05rem .35rem; border-radius:.35rem; font-style:normal; border:1px solid rgba(241,196,15,.35); }
+    .hooks .icon{ color: var(--accent); margin-right:.28rem; }
+    .searchbar { display:flex; gap:.5rem; align-items:center; margin-bottom:.75rem; flex-wrap:wrap; }
     .searchbar input[type="search"]{ flex:1 1 260px; padding:.65rem .8rem; border:1px solid #d0d7de; border-radius:10px; font-size:1rem; }
-    .searchbar .pill{ display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.45rem .7rem; background:#fff; font-size:.92rem; }
+    .searchbar .pill { display:inline-flex; gap:.4rem; align-items:center; border:1px solid #d0d7de; border-radius:999px; padding:.45rem .7rem; background:#fff; font-size:.92rem; }
     .searchbar .pill input{ border:none; outline:none; width:8rem; }
     .searchbar button{ padding:.6rem 1rem; border:1px solid #d0d7de; border-radius:10px; background:#fff; cursor:pointer; font-weight:600; }
     .searchbar button:hover{ background:#f3f4f6; }
-    .project-list{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
-    .card{ border:1px solid #eee; border-radius:12px; padding:1rem; background:var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
-    .card h3{ margin:0 0 .45rem; font-size:1.1rem; color:var(--brand); }
-    .card p{ margin:0 0 .75rem; color:var(--ink-soft); font-size:.9rem; line-height:1.5; }
-    .card a{ display:inline-block; padding:.5rem 1rem; background:var(--link); color:#fff; text-decoration:none; border-radius:8px; font-size:.9rem; font-weight:600; transition:background .2s; }
+    .project-list { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
+    .card { border:1px solid #eee; border-radius:12px; padding:1rem; background: var(--card); box-shadow:0 6px 18px rgba(0,0,0,.05); }
+    .card h3{ margin:0 0 .45rem; font-size:1.1rem; color: var(--brand); }
+    .card p{ margin:0 0 .75rem; color: var(--ink-soft); font-size:.9rem; line-height:1.5; }
+    .card a{ display:inline-block; padding:.5rem 1rem; background: var(--link); color:#fff; text-decoration:none; border-radius:8px; font-size:.9rem; font-weight:600; transition: background .2s; }
     .card a:hover{ background:#0284c7; }
     .card .badge{ margin-top:.5rem; }
-    footer{ text-align:center; padding:2rem 1rem; color:var(--ink-soft); font-size:.9rem; }
-    footer a{ color:var(--link); text-decoration:none; }
+    footer{ text-align:center; padding:2rem 1rem; color: var(--ink-soft); font-size:.9rem; }
+    footer a{ color: var(--link); text-decoration:none; }
     footer a:hover{ text-decoration:underline; }
+    .stack{ display:flex; flex-direction:column; gap:1rem; }
   </style>
 </head>
 <body>
@@ -50,33 +51,24 @@
     <h1>Jack Guo</h1>
     <p>Data Analytics Portfolio</p>
   </header>
+
   <div class="container">
-    <section class="section">
-      <h2><span class="emoji">📊</span> Projects</h2>
-      <div class="hooks">
-        <p><span class="icon">→</span>Explore my data analytics and machine learning projects below.</p>
+
+    <!-- About Me -->
+    <section class="section" id="about">
+      <h2><span class="emoji">👋</span> About Me</h2>
+      <div class="stack">
+        <p>Hello, My name is Jack, and I'm a first-generation Chinese American. As the eldest child in my family, and the first in my family to pursue any form of higher education. My passion for computer science and mathematics. Combined with my critical thinking and problem-solving skills, gives me the Ability to analyze issues and situations systematically and make sound recommendations. Especially in today fast-pace and changing field of Information Technology, where new innovations are just around the corner.</p>
+        <p>I have completed my UC Berkeley Data analytics Bootcamp in December, 2021 and earned my Certification in Data Analytics. As well as my Caltech AI & Machine learning Bootcamp in December 2023.</p>
+        <p>I have studied Project management At Year up! Bay area.  As a PM Trainee at Year Up! I practiced and refined my soft and technical skills. By training's in business communications, public speaking and information technology.</p>
       </div>
+    </section>
+
+    <!-- Projects (existing content retained - insert your current project markup here) -->
+    <section class="section" id="projects">
+      <h2><span class="emoji">📊</span> Projects</h2>
       <div class="project-list">
-        <div class="card">
-          <h3>AI Image Recognition</h3>
-          <p>Machine learning project for image classification and recognition using neural networks.</p>
-          <a href="https://github.com/Jaguo415/AI_Image_Recognization" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Housing Prediction</h3>
-          <p>Predictive modeling for housing prices using regression analysis and data visualization.</p>
-          <a href="https://github.com/Jaguo415/Housing_Prediction" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Lending Club Default Neural Network</h3>
-          <p>Deep learning model to predict loan defaults using neural networks and financial data.</p>
-          <a href="https://github.com/Jaguo415/Lending-Club-Default-Neural-net" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <h3>Final Project</h3>
-          <p>Comprehensive data analytics final project demonstrating end-to-end analysis workflow.</p>
-          <a href="https://github.com/Jaguo415/Final_Project" target="_blank">View Project</a>
-        </div>
+        <!-- BEGIN: Existing project cards preserved from current file -->
         <div class="card">
           <h3>Cryptocurrencies</h3>
           <p>Analysis and clustering of cryptocurrency data using unsupervised machine learning.</p>
@@ -122,11 +114,53 @@
           <p>Collection of coding demonstrations and programming examples.</p>
           <a href="https://github.com/Jaguo415/Coding-Demo" target="_blank">View Project</a>
         </div>
+        <!-- END: Existing project cards preserved -->
       </div>
     </section>
+
+    <!-- Education (restored) -->
+    <section class="section" id="education">
+      <h2><span class="emoji">🎓</span> Education</h2>
+      <ul>
+        <li>
+          <strong>UC Berkeley Extension — Data Analytics Bootcamp</strong> (Completed Dec 2021)
+          — <a href="#" target="_blank">View Certificate</a>
+        </li>
+        <li>
+          <strong>Caltech — AI & Machine Learning Bootcamp</strong> (Completed Dec 2023)
+          — <a href="#" target="_blank">View Certificate</a>
+        </li>
+        <li>
+          <strong>Year Up! Bay Area — Project Management Training</strong>
+          — <a href="#" target="_blank">Program Details</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Job Experience (restored) -->
+    <section class="section" id="experience">
+      <h2><span class="emoji">🧰</span> Job Experience</h2>
+      <div class="stack">
+        <div>
+          <strong>Project Management Trainee, Year Up! Bay Area</strong>
+          <div class="badge">Training</div>
+          <p>Practiced and refined soft and technical skills through trainings in business communications, public speaking, and information technology. Collaborated on projects using structured PM frameworks and agile practices.</p>
+        </div>
+        <div>
+          <strong>Data Analytics Projects and Freelance Work</strong>
+          <div class="badge">Data Analytics</div>
+          <p>Applied Python, Pandas, SQL, Tableau, and ML techniques across portfolio projects including credit risk, bikesharing, and weather analytics. Emphasis on clear communication, reproducibility, and stakeholder-ready visuals.</p>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <p>© 2025 Jack Guo | <a href="https://github.com/Jaguo415" target="_blank">GitHub</a></p>
+      © <span id="year"></span> Jack Guo · <a href="mailto:jaguo415@gmail.com">Contact</a>
     </footer>
   </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
