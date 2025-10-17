@@ -9,77 +9,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f7fafd;
-      --card: #fff;
-      --muted: #64748b;
-      --text: #1e293b;
-      --primary: #0ea5e9;
-      --ring: rgba(14,165,233,.4);
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; background: var(--bg);
-      color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    }
-    header {
-      position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.2) blur(8px);
-      background: rgba(255,255,255,.8); border-bottom: 1px solid rgba(0,0,0,.06);
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    h1 { margin: 8px 0 16px; font-size: 28px; letter-spacing: .3px; }
-    .sub { color: var(--muted); margin: 0 0 14px; font-size: 14px; }
-    .searchbar {
-      display: flex; align-items: center; gap: 10px; width: 100%;
-      max-width: 560px; padding: 10px 16px; background: var(--card);
-      border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 24px;
-    }
-    .searchbar input {
-      flex: 1; border: none; outline: none; font-size: 15px; background: transparent;
-    }
-    .searchbar svg { width: 20px; height: 20px; fill: var(--muted); flex-shrink: 0; }
-    .filters {
-      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
-    }
-    .tag-filter {
-      padding: 6px 14px; background: var(--card); color: var(--text);
-      border: 1px solid #cbd5e1; border-radius: 16px; font-size: 14px;
-      cursor: pointer; transition: all .2s; user-select: none;
-    }
-    .tag-filter:hover { border-color: var(--primary); }
-    .tag-filter.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-    .grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 20px; margin-bottom: 40px;
-    }
-    .card {
-      background: var(--card); padding: 20px; border-radius: 10px;
-      border: 1px solid #e2e8f0; transition: all .2s;
-      display: flex; flex-direction: column;
-    }
-    .card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,.08); }
-    .card-title {
-      font-weight: 600; font-size: 18px; margin: 0 0 10px; letter-spacing: .2px;
-    }
-    .card-title a {
-      color: var(--text); text-decoration: none; transition: color .2s;
-    }
-    .card-title a:hover { color: var(--primary); }
-    .card-desc {
-      color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 14px; flex-grow: 1;
-    }
-    .tags {
-      display: flex; gap: 6px; flex-wrap: wrap;
-    }
-    .tag {
-      padding: 4px 10px; background: #e0f2fe; color: #0369a1;
-      border-radius: 12px; font-size: 12px; font-weight: 500;
-    }
-    .no-results {
-      text-align: center; padding: 60px 20px; color: var(--muted);
-    }
+    :root { --bg:#f7fafd; --card:#fff; --muted:#64748b; --text:#1e293b; --primary:#0ea5e9; --ring: rgba(14,165,233,.4);} 
+    *{box-sizing:border-box} html,body{height:100%} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(1.2) blur(8px);background:rgba(255,255,255,.8);border-bottom:1px solid rgba(0,0,0,.06)}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    h1{margin:8px 0 16px;font-size:28px;letter-spacing:.3px}
+    .sub{color:var(--muted);margin:0 0 14px;font-size:14px}
+    .searchbar{display:flex;align-items:center;gap:10px;width:100%;max-width:560px;padding:10px 16px;background:var(--card);border-radius:8px;border:1px solid #cbd5e1;margin-bottom:24px}
+    .searchbar input{flex:1;border:none;outline:none;font-size:15px;background:transparent}
+    .searchbar svg{width:20px;height:20px;fill:var(--muted);flex-shrink:0}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+    .tag-filter{padding:6px 14px;background:var(--card);color:var(--text);border:1px solid #cbd5e1;border-radius:16px;font-size:14px;cursor:pointer;transition:all .2s;user-select:none}
+    .tag-filter:hover{border-color:var(--primary)} .tag-filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-bottom:40px}
+    .card{background:var(--card);padding:20px;border-radius:10px;border:1px solid #e2e8f0;transition:all .2s;display:flex;flex-direction:column}
+    .card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+    .card-title{font-weight:600;font-size:18px;margin:0 0 10px;letter-spacing:.2px}
+    .card-title a{color:var(--text);text-decoration:none;transition:color .2s}
+    .card-title a:hover{color:var(--primary)}
+    .card-desc{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:14px;flex-grow:1}
+    .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tag{padding:4px 10px;background:#e0f2fe;color:#0369a1;border-radius:12px;font-size:12px;font-weight:500}
+    .no-results{text-align:center;padding:60px 20px;color:var(--muted)}
   </style>
 </head>
 <body>
@@ -88,8 +39,8 @@
       <h1>Jack Guo's Projects</h1>
       <p class="sub">Explore my GitHub repositories · Search by name or filter by tag</p>
       <div class="searchbar">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.3 14l4.4 4.3 1.4-1.4-4.3-4.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
-        <input type="text" id="search" placeholder="Search projects..." />
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a8 8 0 105.3 14l4.4 4.3 1.4-1.4-4.3-4.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+        <input id="search" placeholder="Search projects..." type="text" />
       </div>
       <div class="filters" id="filters"></div>
     </div>
@@ -99,89 +50,47 @@
     <div class="no-results" id="noResults" style="display:none;">No projects match your search.</div>
   </main>
   <script>
+    // Data for all public repositories (name, url, description, tags)
     const projects = [
-      {
-        title: 'Portfolio',
-        url: 'https://github.com/Jaguo415/Portfolio',
-        desc: 'Personal portfolio website showcasing projects and technical skills with an interactive, searchable interface.',
-        tags: ['HTML', 'CSS', 'JavaScript']
-      },
-      {
-        title: 'trendtracker_front',
-        url: 'https://github.com/Jaguo415/trendtracker_front',
-        desc: 'Frontend application for tracking trending topics and social media analytics with real-time data visualization.',
-        tags: ['React', 'Frontend', 'UI/UX']
-      },
-      {
-        title: 'TemplateTesting',
-        url: 'https://github.com/Jaguo415/TemplateTesting',
-        desc: 'Experimental repository for testing various web templates and design patterns for rapid prototyping.',
-        tags: ['HTML', 'Testing', 'Prototyping']
-      },
-      {
-        title: 'TrendTracker',
-        url: 'https://github.com/Jaguo415/TrendTracker',
-        desc: 'Full-stack application to monitor and analyze social media trends with backend API integration.',
-        tags: ['Full-Stack', 'API', 'Analytics']
-      },
-      {
-        title: 'cse134-hw4',
-        url: 'https://github.com/Jaguo415/cse134-hw4',
-        desc: 'Web development assignment focusing on dynamic DOM manipulation and interactive user interfaces.',
-        tags: ['JavaScript', 'DOM', 'Academic']
-      },
-      {
-        title: 'cse134-hw5',
-        url: 'https://github.com/Jaguo415/cse134-hw5',
-        desc: 'Advanced web development project implementing CRUD operations with RESTful API design.',
-        tags: ['JavaScript', 'REST API', 'Academic']
-      },
-      {
-        title: 'cse110-sp24-group5',
-        url: 'https://github.com/Jaguo415/cse110-sp24-group5',
-        desc: 'Collaborative software engineering project demonstrating agile development and team coordination.',
-        tags: ['Team Project', 'Agile', 'JavaScript']
-      },
-      {
-        title: 'backend',
-        url: 'https://github.com/Jaguo415/backend',
-        desc: 'Backend service implementation with database integration and authentication features.',
-        tags: ['Backend', 'Database', 'API']
-      },
-      {
-        title: 'cse110-lab1-FA24',
-        url: 'https://github.com/Jaguo415/cse110-lab1-FA24',
-        desc: 'Introductory software engineering lab covering version control and development workflows.',
-        tags: ['Git', 'Academic', 'DevOps']
-      },
-      {
-        title: 'sp23-cse110-lab3',
-        url: 'https://github.com/Jaguo415/sp23-cse110-lab3',
-        desc: 'Lab assignment exploring testing methodologies and continuous integration practices.',
-        tags: ['Testing', 'CI/CD', 'Academic']
-      },
-      {
-        title: 'cse134-hw3',
-        url: 'https://github.com/Jaguo415/cse134-hw3',
-        desc: 'Web development homework implementing responsive design and modern CSS techniques.',
-        tags: ['CSS', 'Responsive', 'Academic']
-      },
-      {
-        title: 'CSE110-LAB2-fa21',
-        url: 'https://github.com/Jaguo415/CSE110-LAB2-fa21',
-        desc: 'Software engineering lab focusing on HTML fundamentals and semantic markup principles.',
-        tags: ['HTML', 'Academic', 'Fundamentals']
-      }
+      { title: 'Portfolio', url: 'https://github.com/Jaguo415/Portfolio', desc: 'Personal portfolio site with searchable project grid.', tags: ['HTML','CSS','JavaScript'] },
+      { title: 'AI_Image_Recognization', url: 'https://github.com/Jaguo415/AI_Image_Recognization', desc: 'Image recognition notebook/project (AI/ML).', tags: ['Python','ML'] },
+      { title: 'Housing_Prediction', url: 'https://github.com/Jaguo415/Housing_Prediction', desc: 'Predictive modeling for housing prices.', tags: ['Python','ML'] },
+      { title: 'Lending-Club-Default-Neural-net', url: 'https://github.com/Jaguo415/Lending-Club-Default-Neural-net', desc: 'Neural network model for Lending Club default prediction.', tags: ['Python','Deep Learning'] },
+      { title: 'AG_test', url: 'https://github.com/Jaguo415/AG_test', desc: 'Assorted tests and experiments.', tags: ['Misc'] },
+      { title: 'Growth-Data-Analysis-', url: 'https://github.com/Jaguo415/Growth-Data-Analysis-', desc: 'Growth data analysis project.', tags: ['Python','Pandas'] },
+      { title: 'Final_Project', url: 'https://github.com/Jaguo415/Final_Project', desc: 'Course final project repository.', tags: ['Python'] },
+      { title: 'Cryptocurrencies', url: 'https://github.com/Jaguo415/Cryptocurrencies', desc: 'Clustering and PCA on crypto market data.', tags: ['Python','Pandas','ML'] },
+      { title: 'Credit_Risk_Analysis', url: 'https://github.com/Jaguo415/Credit_Risk_Analysis', desc: 'Credit risk modeling using imbalanced-learn techniques.', tags: ['Python','ML'] },
+      { title: 'Module-16-Amazon_Vine_Analysis', url: 'https://github.com/Jaguo415/Module-16-Amazon_Vine_Analysis', desc: 'Analyze Amazon Vine reviews with PySpark.', tags: ['PySpark','ETL'] },
+      { title: 'Module-16-BigData', url: 'https://github.com/Jaguo415/Module-16-BigData', desc: 'Big Data exercises and ETL.', tags: ['PySpark','ETL'] },
+      { title: 'MechaCar_Statistical_Analysis', url: 'https://github.com/Jaguo415/MechaCar_Statistical_Analysis', desc: 'R-based statistical analysis for MechaCar.', tags: ['R','Statistics'] },
+      { title: 'Module-14-bikesharing', url: 'https://github.com/Jaguo415/Module-14-bikesharing', desc: 'NYC CitiBike tableau dashboard and prep.', tags: ['Python','Tableau'] },
+      { title: 'Module-13-Mapping_Earthquakes', url: 'https://github.com/Jaguo415/Module-13-Mapping_Earthquakes', desc: 'Leaflet.js earthquake mapping.', tags: ['JavaScript','Leaflet'] },
+      { title: 'ssh-test', url: 'https://github.com/Jaguo415/ssh-test', desc: 'SSH key and connectivity test.', tags: ['DevOps'] },
+      { title: 'Module-11-UFO', url: 'https://github.com/Jaguo415/Module-11-UFO', desc: 'UFO sightings filtering page with JS and D3.', tags: ['JavaScript','D3'] },
+      { title: 'Module-12-Plotly', url: 'https://github.com/Jaguo415/Module-12-Plotly', desc: 'Interactive dashboard with Plotly.', tags: ['JavaScript','Plotly'] },
+      { title: 'Jaguo415.github.io', url: 'https://github.com/Jaguo415/Jaguo415.github.io', desc: 'GitHub Pages site.', tags: ['HTML','CSS'] },
+      { title: 'example-web', url: 'https://github.com/Jaguo415/example-web', desc: 'Example web project.', tags: ['HTML','JavaScript'] },
+      { title: 'Module-10-Mission-to-Mars', url: 'https://github.com/Jaguo415/Module-10-Mission-to-Mars', desc: 'Web scraping mission to Mars with Splinter/BeautifulSoup.', tags: ['Python','Web Scraping'] },
+      { title: 'Module-9-Surfs-up', url: 'https://github.com/Jaguo415/Module-9-Surfs-up', desc: 'SQLite/SQLAlchemy climate analysis API.', tags: ['Python','Flask'] },
+      { title: 'Module-8-Movies-ETL', url: 'https://github.com/Jaguo415/Module-8-Movies-ETL', desc: 'ETL pipeline for movies dataset.', tags: ['Python','ETL'] },
+      { title: 'Pewlett-Hackard-Analysis', url: 'https://github.com/Jaguo415/Pewlett-Hackard-Analysis', desc: 'SQL analysis for Pewlett-Hackard HR data.', tags: ['SQL'] },
+      { title: 'World_Weather_Analysis', url: 'https://github.com/Jaguo415/World_Weather_Analysis', desc: 'WeatherPy and travel itinerary analysis.', tags: ['Python','APIs'] },
+      { title: 'Pyber_Challenge', url: 'https://github.com/Jaguo415/Pyber_Challenge', desc: 'Ride-share analysis challenge.', tags: ['Python','Pandas'] },
+      { title: 'PyBer_Analysis', url: 'https://github.com/Jaguo415/PyBer_Analysis', desc: 'Ride-share visualization and reporting.', tags: ['Python','Matplotlib'] },
+      { title: 'School_District_Analysis', url: 'https://github.com/Jaguo415/School_District_Analysis', desc: 'School district performance analysis.', tags: ['Python','Pandas'] },
+      { title: 'Election_Analysis', url: 'https://github.com/Jaguo415/Election_Analysis', desc: 'Automate election results tally.', tags: ['Python'] },
+      { title: 'Stock-Analysis', url: 'https://github.com/Jaguo415/Stock-Analysis', desc: 'VBA stock analysis workbook.', tags: ['Excel','VBA'] },
+      { title: 'Coding-Demo', url: 'https://github.com/Jaguo415/Coding-Demo', desc: 'Miscellaneous coding demos.', tags: ['JavaScript','Python'] },
+      { title: 'Kickstarter-Analysis', url: 'https://github.com/Jaguo415/Kickstarter-Analysis', desc: 'Excel file, Berkeley Data Analytics Bootcamp.', tags: ['Excel'] }
     ];
 
     const grid = document.getElementById('grid');
     const noResults = document.getElementById('noResults');
     const search = document.getElementById('search');
     const filtersDiv = document.getElementById('filters');
-
     const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
     let activeTags = [];
-
     allTags.forEach(tag => {
       const btn = document.createElement('div');
       btn.className = 'tag-filter';
@@ -190,7 +99,7 @@
         btn.classList.toggle('active');
         activeTags = activeTags.includes(tag) ? activeTags.filter(t => t !== tag) : [...activeTags, tag];
         render();
-      };
+      }
       filtersDiv.appendChild(btn);
     });
 
@@ -201,7 +110,6 @@
         const matchesTags = activeTags.length === 0 || activeTags.some(t => p.tags.includes(t));
         return matchesSearch && matchesTags;
       });
-
       grid.innerHTML = '';
       if (filtered.length === 0) {
         noResults.style.display = 'block';
@@ -211,7 +119,7 @@
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `
-            <h2 class="card-title"><a href="${p.url}" target="_blank">${p.title}</a></h2>
+            <h2 class="card-title"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title}</a></h2>
             <p class="card-desc">${p.desc}</p>
             <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
           `;
