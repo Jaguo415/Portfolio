@@ -104,32 +104,28 @@
     <p class="subtitle">Browse and search through my repositories</p>
     
     <div class="search-container">
-      <input type="text" id="searchBar" placeholder="Search projects by name..." />
+      <input type="text" id="searchBar" placeholder="Search projects by name...">
     </div>
-
     <div class="projects-grid" id="projectsGrid"></div>
   </div>
-
   <script>
     // Static list of first 12 repositories from Jaguo415's GitHub profile
     const projects = [
       { name: 'Portfolio', url: 'https://github.com/Jaguo415/Portfolio' },
-      { name: 'Sudoku', url: 'https://github.com/Jaguo415/Sudoku' },
-      { name: 'Robinhood-Recreation', url: 'https://github.com/Jaguo415/Robinhood-Recreation' },
-      { name: 'DreamTeam', url: 'https://github.com/Jaguo415/DreamTeam' },
-      { name: 'Blokus', url: 'https://github.com/Jaguo415/Blokus' },
-      { name: 'Enigma', url: 'https://github.com/Jaguo415/Enigma' },
-      { name: 'Gitlet', url: 'https://github.com/Jaguo415/Gitlet' },
-      { name: 'proj0', url: 'https://github.com/Jaguo415/proj0' },
-      { name: 'hw5', url: 'https://github.com/Jaguo415/hw5' },
-      { name: 'proj1', url: 'https://github.com/Jaguo415/proj1' },
-      { name: 'hw0', url: 'https://github.com/Jaguo415/hw0' },
-      { name: 'lab1', url: 'https://github.com/Jaguo415/lab1' }
+      { name: 'AI_Image_Recognization', url: 'https://github.com/Jaguo415/AI_Image_Recognization' },
+      { name: 'Housing_Prediction', url: 'https://github.com/Jaguo415/Housing_Prediction' },
+      { name: 'Lending-Club-Default-Neural-net', url: 'https://github.com/Jaguo415/Lending-Club-Default-Neural-net' },
+      { name: 'AG_test', url: 'https://github.com/Jaguo415/AG_test' },
+      { name: 'Growth-Data-Analysis-', url: 'https://github.com/Jaguo415/Growth-Data-Analysis-' },
+      { name: 'Final_Project', url: 'https://github.com/Jaguo415/Final_Project' },
+      { name: 'Cryptocurrencies', url: 'https://github.com/Jaguo415/Cryptocurrencies' },
+      { name: 'Credit_Risk_Analysis', url: 'https://github.com/Jaguo415/Credit_Risk_Analysis' },
+      { name: 'Module-16-Amazon_Vine_Analysis', url: 'https://github.com/Jaguo415/Module-16-Amazon_Vine_Analysis' },
+      { name: 'Module-16-BigData', url: 'https://github.com/Jaguo415/Module-16-BigData' },
+      { name: 'MechaCar_Statistical_Analysis', url: 'https://github.com/Jaguo415/MechaCar_Statistical_Analysis' }
     ];
-
     const projectsGrid = document.getElementById('projectsGrid');
     const searchBar = document.getElementById('searchBar');
-
     // Function to render projects
     function renderProjects(filteredProjects) {
       projectsGrid.innerHTML = '';
@@ -138,7 +134,6 @@
         projectsGrid.innerHTML = '<div class="no-results">No projects found matching your search.</div>';
         return;
       }
-
       filteredProjects.forEach(project => {
         const projectBox = document.createElement('a');
         projectBox.className = 'project-box';
@@ -154,7 +149,6 @@
         projectsGrid.appendChild(projectBox);
       });
     }
-
     // Function to filter projects based on search input
     function filterProjects() {
       const searchTerm = searchBar.value.toLowerCase().trim();
@@ -165,10 +159,8 @@
       
       renderProjects(filtered);
     }
-
     // Event listener for search input
     searchBar.addEventListener('input', filterProjects);
-
     // Initial render
     renderProjects(projects);
   </script>
